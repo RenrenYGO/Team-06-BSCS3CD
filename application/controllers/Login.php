@@ -7,9 +7,7 @@ class Login extends CI_Controller {
 		parent::__construct();
         $user = $this->session->userdata('user');
         
-        var_dump($user);
-
-        if(!isset($user) && $user==null){
+        if(isset($user) && $user!=null){
             redirect('/posts');
         }
 	}
@@ -25,7 +23,7 @@ class Login extends CI_Controller {
             if(!is_bool($result)){
                 $session['user'] = $result[0];
                 $this->session->set_userdata($session);
-                redirect('/posts');
+                redirect('/pages/view');
             } 
         }
 		$this->sitelayout->loadTemplate('registration/login');

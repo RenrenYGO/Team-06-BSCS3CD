@@ -9,4 +9,6 @@
 <a href = "<?php echo base_url('posts'); ?>">Posts</a>
 <a href = "<?php echo base_url('posts/create'); ?>">Create post</a>
 <br><br>
-<a href = "<?php echo base_url('home'); ?>">Home</a>
+<a href = "<?php echo base_url('pages/view'); ?>">Home</a>
+<br><br>
+<a href = "<?php echo base_url('logout'); ?>">logout</a>

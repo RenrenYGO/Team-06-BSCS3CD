@@ -8,10 +8,8 @@ class Posts extends CI_Controller {
         
         $this->user = $this->session->userdata('user');
         
-        if(!isset($this->user) && $this->user==null){
-            redirect('/login');
-        }
-	}
+        // ETO YON NAHANAP KO NA
+      }
 
     public function index(){
             $data['title'] = 'Latest Posts';
@@ -39,7 +37,12 @@ class Posts extends CI_Controller {
     }
 
     public function create(){
-        
+        if(!isset($this->user) && $this->user==null){
+            redirect('/login');
+       }
+
+
+
         $this->form_validation->set_rules('title', 'Title', 'required');
         $this->form_validation->set_rules('content', 'Content', 'required');
         
