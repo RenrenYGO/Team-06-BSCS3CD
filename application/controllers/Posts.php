@@ -8,9 +8,10 @@ class Posts extends CI_Controller {
         
         $this->user = $this->session->userdata('user');
         
-        if(!isset($this->user) && $this->user==null){
-            redirect('/login');
-        }
+        // ETO YON NAHANAP KO NA
+        // if(!isset($this->user) && $this->user==null){
+        //     redirect('/login');
+        // }
 	}
 
     public function index(){
