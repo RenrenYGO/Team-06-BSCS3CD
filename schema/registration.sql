@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 02, 2021 at 12:22 PM
+-- Generation Time: Dec 05, 2021 at 05:47 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.11
 
@@ -50,8 +50,8 @@ CREATE TABLE `posts` (
   `id` int(255) NOT NULL,
   `title` varchar(255) NOT NULL,
   `content` text NOT NULL,
-  `date` datetime NOT NULL,
-  `threads` int(255) NOT NULL,
+  `date` datetime NOT NULL DEFAULT current_timestamp(),
+  `threads` int(255) DEFAULT NULL,
   `by` int(255) NOT NULL,
   `slug` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -63,7 +63,9 @@ CREATE TABLE `posts` (
 INSERT INTO `posts` (`id`, `title`, `content`, `date`, `threads`, `by`, `slug`) VALUES
 (1, 'TEAM RAMON', 'MAS POGI SI RAMON', '2021-11-29 13:26:07', 1, 2, 'post-1'),
 (2, 'ASdasdasdasd', 'asdadas', '2021-12-02 11:17:17', 1, 2, '2'),
-(9, 'TEAM MARK', 'POGI SI MARK', '2021-11-29 13:26:07', 1, 1, 'post-0');
+(9, 'TEAM MARK', 'POGI SI MARK', '2021-11-29 13:26:07', 1, 1, 'post-0'),
+(11, 'testing ', 'again\r\n', '0000-00-00 00:00:00', NULL, 1, 'testing'),
+(12, 'lols', 'lols again\r\n', '2021-12-05 23:17:43', NULL, 1, 'lols');
 
 -- --------------------------------------------------------
 
@@ -158,7 +160,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `threads`
