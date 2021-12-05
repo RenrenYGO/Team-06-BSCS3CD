@@ -1,5 +1,5 @@
 </div><!-- content -->
 </div><!-- wrapper -->
-<div id="footer">WOO DEEZ NUTS</div>
+<div id="footer">____________________</div>
 </body>
 </html>
