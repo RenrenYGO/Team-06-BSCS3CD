@@ -9,3 +9,12 @@
     <small>Posted by: <?php echo $post['name']; ?></small><br>
     <small>Posted on: <?php echo $post['date']; ?></small><br>
     <?php echo $post['content']; ?>
+    
+    <?php
+     if($this->session->userdata('user')['id'] == $id):?>
+        <a class="btn btn-default" href="<?php echo base_url(); ?>posts/edit/<?php echo $post['slug']; ?>">Edit</a>
+    <?php endif; ?>
+     
+        
+        
+        

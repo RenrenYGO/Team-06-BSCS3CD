@@ -2,6 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 $route['posts/create'] = 'posts/create';
+$route['posts/update'] = 'posts/update';
 $route['posts'] = 'posts/index';
 $route['default_controller'] = 'Pages/view';
 //$route['(:any)'] = 'Pages/view/$1';
