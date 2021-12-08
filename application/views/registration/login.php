@@ -1,4 +1,3 @@
-<?php // include('server.php') ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +10,7 @@
   </div>
 	 
   <form method="post" action="<?php echo base_url('login'); ?>">
-  	<?php // include('errors.php'); ?>
+  	
   	<div class="input-group">
   		<label>Username</label>
   		<input type="text" name="name" >
@@ -24,7 +23,7 @@
   		<input type="submit" class="btn" name="login_user" value="login">
   	</div>
   	<p>
-  		Not yet a member? <a href="register">Sign up</a>
+  		Not yet a member? <a href="<?php echo base_url('registration/register'); ?>">Sign up</a>
   	</p>
   </form>
 </body>
