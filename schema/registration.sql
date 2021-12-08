@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 05, 2021 at 05:47 PM
+-- Generation Time: Dec 08, 2021 at 03:09 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.11
 
@@ -24,25 +24,6 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `categories`
---
-
-CREATE TABLE `categories` (
-  `id` int(50) NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `description` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `categories`
---
-
-INSERT INTO `categories` (`id`, `name`, `description`) VALUES
-(2, 'Mathematics', 'Math related stuff.');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `posts`
 --
 
@@ -51,7 +32,6 @@ CREATE TABLE `posts` (
   `title` varchar(255) NOT NULL,
   `content` text NOT NULL,
   `date` datetime NOT NULL DEFAULT current_timestamp(),
-  `threads` int(255) DEFAULT NULL,
   `by` int(255) NOT NULL,
   `slug` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -60,12 +40,34 @@ CREATE TABLE `posts` (
 -- Dumping data for table `posts`
 --
 
-INSERT INTO `posts` (`id`, `title`, `content`, `date`, `threads`, `by`, `slug`) VALUES
-(1, 'TEAM RAMON', 'MAS POGI SI RAMON', '2021-11-29 13:26:07', 1, 2, 'post-1'),
-(2, 'ASdasdasdasd', 'asdadas', '2021-12-02 11:17:17', 1, 2, '2'),
-(9, 'TEAM MARK', 'POGI SI MARK', '2021-11-29 13:26:07', 1, 1, 'post-0'),
-(11, 'testing ', 'again\r\n', '0000-00-00 00:00:00', NULL, 1, 'testing'),
-(12, 'lols', 'lols again\r\n', '2021-12-05 23:17:43', NULL, 1, 'lols');
+INSERT INTO `posts` (`id`, `title`, `content`, `date`, `by`, `slug`) VALUES
+(11, 'testing ', 'again\r\n', '0000-00-00 00:00:00', 1, 'testing'),
+(12, 'lols', 'lols again\r\n', '2021-12-05 23:17:43', 1, 'lols'),
+(13, 'TEST 0', 'THIS IS A TEST AND ITS EDITED', '2021-12-08 17:29:51', 2, 'TEST-0');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `replies`
+--
+
+CREATE TABLE `replies` (
+  `id` int(255) NOT NULL,
+  `post_id` int(255) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `content` text NOT NULL,
+  `date` datetime NOT NULL DEFAULT current_timestamp(),
+  `by` int(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `replies`
+--
+
+INSERT INTO `replies` (`id`, `post_id`, `title`, `content`, `date`, `by`) VALUES
+(3, 12, '123', '123', '2021-12-08 21:54:03', 0),
+(4, 12, 'This is a title', 'reply to lols', '2021-12-08 21:55:23', 0),
+(5, 13, 'Test 0', 'reply to Test 0', '2021-12-08 21:55:39', 0);
 
 -- --------------------------------------------------------
 
@@ -75,18 +77,9 @@ INSERT INTO `posts` (`id`, `title`, `content`, `date`, `threads`, `by`, `slug`) 
 
 CREATE TABLE `threads` (
   `id` int(255) NOT NULL,
-  `subject` varchar(255) NOT NULL,
-  `date` datetime NOT NULL,
-  `cat` int(50) NOT NULL,
-  `by` int(255) NOT NULL
+  `name` varchar(255) NOT NULL,
+  `date` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `threads`
---
-
-INSERT INTO `threads` (`id`, `subject`, `date`, `cat`, `by`) VALUES
-(1, 'POGI CONTEST', '2021-11-29 13:25:36', 2, 1);
 
 -- --------------------------------------------------------
 
@@ -117,27 +110,25 @@ INSERT INTO `user` (`id`, `name`, `email`, `password`) VALUES
 --
 
 --
--- Indexes for table `categories`
---
-ALTER TABLE `categories`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `name` (`name`);
-
---
 -- Indexes for table `posts`
 --
 ALTER TABLE `posts`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `posts_threads` (`threads`),
   ADD KEY `posts_by` (`by`);
+
+--
+-- Indexes for table `replies`
+--
+ALTER TABLE `replies`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `replies_by` (`by`),
+  ADD KEY `replies_post_id` (`post_id`);
 
 --
 -- Indexes for table `threads`
 --
 ALTER TABLE `threads`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `threads_cat` (`cat`),
-  ADD KEY `threads_by` (`by`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `user`
@@ -151,16 +142,16 @@ ALTER TABLE `user`
 --
 
 --
--- AUTO_INCREMENT for table `categories`
---
-ALTER TABLE `categories`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT for table `replies`
+--
+ALTER TABLE `replies`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `threads`
@@ -172,7 +163,7 @@ ALTER TABLE `threads`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables
@@ -182,15 +173,13 @@ ALTER TABLE `user`
 -- Constraints for table `posts`
 --
 ALTER TABLE `posts`
-  ADD CONSTRAINT `posts_by` FOREIGN KEY (`by`) REFERENCES `user` (`id`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `posts_threads` FOREIGN KEY (`threads`) REFERENCES `threads` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `posts_by` FOREIGN KEY (`by`) REFERENCES `user` (`id`) ON UPDATE CASCADE;
 
 --
--- Constraints for table `threads`
+-- Constraints for table `replies`
 --
-ALTER TABLE `threads`
-  ADD CONSTRAINT `threads_by` FOREIGN KEY (`by`) REFERENCES `user` (`id`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `threads_cat` FOREIGN KEY (`cat`) REFERENCES `categories` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `replies`
+  ADD CONSTRAINT `replies_post_id` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`) ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

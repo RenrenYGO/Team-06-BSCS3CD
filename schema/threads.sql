@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 05, 2021 at 05:48 PM
+-- Generation Time: Dec 08, 2021 at 03:10 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.11
 
@@ -29,18 +29,9 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `threads` (
   `id` int(255) NOT NULL,
-  `subject` varchar(255) NOT NULL,
-  `date` datetime NOT NULL,
-  `cat` int(50) NOT NULL,
-  `by` int(255) NOT NULL
+  `name` varchar(255) NOT NULL,
+  `date` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `threads`
---
-
-INSERT INTO `threads` (`id`, `subject`, `date`, `cat`, `by`) VALUES
-(1, 'POGI CONTEST', '2021-11-29 13:25:36', 2, 1);
 
 --
 -- Indexes for dumped tables
@@ -50,9 +41,7 @@ INSERT INTO `threads` (`id`, `subject`, `date`, `cat`, `by`) VALUES
 -- Indexes for table `threads`
 --
 ALTER TABLE `threads`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `threads_cat` (`cat`),
-  ADD KEY `threads_by` (`by`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -63,17 +52,6 @@ ALTER TABLE `threads`
 --
 ALTER TABLE `threads`
   MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `threads`
---
-ALTER TABLE `threads`
-  ADD CONSTRAINT `threads_by` FOREIGN KEY (`by`) REFERENCES `user` (`id`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `threads_cat` FOREIGN KEY (`cat`) REFERENCES `categories` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
