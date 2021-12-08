@@ -11,4 +11,4 @@
 <br><br>
 <a href = "<?php echo base_url('pages/view'); ?>">Home</a>
 <br><br>
-<a href = "<?php echo base_url('logout'); ?>">logout</a>
+<a href = "<?php echo base_url('logout'); ?>">login/logout</a>
