@@ -26,6 +26,7 @@ class Login extends CI_Controller {
                 redirect('/pages/view');
             } 
         }
+        
 		$this->sitelayout->loadTemplate('registration/login');
 	}
 }

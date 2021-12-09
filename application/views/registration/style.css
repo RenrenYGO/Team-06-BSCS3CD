@@ -1,33 +1,69 @@
 * {
-    margin: 0px;
-    padding: 0px;
-  }
-  body {
-    font-size: 120%;
-    background: #F8F8FF;
-  }
-  
-  .header {
-    width: 30%;
-    margin: 50px auto 0px;
-    color: white;
-    background: #5F9EA0;
-    text-align: center;
-    border: 1px solid #B0C4DE;
-    border-bottom: none;
-    border-radius: 10px 10px 0px 0px;
-    padding: 20px;
-  }
-  form .form-footer .btn-custom{
-    background-color: rgb(218, 169, 62);
-  }
-  form .form-footer .link{
-    color: rgb(218, 169, 62);
-  }
-  
-  .success {
-    color: #3c763d; 
-    background: #dff0d8; 
-    border: 1px solid #3c763d;
-    margin-bottom: 20px;
-  }
+  margin: 0px;
+  padding: 0px;
+}
+body {
+  font-size: 120%;
+  background: #F8F8FF;
+}
+
+.header {
+  width: 30%;
+  margin: 50px auto 0px;
+  color: white;
+  background: #5F9EA0;
+  text-align: center;
+  border: 1px solid #B0C4DE;
+  border-bottom: none;
+  border-radius: 10px 10px 0px 0px;
+  padding: 20px;
+}
+form .form-footer .btn-custom{
+  background-color: #E8B04F;
+}
+ .link-custom{
+  color: #E8B04F;
+}
+
+.success {
+  color: #3c763d; 
+  background: #dff0d8; 
+  border: 1px solid #3c763d;
+  margin-bottom: 20px;
+}
+/*--------------------------------------------------------------
+# Nav
+--------------------------------------------------------------*/
+.navbar {
+background: #E8B04F;
+}
+
+#navbar-brand{
+position: fixed;
+left: 50%;
+top: -1px;
+transform: translateX(-50%);
+z-index: 999;
+overflow:visible;
+z-index: 999 !important;
+}
+
+.avatar{
+position:fixed;
+top: .3em;
+right: 2%;
+z-index: 999 !important;
+}
+
+nav{
+z-index: 998 !important; 
+}
+
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+button{
+background: #E8B04F !important;
+border: #E8B04F !important;
+}
+

@@ -45,7 +45,7 @@ class Posts extends CI_Controller {
             redirect('posts');
         }
 
-        $data['title'] = "Create Thread";
+        $data['title'] = "Create Post";
         $data['user'] = $this->user;
         
         $this->sitelayout->loadTemplate('posts/create', $data);
@@ -80,5 +80,6 @@ class Posts extends CI_Controller {
             redirect('posts');
         }
     }
+
 
 }
