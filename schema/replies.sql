@@ -24,57 +24,58 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `posts`
+-- Table structure for table `replies`
 --
 
-CREATE TABLE `posts` (
+CREATE TABLE `replies` (
   `id` int(255) NOT NULL,
+  `post_id` int(255) NOT NULL,
   `title` varchar(255) NOT NULL,
   `content` text NOT NULL,
   `date` datetime NOT NULL DEFAULT current_timestamp(),
-  `by` int(255) NOT NULL,
-  `slug` varchar(255) NOT NULL
+  `by` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `posts`
+-- Dumping data for table `replies`
 --
 
-INSERT INTO `posts` (`id`, `title`, `content`, `date`, `by`, `slug`) VALUES
-(11, 'testing ', 'again\r\n', '0000-00-00 00:00:00', 1, 'testing'),
-(12, 'lols', 'lols again\r\n', '2021-12-05 23:17:43', 1, 'lols'),
-(13, 'TEST 0', 'THIS IS A TEST AND ITS EDITED', '2021-12-08 17:29:51', 2, 'TEST-0');
+INSERT INTO `replies` (`id`, `post_id`, `title`, `content`, `date`, `by`) VALUES
+(3, 12, '123', '123', '2021-12-08 21:54:03', 0),
+(4, 12, 'This is a title', 'reply to lols', '2021-12-08 21:55:23', 0),
+(5, 13, 'Test 0', 'reply to Test 0', '2021-12-08 21:55:39', 0);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `posts`
+-- Indexes for table `replies`
 --
-ALTER TABLE `posts`
+ALTER TABLE `replies`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `posts_by` (`by`);
+  ADD KEY `replies_by` (`by`),
+  ADD KEY `replies_post_id` (`post_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `posts`
+-- AUTO_INCREMENT for table `replies`
 --
-ALTER TABLE `posts`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+ALTER TABLE `replies`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables
 --
 
 --
--- Constraints for table `posts`
+-- Constraints for table `replies`
 --
-ALTER TABLE `posts`
-  ADD CONSTRAINT `posts_by` FOREIGN KEY (`by`) REFERENCES `user` (`id`) ON UPDATE CASCADE;
+ALTER TABLE `replies`
+  ADD CONSTRAINT `replies_post_id` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`) ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

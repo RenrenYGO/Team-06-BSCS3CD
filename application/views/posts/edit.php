@@ -15,24 +15,21 @@
 
 <?php echo validation_errors();?>
 
-<?php echo form_open("posts/create"); ?>
-<input type="hidden" name="createdBy" value="<?php echo $user['id'];?>">   
-<div class="box col-6 mx-auto border border-custom ">
-    <div class="px-5 mx-3 py-4 my-3">
-    <div class="form-group mb-2">
-        <input type="text" class="form-control bg-light rounded-pill" name="title" placeholder= "Add Title">
-</div>
-<div class="form-group mb-2">
-   
-    <textarea class="form-control rounded-pill" name="content" placeholder="Add Content"
-    ></textarea>
-</div>
-<div class="d-flex justify-content-end">
-<button type="submit" class="btn btn-default ">Add post</button>
-</div>
-</div>
-</div>
-    
+<?php echo form_open("posts/update"); ?>
+<input type="hidden" name="id" value="<?php echo $post['id'];?>">   
+    <input type="hidden" name="createdBy" value="<?php echo $user['id'];?>">
+        <div class="form-group">
+            <label>Title</label>
+            <input type="text" class="form-control" name="title" placeholder= "Add Title" value="<?php echo $post['title'];?>">
+    </div>
+    <div class="form-group">
+        <label>Content</label>
+        <textarea class="form-control" name="content" placeholder="Add Content"
+        ><?php echo $post['content'];?></textarea>
+    </div>
+<button type="submit" class="btn btn-default">Submit</button>
+</form>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     </body>
 </html>

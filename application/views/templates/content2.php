@@ -1,5 +1,7 @@
+
+
 <?php
-    echo $navbar2;
+    echo $navbar1;
    // echo $header;
     echo $content;
     echo $footer;

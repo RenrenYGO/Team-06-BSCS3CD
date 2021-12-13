@@ -11,12 +11,25 @@ class Sitelayout {
 
     public function loadTemplate($content = null, $data = null) {
         $layout = array();
-        $layout['header'] = $this->CI->load->view('templates/header', null, true);
+        $layout['navbar1'] = $this->CI->load->view('templates/navbar1', null, true);
+        $layout['navbar2'] = $this->CI->load->view('templates/navbar2', null, true);
+        $layout['navbar3'] = $this->CI->load->view('templates/navbar3', null, true);
+       // $layout['header'] = $this->CI->load->view('templates/header', null, true);
         $layout['footer'] = $this->CI->load->view('templates/footer', null, true);
-
+       // $layout['links'] = $this->CI->load->view('templates/links', $data, true);
         $layout['content'] = $this->CI->load->view($content, $data, true);
-
+  
         $this->CI->load->view('templates/content', $layout);
+    }
+    public function loadWhatSauceTemplate($content = null, $data = null) {
+        $layout = array();
+        $layout['navbar3'] = $this->CI->load->view('templates/navbar3', null, true);
+       // $layout['header'] = $this->CI->load->view('templates/header', null, true);
+        $layout['footer'] = $this->CI->load->view('templates/footer', null, true);
+       // $layout['links'] = $this->CI->load->view('templates/links', $data, true);
+        $layout['content'] = $this->CI->load->view($content, $data, true);
+  
+        $this->CI->load->view('templates/content1', $layout);
     }
 
     // public function loadAdminTemplate($content = null, $data = null) {
