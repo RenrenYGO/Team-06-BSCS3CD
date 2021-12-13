@@ -11,6 +11,7 @@ class Sitelayout {
 
     public function loadTemplate($content = null, $data = null) {
         $layout = array();
+        $layout['navbar1'] = $this->CI->load->view('templates/navbar1', null, true);
         $layout['navbar2'] = $this->CI->load->view('templates/navbar2', null, true);
         $layout['navbar3'] = $this->CI->load->view('templates/navbar3', null, true);
        // $layout['header'] = $this->CI->load->view('templates/header', null, true);

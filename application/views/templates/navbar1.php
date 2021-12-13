@@ -29,25 +29,16 @@
                     <a href="<?php echo base_url('pages/temp'); ?>" class="nav-link nav-item ">WhatSauce</a>
             </div>
         </div>
+        <button type="button" class="btn btn-light">Log In</button>
     </div> 
-    <a href="<?php echo base_url('pages/view'); ?>" > <img src="<?php echo base_url("/assets/logo4.png");?>"  id="navbar-brand" width="100" height="100"></a>          
 
-    <?php
-        $user = $this->session->userdata('user');
-        
-        if(isset($user) && $user!=null):?>
-            
-           <img src="<?php echo base_url("/assets/hhh.png");?>" alt="hindi gumana" class=" avatar dropdown  " width="50" height="50" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false"> 
+            <a href="<?php echo base_url('pages/view'); ?>" > <img src="<?php echo base_url("/assets/logo4.png");?>"  id="navbar-brand" width="100" height="100"></a>          
+    <!--       <img src="<?php echo base_url("/assets/hhh.png");?>" alt="hindi gumana" class=" avatar dropdown  " width="50" height="50" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false"> -->
            <span class="dropdown-menu dropdown-menu-end me-4" role = "menu" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item " href="<?php echo base_url('logout'); ?>">Logout</a>
-            <a class="dropdown-item " href="<?php echo base_url('registration/register'); ?>">Register</a>
-            </span>
+  <a class="dropdown-item " href="<?php echo base_url('logout'); ?>">Login/Logout</a>
+    <a class="dropdown-item " href="<?php echo base_url('registration/register'); ?>">Register</a>
+</span>  
 
-        <?php else:?>
-            </div>
-            <a class="btn btn-light" href="<?php echo base_url('login'); ?>">Login</a>
-    </div> 
-    <?php endif; ?>
 
 </div>
 </nav>
