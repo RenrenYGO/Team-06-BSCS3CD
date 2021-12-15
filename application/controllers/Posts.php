@@ -38,10 +38,27 @@ class Posts extends CI_Controller {
 
         $this->form_validation->set_rules('title', 'Title', 'required');
         $this->form_validation->set_rules('content', 'Content', 'required');
-        
+        $data = $this->input->post();
+
         if($this->form_validation->run() === TRUE){
-            $data = $this->input->post();
-            $this->post_model->create_post($data);
+            $config['upload_path'] = APPPATH.'../images/posts';
+            $config['allowed_types'] = 'gif|jpg|png';
+            $config['max_size'] = '5000';
+            $config['file_name'] = $data['by']. '_'. $_FILES['post_image']['name'];
+             $this->load->library('upload', $config);
+           if(!$this->upload->do_upload('post_image')){
+            $errors = array('error' => $this->upload->display_errors());
+            $post_image = 'noimage.jpg';
+         } else {
+            // $data = array('upload_data' => $this->upload->data());
+             $post_image = $config['file_name'];
+            
+         }
+            
+    
+            
+            $this->post_model->create_post($data,$post_image);
+
             redirect('posts');
         }
 

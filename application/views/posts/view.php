@@ -4,28 +4,21 @@
   <title>Registration system PHP and MySQL</title>
   
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-<style>
-	<?php include 'style.css'; ?>
-</style>
+<link href="<?php echo base_url('assets/css/style.css') ?>" rel="stylesheet" crossorigin="anonymous">
 </head>
 <body>
     <div class="container pb-5 pt-5 mt-5">
     <p> ********* </p>
 <h2><?php echo $post['title']; ?></h2>
-
-    <?php
-        $id = $post['by'];
-        $query = $this->db->query("SELECT * FROM user WHERE id = '$id'");
-        $post['name'] = $query->row()->{'name'};
-    ?><br>
+<br>
 
     <small>Posted by: <?php echo $post['name']; ?></small><br>
     <small>Posted on: <?php echo $post['date']; ?></small><br>
     <p class="p-4 overflow-scroll" width="50" height="50"><?php echo $post['content']; ?></p>
-    
+    <img src="<?php echo base_url('images/posts/' . $post['post_image']  ); ?>"
     <?php
-     if($this->session->userdata('user')['id'] == $id):?>
-        <a class="btn btn-default" href="<?php echo base_url(); ?>posts/edit/<?php echo $post['slug']; ?>">Edit</a>
+     if($this->session->userdata('user')['id'] == $post['by']):?>
+        <a class="btn btn-default" href="<?php echo base_url('posts/edit/'.$post['slug']);  ?>">Edit</a>
     <?php endif; ?>
      
 
