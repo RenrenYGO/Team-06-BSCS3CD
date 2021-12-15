@@ -26,8 +26,10 @@
     <?php
      if($this->session->userdata('user')['id'] == $id):?>
         <a class="btn btn-default" href="<?php echo base_url(); ?>posts/edit/<?php echo $post['slug']; ?>">Edit</a>
+        <?php echo form_open('/posts/delete/'.$post['id']); ?>
+            <input type="submit" value="Delete" class="btn btn-danger">
+     </form>    
     <?php endif; ?>
-     
 
     <hr>
     <h3>Replies</h3>

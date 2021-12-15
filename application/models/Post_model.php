@@ -44,6 +44,16 @@
 				return $this->db->update('posts', $data);
 			}
 
+			public function delete_post($id){
+				$this->db->where('post_id', $id);
+				$this->db->delete('replies');
+
+				echo $this->db->last_query();
+
+				$this->db->where('id', $id);
+				$this->db->delete('posts');
+				return true;
+			}
 	}
 
 		
