@@ -17,17 +17,21 @@
         $id = $post['by'];
         $query = $this->db->query("SELECT * FROM user WHERE id = '$id'");
         $post['name'] = $query->row()->{'name'};
-    ?><br>
+    ?>
+    <br>
 
     <small>Posted by: <?php echo $post['name']; ?></small><br>
     <small>Posted on: <?php echo $post['date']; ?></small><br>
-    <p class="p-4 overflow-scroll" width="50" height="50"><?php echo $post['content']; ?></p>
-    
+    <p class="p-4 overflow-scroll" width="50" height="50"><?php echo $post['content']; ?>
+    <br>
+    <img src="<?php echo base_url('images/posts/' . $post['post_image']  ); ?>"></p>
     <?php
      if($this->session->userdata('user')['id'] == $id):?>
         <a class="btn btn-default" href="<?php echo base_url(); ?>posts/edit/<?php echo $post['slug']; ?>">Edit</a>
+        <?php echo form_open('/posts/delete/'.$post['id']); ?>
+            <input type="submit" value="Delete" class="btn btn-danger">
+     </form>    
     <?php endif; ?>
-     
 
     <hr>
     <h3>Replies</h3>

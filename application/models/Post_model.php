@@ -12,23 +12,24 @@
 					$query = $this->db->get('posts');
 					return $query->result_array();
 				}
-
+				//$this->db->join('user', 'user.id = '.'posts'.'.by');
 				$query = $this->db->get_where('posts', array('slug' => $slug));
 				return $query->row_array();
 			}
 
-			public function create_post($data){
+			public function create_post($data, $post_image){
 				$slug = url_title($data['title']);
 
 				$data = array(
-					
+					'post_image' => $post_image,
 					'title' => $data['title'],
 					'slug' => $slug,
 					'by' => $data['createdBy'],
 					'content' => $data['content']
 			
 				);
-				return $this->db->insert('posts', $data);
+
+				return $this->db->insert('posts',$data);
 			}
 
 			public function update_post($data){
@@ -44,6 +45,16 @@
 				return $this->db->update('posts', $data);
 			}
 
+			public function delete_post($id){
+				$this->db->where('post_id', $id);
+				$this->db->delete('replies');
+
+				echo $this->db->last_query();
+
+				$this->db->where('id', $id);
+				$this->db->delete('posts');
+				return true;
+			}
 	}
 
 		
