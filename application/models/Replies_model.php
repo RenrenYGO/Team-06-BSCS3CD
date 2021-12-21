@@ -5,9 +5,11 @@
 		}
 
 		public function create_replies($post_id){
+			
 			$data = array(
 				'post_id' => $post_id,
 				'title' => $this->input->post('title'),
+				'by' => $this->session->userdata('user')['id'],
 				'content' => $this->input->post('content')
 			);
 

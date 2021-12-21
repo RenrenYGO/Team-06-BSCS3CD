@@ -26,7 +26,11 @@
   <dt class="col-sm-1 h3 my-auto"><a href="#" class="link-dark text-decoration-none"> <?php echo $post['name']; ?> </a></dt> 
     <!-- href to profile -->
   <dd class="col-sm-9 text-muted my-auto "><?php echo $post['date']; ?></dd>
+
+
   <a href="<?php echo site_url('/posts/'. $post['slug']); ?>" class="link-secondary">
+  
+  
     <h1 class="display ps-4 py-2"><?php echo $post['title']; ?></h1></a>
   
   

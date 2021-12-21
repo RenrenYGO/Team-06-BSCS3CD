@@ -25,21 +25,32 @@
     <p class="p-4 overflow-scroll" width="50" height="50"><?php echo $post['content']; ?>
     <br>
     <img src="<?php echo base_url('images/posts/' . $post['post_image']  ); ?>"></p>
-    <?php
-     if($this->session->userdata('user')['id'] == $id):?>
-        <a class="btn btn-default" href="<?php echo base_url(); ?>posts/edit/<?php echo $post['slug']; ?>">Edit</a>
-        <?php echo form_open('/posts/delete/'.$post['id']); ?>
-            <input type="submit" value="Delete" class="btn btn-danger">
-     </form>    
+
+    <?php if($this->session->userdata('user')['id'] == $id):?>
+
+            <a class="btn btn-default" href="<?php echo base_url('posts/edit/'); ?><?php echo $post['slug']; ?>">Edit</a>
+
+            <?php echo form_open('/posts/delete/'.$post['id']); ?>
+                <input type="submit" value="Delete" class="btn btn-danger">
+            </form>
+        
     <?php endif; ?>
 
     <hr>
     <h3>Replies</h3>
+
     
     <?php if(isset($replies)) : ?>
     <?php foreach($replies as $reply) : ?>
         <div class="well">
-            <h5><?php echo $reply['content']; ?> [<strong><?php echo $reply['title']; ?></strong>]</h5>
+
+        <?php
+            $id = $reply['by'];
+            $query = $this->db->query("SELECT * FROM user WHERE id = '$id'");
+            $reply['name'] = $query->row()->{'name'};
+        ?>
+
+            <h5><?php echo $reply['content']; ?> [<strong><?php echo $reply['title']; ?></strong>] <?php echo $reply['date']; ?> [<?php echo $reply['name']; ?>]</h5>
         </div>
     <?php endforeach; ?>
     <?php else : ?>
@@ -50,6 +61,7 @@
     <h3>Add Reply</h3>
     <?php echo validation_errors(); ?>
     <?php echo form_open('replies/create/'.$post['id']); ?>
+    
     <div class="form-group">
         <label>Title</label>
         <input type="text" name="title" class="form-control">
