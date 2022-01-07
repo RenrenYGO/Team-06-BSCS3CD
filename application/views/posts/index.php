@@ -10,9 +10,17 @@
 </head>
 <body>
   <div class="container pt-5 mt-5 mb-5">
-<h2 class="pt-5 "><?= $title ?></h2>
+
 <p> ********* </p>
+    <!-- ADD POST
+<?php include ('create.php'); ?>
+   -->
     <!-- User id to name -->
+    <div class="d-flex flex-row ">
+    <h2 class="pt-5  "><?= $title1 ?></h2>
+    <h3 class="pt-5 ms-auto text-decoration-none ">
+      <a href="<?php echo base_url('posts/create'); ?>" class="btn btn-custom" type="button" id="create"> Add Post</a> </h3>
+    </div>
 <?php foreach($posts as $post) : ?>
   <?php
         $id = $post['by'];

@@ -26,4 +26,6 @@ public function temp($page = 'whatsauce') {
     //$this->load->view('registration/'.$page, $data);
    // $this->load->view('templates/footer', $data);
 }
+
+
 }

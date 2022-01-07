@@ -24,12 +24,20 @@ form .form-footer .btn-custom{
 .link-custom{
   color: #E8B04F;
 }
-
+.btn-add{
+  background-color: #E8B04F;
+}
+#create{
+  background-color: #E8B04F;
+}
 .success {
   color: #3c763d; 
   background: #dff0d8; 
   border: 1px solid #3c763d;
   margin-bottom: 20px;
+}
+#edit{
+  background-color: #E8B04F;
 }
 /*--------------------------------------------------------------
 # Nav
