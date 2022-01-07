@@ -5,6 +5,7 @@ $route['posts'] = 'posts/index';
 $route['posts/create'] = 'posts/create';
 $route['posts/update'] = 'posts/update';
 
+
 // $route['default_controller'] = 'Pages/view';
 //$route['(:any)'] = 'Pages/view/$1';
 

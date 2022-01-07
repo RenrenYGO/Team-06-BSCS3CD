@@ -24,15 +24,14 @@
                    <!-- for about page <a href="<?php echo base_url('registration/register'); ?>" class="nav-link nav-item "> About</a>
                         for support page <a href="<?php echo base_url('Login/index'); ?>" class="nav-link nav-item ">Support</a>-->
                     
-                    <a href="<?php echo base_url('pages/view'); ?>" class="nav-link nav-item d-none d-lg-block"> Commhub</a>
-                    <a href="<?php echo base_url('posts'); ?>" class="nav-link nav-item ">Posts</a>
-                    <a href="<?php echo base_url('posts/create'); ?>" class="nav-link nav-item ">Create Post</a>
+                    <a href="<?php echo base_url('posts'); ?>" class="nav-link nav-item d-none d-lg-block"> Commhub</a>
+                    <a href="#<?//php echo base_url('pages/about'); ?>" class="nav-link nav-item ">About</a>
                     <a href="<?php echo base_url('pages/temp'); ?>" class="nav-link nav-item ">WhatSauce</a>
             </div>
         </div>
     </div> 
 
-    <a href="<?php echo base_url('pages/view'); ?>" > <img src="<?php echo base_url("/assets/whatsauce_logo.png");?>"  id="navbar-brand" width="100" height="100"></a>          
+    <a href="<?php echo base_url('posts'); ?>" > <img src="<?php echo base_url("/assets/whatsauce_logo.png");?>"  id="navbar-brand" width="100" height="100"></a>          
 
     <?php
         $user = $this->session->userdata('user');
@@ -47,7 +46,7 @@
 
         <?php else:?>
             </div>
-            <a class="btn btn-light" href="<?php echo base_url('login'); ?>">Login</a>
+            <a class="btn btn-light login mt-1" href="<?php echo base_url('login'); ?>">Login</a>
     </div> 
     <?php endif; ?>
 

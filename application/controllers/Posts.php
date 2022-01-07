@@ -11,12 +11,14 @@ class Posts extends CI_Controller {
     }
 
     public function index(){
-        $data['title'] = 'Latest Posts';
+       
+        $data['title1'] = 'Latest Posts';
 
         $data['posts'] = $this -> post_model -> get_posts();
         
 
         $this->sitelayout->loadTemplate('posts/index', $data);
+        
     }
 
     public function view($slug = NULL){

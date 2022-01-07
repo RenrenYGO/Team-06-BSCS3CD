@@ -26,9 +26,9 @@
     <br>
     <img src="<?php echo base_url('images/posts/' . $post['post_image']  ); ?>"></p>
 
-    <?php if($this->session->userdata('user')['id'] == $id):?>
+    <?php if(isset($_SESSION['user']) && $this->session->userdata('user')['id'] == $id):?>
 
-            <a class="btn btn-default" href="<?php echo base_url('posts/edit/'); ?><?php echo $post['slug']; ?>">Edit</a>
+            <a class="btn btn-edit mb-3 px-3" id="edit" href="<?php echo base_url('posts/edit/'); ?><?php echo $post['slug']; ?>">Edit</a>
 
             <?php echo form_open('/posts/delete/'.$post['id']); ?>
                 <input type="submit" value="Delete" class="btn btn-danger">
@@ -50,7 +50,7 @@
             $reply['name'] = $query->row()->{'name'};
         ?>
 
-            <h5><?php echo $reply['content']; ?> [<strong><?php echo $reply['title']; ?></strong>] <?php echo $reply['date']; ?> [<?php echo $reply['name']; ?>]</h5>
+            <h5 class="ps-4"><?php echo $reply['content']; ?> [<strong><?php echo $reply['title']; ?></strong>] <?php echo $reply['date']; ?> [<span class="lead"><?php echo $reply['name']; ?></span>]</h5>
         </div>
     <?php endforeach; ?>
     <?php else : ?>
@@ -62,16 +62,14 @@
     <?php echo validation_errors(); ?>
     <?php echo form_open('replies/create/'.$post['id']); ?>
     
-    <div class="form-group">
-        <label>Title</label>
-        <input type="text" name="title" class="form-control">
+    <div class="form-group mb-3">
+        <input type="text" name="title" class="form-control" placeholder="Title">
     </div>
     <div class="form-group">
-        <label>Content</label>
-        <textarea name="content" class="form-control"></textarea>
+        <textarea name="content" class="form-control" placeholder="Content"></textarea>
     </div>
     <input type="hidden" name="slug" value="<?php echo $post['slug']; ?>">
-    <button class="btn btn-primary" type="submit">Submit</button>
+    <button class="btn btn-primary mt-4" type="submit">Submit</button>
     </form>
     </div>
         
