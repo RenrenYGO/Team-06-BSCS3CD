@@ -2,10 +2,10 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Dec 19, 2021 at 03:41 PM
+-- Host: localhost
+-- Generation Time: Jan 08, 2022 at 11:09 AM
 -- Server version: 10.4.21-MariaDB
--- PHP Version: 8.0.11
+-- PHP Version: 8.0.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -60,7 +60,10 @@ INSERT INTO `posts` (`id`, `title`, `content`, `date`, `by`, `slug`, `post_image
 (45, 'tf', 'fffff', '2021-12-16 20:16:15', 2, 'tf', '2_sadGriff.png'),
 (46, 'sadboi si ', 'ariel', '2021-12-16 20:17:20', 2, 'sadboi-si', '2_sadGriff.png'),
 (47, 'a', 'a', '2021-12-16 20:18:32', 2, 'a', '2_sadGriff.png'),
-(48, 'aaaaaaaaaa', 'aaaaaaaaaaaaaaaaaaa', '2021-12-16 20:19:14', 2, 'aaaaaaaaaa', '2_sadGriff.png');
+(48, 'aaaaaaaaaa', 'aaaaaaaaaaaaaaaaaaa', '2021-12-16 20:19:14', 2, 'aaaaaaaaaa', '2_sadGriff.png'),
+(54, 'Hi, just testing how this would look like.', 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita, minus? Nam fugit vero, nisi eveniet excepturi omnis praesentium doloribus architecto libero dolor qui eius quasi fuga hic laboriosam, facilis nobis.', '2022-01-08 02:06:32', 2, 'Hi-just-testing-how-this-would-look-like', 'noimage.jpg'),
+(55, 'We are getting tired', 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita, minus? Nam fugit vero, nisi eveniet excepturi omnis praesentium doloribus architecto libero dolor qui eius quasi fuga hic laboriosam, facilis nobis.', '2022-01-08 02:12:29', 10, 'We-are-getting-tired', 'noimage.jpg'),
+(56, 'What if I put a really really really long title and pretend it actually looks good even though it is counter intuative', 'Hah! How was it?', '2022-01-08 02:13:29', 10, 'What-if-I-put-a-really-really-really-long-title-and-pretend-it-actually-looks-good-even-though-it-is-counter-intuative', 'noimage.jpg');
 
 -- --------------------------------------------------------
 
@@ -82,9 +85,7 @@ CREATE TABLE `replies` (
 --
 
 INSERT INTO `replies` (`id`, `post_id`, `title`, `content`, `date`, `by`) VALUES
-(17, 27, 'aaaa', 'aaa', '2021-12-16 18:13:57', 0),
-(18, 27, 'rrrrrrrrrrrrrrr', 'aaaaaaaaaaaaaaaaaaa', '2021-12-16 18:14:01', 0),
-(20, 46, 'totoo', 'oo nga eh', '2021-12-19 22:29:27', 0);
+(22, 48, 'cute', 'asdasd\r\n', '2022-01-07 22:26:21', 10);
 
 -- --------------------------------------------------------
 
@@ -121,7 +122,8 @@ INSERT INTO `user` (`id`, `name`, `email`, `password`) VALUES
 (3, 'user0', 'user0@gmail.com', '202cb962ac59075b964b07152d234b70'),
 (4, 'test1', 'test@gmail.com', '202cb962ac59075b964b07152d234b70'),
 (5, 'asdasdasd', 'asdasdasd@gmail.com', '202cb962ac59075b964b07152d234b70'),
-(9, 'Renren', 'renren@mail.com', '202cb962ac59075b964b07152d234b70');
+(9, 'Renren', 'renren@mail.com', '202cb962ac59075b964b07152d234b70'),
+(10, 'jerry1', '123@gmail.com', '202cb962ac59075b964b07152d234b70');
 
 --
 -- Indexes for dumped tables
@@ -164,13 +166,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- AUTO_INCREMENT for table `replies`
 --
 ALTER TABLE `replies`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `threads`
@@ -182,7 +184,7 @@ ALTER TABLE `threads`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Constraints for dumped tables

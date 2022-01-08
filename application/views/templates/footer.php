@@ -9,7 +9,7 @@
 </head>
 
 <div class="container">
-        <footer class="pt-5 mt-5 pb-2">
+        <footer class="pt-5 mt-5">
           <div class="row">
             <div class="col-6">
               <ul class="nav flex-column">
@@ -20,9 +20,9 @@
               </ul>
             </div>
       
-            <div class="col-4 offset-1">
+            <div class="col-4 offset-2">
               <form>
-                <h5>Subscribe to our newsletter</h5>
+                <h6>Subscribe to our newsletter</h6>
                 <p>Monthly digest of whats new and exciting from us.</p>
                 <div class="d-flex w-100 gap-2">
                   <label for="newsletter1" class="visually-hidden">Email address</label>
@@ -33,7 +33,7 @@
             </div>
           </div>
       
-          <div class="d-flex justify-content-between my-4 border-top">
+          <div class="d-flex justify-content-between mt-4 border-top">
             <p>&copy; 2021 CommHub, Inc. All rights reserved.</p>
             <ul class="list-unstyled d-flex">
               <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"/></svg></a></li>

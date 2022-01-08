@@ -28,7 +28,7 @@ form .form-footer .btn-custom{
   background-color: #E8B04F;
 }
 #create{
-  background-color: #E8B04F;
+  background-color: #E8B04F!important;
 }
 .success {
   color: #3c763d; 
@@ -68,6 +68,27 @@ z-index: 998 !important;
 }
 
 /*--------------------------------------------------------------
+# Post
+--------------------------------------------------------------*/
+#username{
+  font-size: 18px;
+  text-decoration: none;
+  color: rgb(11, 11, 11);
+}
+
+#date{
+  font-size: 14px;
+}
+
+#description{
+  font-size: 16px;
+}
+
+#title{
+  text-decoration: none;
+  color: rgb(50, 50, 50);
+}
+/*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
 button{
@@ -75,3 +96,10 @@ background: #E8B04F !important;
 border: #E8B04F !important;
 }
 
+footer p{
+  font-size: 12px;
+}
+
+footer a{
+  font-size: 12px;
+}
