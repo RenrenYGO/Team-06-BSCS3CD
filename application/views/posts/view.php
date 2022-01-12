@@ -25,9 +25,24 @@
     <p class="p-4 overflow-scroll" width="50" height="50"><?php echo $post['content']; ?>
     <br>
     <img src="<?php echo base_url('images/posts/' . $post['post_image']  ); ?>"></p>
+    
+    <h3 class="display py-2" ><?php echo "Upvote: "; ?><?php echo $post['upvote']; ?></h3></a>
+    <h3 class="display py-2" ><?php echo "Downvote: "; ?><?php echo $post['downvote']; ?></h3></a>
 
+    <?php if(isset($_SESSION['user'])):?>
+       
+        <?php echo form_open('/posts/upvote/'.$post['id']); ?>
+            <input type="submit" value="Upvote" class="btn btn-danger">
+        </form>
+
+        <?php echo form_open('/posts/downvote/'.$post['id']); ?>
+            <input type="submit" value="Downvote" class="btn btn-danger">
+        </form>
+
+    <?php endif; ?>
+        
     <?php if(isset($_SESSION['user']) && $this->session->userdata('user')['id'] == $id):?>
-
+            
             <a class="btn btn-edit mb-3 px-3" id="edit" href="<?php echo base_url('posts/edit/'); ?><?php echo $post['slug']; ?>">Edit</a>
 
             <?php echo form_open('/posts/delete/'.$post['id']); ?>

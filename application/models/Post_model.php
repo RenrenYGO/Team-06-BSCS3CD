@@ -55,6 +55,18 @@
 				$this->db->delete('posts');
 				return true;
 			}
+
+			public function upvote_post($id){
+				$this->db->set('upvote', 'upvote+1', FALSE);
+				$this->db->where('id', $id);
+				$this->db->update('posts');
+			}
+
+			public function downvote_post($id){
+				$this->db->set('downvote', 'downvote+1', FALSE);
+				$this->db->where('id', $id);
+				$this->db->update('posts');
+			}
 	}
 
 		
