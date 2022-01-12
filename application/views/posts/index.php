@@ -27,7 +27,7 @@
         $id = $post['by'];
         $query = $this->db->query("SELECT * FROM user WHERE id = '$id'");
         $post['name'] = $query->row()->{'name'};
-    ?>
+  ?>
         <!-- End -->
   <div class="container pt-3 border bg-white border-none mt-3">
   <dl class="row ps-3">
@@ -45,7 +45,9 @@
   
   
     <p class="lead d-inline-block text-truncate" id="description" style="max-width: 700px;"><?php echo $post['content']; ?></p>
-
+    
+    <h3 class="display py-2" ><?php echo "Upvote: "; ?><?php echo $post['upvote']; ?></h3></a>
+    <h3 class="display py-2" ><?php echo "Downvote: "; ?><?php echo $post['downvote']; ?></h3></a>
     </div>
    
     <?php endforeach ; ?>

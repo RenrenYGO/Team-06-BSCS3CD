@@ -104,4 +104,14 @@ class Posts extends CI_Controller {
         redirect('posts');
     }       
 
+    public function upvote($id){
+        $this->post_model->upvote_post($id);
+        redirect('posts/'.$post['slug']); //AAYUSIN PA xd
+    }
+    
+    public function downvote($id){
+        $this->post_model->downvote_post($id);
+        redirect('posts/'.$post['slug']); //AAYUSIN PA xd
+    }
+    
 }
