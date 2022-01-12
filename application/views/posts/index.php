@@ -45,9 +45,14 @@
   
   
     <p class="lead d-inline-block text-truncate" id="description" style="max-width: 700px;"><?php echo $post['content']; ?></p>
-    
-    <h3 class="display py-2" ><?php echo "Upvote: "; ?><?php echo $post['upvote']; ?></h3></a>
-    <h3 class="display py-2" ><?php echo "Downvote: "; ?><?php echo $post['downvote']; ?></h3></a>
+    <div class="d-flex ">
+      <div class="p-2">
+    <img class="display py-2 ms-2 me-1" src="<?php echo base_url('assets/node_modules/bootstrap-icons/icons/hand-thumbs-up.svg'); ?>"><?php echo $post['upvote']; ?>
+    </div>
+    <div class="p-2">
+    <img class="display py-2 me-1"  src="<?php echo base_url('assets/node_modules/bootstrap-icons/icons/hand-thumbs-down.svg');?>"><?php echo $post['downvote']; ?>
+</div>
+    </div>
     </div>
    
     <?php endforeach ; ?>
