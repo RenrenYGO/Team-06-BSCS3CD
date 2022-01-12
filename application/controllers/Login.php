@@ -23,7 +23,7 @@ class Login extends CI_Controller {
             if(!is_bool($result)){
                 $session['user'] = $result[0];
                 $this->session->set_userdata($session);
-                redirect('/pages/about');
+                redirect('/posts');
             } 
         }
         
