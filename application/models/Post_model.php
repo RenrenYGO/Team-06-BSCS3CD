@@ -13,7 +13,7 @@
 					return $query->result_array();
 				}
 				//$this->db->join('user', 'user.id = '.'posts'.'.by');
-				$query = $this->db->get_where('posts', array('slug' => $slug));
+				$query = $this->db->get_where('posts', array('id' => $slug));
 				return $query->row_array();
 			}
 
@@ -25,8 +25,8 @@
 					'title' => $data['title'],
 					'slug' => $slug,
 					'by' => $data['createdBy'],
-					'content' => $data['content']
-			
+					'content' => $data['content'],
+					'thread_id' => $data['thread_id']
 				);
 
 				return $this->db->insert('posts',$data);
@@ -39,7 +39,8 @@
 					'title' => $data['title'],
 					'slug' => $slug,
 					'by' => $data['createdBy'],
-					'content' => $data['content']
+					'content' => $data['content'],
+					'thread_id' => $data['thread_id']
 				);
 				$this->db->where('id', $this->input->post('id'));
 				return $this->db->update('posts', $data);
@@ -54,6 +55,31 @@
 				$this->db->where('id', $id);
 				$this->db->delete('posts');
 				return true;
+			}
+
+			public function upvote_post($id){
+				$this->db->set('upvote', 'upvote+1', FALSE);
+				$this->db->where('id', $id);
+				$this->db->update('posts');
+			}
+
+			public function downvote_post($id){
+				$this->db->set('downvote', 'downvote+1', FALSE);
+				$this->db->where('id', $id);
+				$this->db->update('posts');
+			}
+
+			public function get_threads(){
+				$this->db->order_by('name');
+				$query = $this->db->get('threads');
+				return $query->result_array();
+			}
+	
+			public function get_posts_by_thread($thread_id){
+				$this->db->order_by('posts.id', 'DESC');
+				$this->db->join('threads', 'threads.id = posts.thread_id');
+					$query = $this->db->get_where('posts', array('thread_id' => $thread_id));
+				return $query->result_array();
 			}
 	}
 

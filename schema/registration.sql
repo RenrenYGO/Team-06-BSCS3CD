@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 08, 2021 at 03:09 PM
+-- Generation Time: Jan 13, 2022 at 02:17 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.11
 
@@ -33,17 +33,22 @@ CREATE TABLE `posts` (
   `content` text NOT NULL,
   `date` datetime NOT NULL DEFAULT current_timestamp(),
   `by` int(255) NOT NULL,
-  `slug` varchar(255) NOT NULL
+  `slug` varchar(255) NOT NULL,
+  `post_image` varchar(255) NOT NULL,
+  `upvote` int(255) NOT NULL,
+  `downvote` int(255) NOT NULL,
+  `thread_id` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `posts`
 --
 
-INSERT INTO `posts` (`id`, `title`, `content`, `date`, `by`, `slug`) VALUES
-(11, 'testing ', 'again\r\n', '0000-00-00 00:00:00', 1, 'testing'),
-(12, 'lols', 'lols again\r\n', '2021-12-05 23:17:43', 1, 'lols'),
-(13, 'TEST 0', 'THIS IS A TEST AND ITS EDITED', '2021-12-08 17:29:51', 2, 'TEST-0');
+INSERT INTO `posts` (`id`, `title`, `content`, `date`, `by`, `slug`, `post_image`, `upvote`, `downvote`, `thread_id`) VALUES
+(12, 'lols', 'lols again\r\n', '2021-12-05 23:17:43', 1, 'lols', '', 7, 0, 1),
+(36, 'das', 'das', '2021-12-16 19:47:41', 2, 'das', '_umugakita.png', 0, 0, 2),
+(55, 'no image', 'dapat walang image', '2022-01-13 17:34:22', 2, 'no-image', 'noimage.jpg', 0, 0, 1),
+(57, 'COLOR PLS', '<p>WALA COLOR</p>\r\n', '2022-01-13 20:10:21', 2, 'COLOR-PLS', 'noimage.jpg', 0, 0, 2);
 
 -- --------------------------------------------------------
 
@@ -53,21 +58,12 @@ INSERT INTO `posts` (`id`, `title`, `content`, `date`, `by`, `slug`) VALUES
 
 CREATE TABLE `replies` (
   `id` int(255) NOT NULL,
-  `post_id` int(255) NOT NULL,
+  `post_id` int(255) DEFAULT NULL,
   `title` varchar(255) NOT NULL,
   `content` text NOT NULL,
   `date` datetime NOT NULL DEFAULT current_timestamp(),
   `by` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `replies`
---
-
-INSERT INTO `replies` (`id`, `post_id`, `title`, `content`, `date`, `by`) VALUES
-(3, 12, '123', '123', '2021-12-08 21:54:03', 0),
-(4, 12, 'This is a title', 'reply to lols', '2021-12-08 21:55:23', 0),
-(5, 13, 'Test 0', 'reply to Test 0', '2021-12-08 21:55:39', 0);
 
 -- --------------------------------------------------------
 
@@ -80,6 +76,15 @@ CREATE TABLE `threads` (
   `name` varchar(255) NOT NULL,
   `date` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `threads`
+--
+
+INSERT INTO `threads` (`id`, `name`, `date`) VALUES
+(1, 'Random Stuff', '2022-01-13 00:00:00'),
+(2, 'TUP Stuff', '2022-01-13 00:00:00'),
+(3, 'Game Stuff', '2022-01-13 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -103,7 +108,8 @@ INSERT INTO `user` (`id`, `name`, `email`, `password`) VALUES
 (2, 'das', 'ads@gmail.com', '202cb962ac59075b964b07152d234b70'),
 (3, 'user0', 'user0@gmail.com', '202cb962ac59075b964b07152d234b70'),
 (4, 'test1', 'test@gmail.com', '202cb962ac59075b964b07152d234b70'),
-(5, 'asdasdasd', 'asdasdasd@gmail.com', '202cb962ac59075b964b07152d234b70');
+(5, 'asdasdasd', 'asdasdasd@gmail.com', '202cb962ac59075b964b07152d234b70'),
+(9, 'Renren', 'renren@mail.com', '202cb962ac59075b964b07152d234b70');
 
 --
 -- Indexes for dumped tables
@@ -114,7 +120,9 @@ INSERT INTO `user` (`id`, `name`, `email`, `password`) VALUES
 --
 ALTER TABLE `posts`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `posts_by` (`by`);
+  ADD KEY `posts_by` (`by`),
+  ADD KEY `post_image` (`post_image`),
+  ADD KEY `posts_from` (`thread_id`);
 
 --
 -- Indexes for table `replies`
@@ -145,25 +153,25 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
 -- AUTO_INCREMENT for table `replies`
 --
 ALTER TABLE `replies`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `threads`
 --
 ALTER TABLE `threads`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Constraints for dumped tables
@@ -173,7 +181,8 @@ ALTER TABLE `user`
 -- Constraints for table `posts`
 --
 ALTER TABLE `posts`
-  ADD CONSTRAINT `posts_by` FOREIGN KEY (`by`) REFERENCES `user` (`id`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `posts_by` FOREIGN KEY (`by`) REFERENCES `user` (`id`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `posts_from` FOREIGN KEY (`thread_id`) REFERENCES `threads` (`id`);
 
 --
 -- Constraints for table `replies`

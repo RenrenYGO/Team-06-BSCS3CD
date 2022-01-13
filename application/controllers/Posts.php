@@ -11,12 +11,14 @@ class Posts extends CI_Controller {
     }
 
     public function index(){
+       
         $data['title'] = 'Latest Posts';
 
         $data['posts'] = $this -> post_model -> get_posts();
         
 
         $this->sitelayout->loadTemplate('posts/index', $data);
+        
     }
 
     public function view($slug = NULL){
@@ -62,6 +64,7 @@ class Posts extends CI_Controller {
         }
 
         $data['title'] = "Create Post";
+        $data['threads'] = $this->post_model->get_threads();
         $data['user'] = $this->user;
         
         $this->sitelayout->loadTemplate('posts/create', $data);
@@ -102,4 +105,14 @@ class Posts extends CI_Controller {
         redirect('posts');
     }       
 
+    public function upvote($id){
+        $this->post_model->upvote_post($id);
+        $this->view($this->input->post('upvote'));
+    }
+    
+    public function downvote($id){
+        $this->post_model->downvote_post($id);
+        $this->view($this->input->post('downvote'));
+    }
+    
 }

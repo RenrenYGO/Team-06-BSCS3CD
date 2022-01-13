@@ -3,6 +3,7 @@
 <head>
     <title>Home</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="http://cdn.ckeditor.com/4.5.11/standard/ckeditor.js"></script>
     <style>
 	<?php include 'style.css'; ?>
 	</style>
@@ -24,15 +25,15 @@
                    <!-- for about page <a href="<?php echo base_url('registration/register'); ?>" class="nav-link nav-item "> About</a>
                         for support page <a href="<?php echo base_url('Login/index'); ?>" class="nav-link nav-item ">Support</a>-->
                     
-                    <a href="<?php echo base_url('pages/view'); ?>" class="nav-link nav-item d-none d-lg-block"> Commhub</a>
-                    <a href="<?php echo base_url('posts'); ?>" class="nav-link nav-item ">Posts</a>
-                    <a href="<?php echo base_url('posts/create'); ?>" class="nav-link nav-item ">Create Post</a>
+                    <a href="<?php echo base_url('posts'); ?>" class="nav-link nav-item d-none d-lg-block"> Commhub</a>
+                    <a href="<?php echo base_url('pages/about'); ?>" class="nav-link nav-item ">About</a>
                     <a href="<?php echo base_url('pages/temp'); ?>" class="nav-link nav-item ">WhatSauce</a>
+                    <a href="<?php echo base_url('threads'); ?>" class="nav-link nav-item ">Threads</a>
             </div>
         </div>
     </div> 
 
-    <a href="<?php echo base_url('pages/view'); ?>" > <img src="<?php echo base_url("/assets/whatsauce_logo.png");?>"  id="navbar-brand" width="100" height="100"></a>          
+    <a href="<?php echo base_url('posts'); ?>" > <img src="<?php echo base_url("/assets/whatsauce_logo.png");?>"  id="navbar-brand" width="100" height="100"></a>          
 
     <?php
         $user = $this->session->userdata('user');
@@ -41,13 +42,15 @@
             
            <img src="<?php echo base_url("/assets/hhh.png");?>" alt="hindi gumana" class=" avatar dropdown  " width="50" height="50" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false"> 
            <span class="dropdown-menu dropdown-menu-end me-4" role = "menu" aria-labelledby="dropdownMenuLink">
+            
+            <a class="dropdown-item " href="#">Profile</a>
             <a class="dropdown-item " href="<?php echo base_url('logout'); ?>">Logout</a>
-            <a class="dropdown-item " href="<?php echo base_url('registration/register'); ?>">Register</a>
             </span>
+
 
         <?php else:?>
             </div>
-            <a class="btn btn-light" href="<?php echo base_url('login'); ?>">Login</a>
+            <a class="btn btn-light login mt-1" href="<?php echo base_url('login'); ?>">Login</a>
     </div> 
     <?php endif; ?>
 

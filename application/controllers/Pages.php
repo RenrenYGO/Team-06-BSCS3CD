@@ -25,5 +25,22 @@ public function temp($page = 'whatsauce') {
    // $this->load->view('templates/header', $data);
     //$this->load->view('registration/'.$page, $data);
    // $this->load->view('templates/footer', $data);
+
 }
+// add this function to controllers/Pages.php
+
+public function about($page = 'about') {
+    if ( ! file_exists(APPPATH.'views/templates/'.$page.'.php')){
+            echo "Whoops, we don't have a page for that!";
+            show_404();
+    }
+
+    $data['title'] = ucfirst($page); // Capitalize the first letter
+    $this->sitelayout->loadTemplate('templates/about', $data);
+   // $this->load->view('templates/header', $data);
+    //$this->load->view('registration/'.$page, $data);
+   // $this->load->view('templates/footer', $data);
+}
+
+
 }
