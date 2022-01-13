@@ -3,13 +3,14 @@
 <head>
     <title>Home</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="http://cdn.ckeditor.com/4.5.11/standard/ckeditor.js"></script>
     <style>
 	<?php include 'style.css'; ?>
 	</style>
 </head>
 <body>
 
-<nav id="what" class="navbar navbar-expand-lg navbar-dark fixed-top ">
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top ">
     <div class="container-fluid ">
         <button class="navbar-toggler mb-2" 
             type="button" 
@@ -24,9 +25,10 @@
                    <!-- for about page <a href="<?php echo base_url('registration/register'); ?>" class="nav-link nav-item "> About</a>
                         for support page <a href="<?php echo base_url('Login/index'); ?>" class="nav-link nav-item ">Support</a>-->
                     
-                    <a href="<?php echo base_url('posts'); ?>" id="brandnav" class="nav-link nav-item d-none d-lg-block"> Commhub</a>
-                    <a href="<?php echo base_url('pages/about'); ?>" id="aboutnav" class="nav-link nav-item ">About</a>
-                    <a href="<?php echo base_url('pages/temp'); ?>" id="whatsaucenav" class="nav-link nav-item ">WhatSauce</a>
+                    <a href="<?php echo base_url('posts'); ?>" class="nav-link nav-item d-none d-lg-block"> Commhub</a>
+                    <a href="<?php echo base_url('pages/about'); ?>" class="nav-link nav-item ">About</a>
+                    <a href="<?php echo base_url('pages/temp'); ?>" class="nav-link nav-item ">WhatSauce</a>
+                    <a href="<?php echo base_url('threads'); ?>" class="nav-link nav-item ">Threads</a>
             </div>
         </div>
     </div> 
@@ -38,7 +40,7 @@
         
         if(isset($user) && $user!=null):?>
             
-           <img src="<?php echo base_url("/assets/avatar.png");?>" alt="hindi gumana" class=" avatar dropdown  " width="50" height="50" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false"> 
+           <img src="<?php echo base_url("/assets/hhh.png");?>" alt="hindi gumana" class=" avatar dropdown  " width="50" height="50" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false"> 
            <span class="dropdown-menu dropdown-menu-end me-4" role = "menu" aria-labelledby="dropdownMenuLink">
             
             <a class="dropdown-item " href="#">Profile</a>

@@ -12,7 +12,7 @@ class Posts extends CI_Controller {
 
     public function index(){
        
-        $data['title1'] = 'Latest Posts';
+        $data['title'] = 'Latest Posts';
 
         $data['posts'] = $this -> post_model -> get_posts();
         
@@ -64,6 +64,7 @@ class Posts extends CI_Controller {
         }
 
         $data['title'] = "Create Post";
+        $data['threads'] = $this->post_model->get_threads();
         $data['user'] = $this->user;
         
         $this->sitelayout->loadTemplate('posts/create', $data);
@@ -106,12 +107,12 @@ class Posts extends CI_Controller {
 
     public function upvote($id){
         $this->post_model->upvote_post($id);
-        redirect('posts/'.$post['slug']); //AAYUSIN PA xd
+        $this->view($this->input->post('upvote'));
     }
     
     public function downvote($id){
         $this->post_model->downvote_post($id);
-        redirect('posts/'.$post['slug']); //AAYUSIN PA xd
+        $this->view($this->input->post('downvote'));
     }
     
 }

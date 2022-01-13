@@ -56,8 +56,43 @@
                             <img src="images/screen.jpg" class="card-img-top img-fluid mt-3 mb-5" style="width: 60%" >
                         </div>
         
+                    </div>
+                    <div class="badge d-flex flex-row justify-content-evenly">
+                    <a href="#" class=" badge badge-light text-black text-decoration-none"><h6>Mobile app</h6></a>
+                    <a href="#" class=" badge badge-light text-black text-decoration-none"><h6>Community</h6></a>
+                    <a href="#" class=" badge badge-light text-black text-decoration-none"><h6>Company</h6></a>
+                    <a href="#" class=" badge badge-light text-black text-decoration-none"><h6>Help desk</h6></a>
+                    <a href="#" class=" badge badge-light text-black text-decoration-none"><h6>Blog</h6></a>
+                    <a href="#" class=" badge badge-light text-black text-decoration-none"><h6>Resources</h6></a>
+                    </div>
             </div>
         </section>
+        
+        <footer class="page-footer text-black pt-4">
+            <div class="container-fluid">
+                <ul class="list-unstyled list-inline text-center">
+                    <li class="list-inline-item">
+                        <a href="#" class="btn-floating btn-fb mx-2">
+                            <i class="fab fa-facebook-f"> </i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="#" class="btn-floating btn-tw mx-2">
+                            <i class="fab fa-twitter"> </i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="#" class="btn-floating btn-gplus mx-2">
+                            <i class="fab fa-google-plus-g"> </i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="#" class="btn-floating btn-li mx-2">
+                            <i class="fab fa-linkedin-in"> </i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js " integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p " crossorigin="anonymous "></script>
 
 </body>

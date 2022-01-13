@@ -24,9 +24,19 @@
 </div>
 <div class="form-group mb-2">
    
-    <textarea class="form-control rounded-pill" name="content" placeholder="Add Content"
+    <textarea id="editor1" class="form-control rounded-pill" name="content" placeholder="Add Content"
     ></textarea>
 </div>
+
+    <div class="form-group">
+	  <label>Thread</label>
+	  <select name="thread_id" class="form-control">
+		  <?php foreach($threads as $thread): ?>
+		  	<option value="<?php echo $thread['id']; ?>"><?php echo $thread['name']; ?></option>
+		  <?php endforeach; ?>
+	  </select>
+    </div>
+
 <div class="d-flex justify-content-end">
 <button type="submit" class="btn btn-default ">Add post</button>
 </div>
