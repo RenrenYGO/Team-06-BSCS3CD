@@ -13,33 +13,47 @@
     <p> ********* </p>
     <div class="container pt-3 border bg-white border-none mt-3">
     <dl class="row pt-2 ps-3 pe-3">
+
     <?php
         $id = $post['by'];
         $query = $this->db->query("SELECT * FROM user WHERE id = '$id'");
         $post['name'] = $query->row()->{'name'};
     ?>
     <br>
+
     <div class="d-flex flex-wrap ">
     <img src="<?php echo base_url('assets/avatar.jpg' ); ?>" width= "60" >
     <div class=" ps-2 row">
     <dt id="username"> <?php echo $post['name']; ?></dt> 
     <dd class=" text-muted " id="date"><small> <?php echo $post['date']; ?></small></dd>
     </div>
+
+    <?php
+        $id = $post['thread_id'];
+        $query = $this->db->query("SELECT * FROM threads WHERE id = '$id'");
+        $post['at'] = $query->row()->{'name'};
+    ?>
+
+    <?php echo $post['at']; ?>
+
     <div class="ms-auto">
+
     <?php if(isset($_SESSION['user'])):?>
        <div class="d-flex mb-3">
         <?php echo form_open('/posts/upvote/'.$post['id']); ?>
         <div class="btn btn-success ms-2 me-3 pe-3">
-        <input type="submit"  class="bg bg-success border border-success" value=" ">
+        <input type="submit"  class="bg bg-success border border-success" value="">
+        <input name="upvote" type="hidden" value="<?php echo $post['id']?>">
         <img src="<?php echo base_url('assets/node_modules/bootstrap-icons/icons/hand-thumbs-up.svg'); ?>" alt="Thumbsup">
         <?php echo $post['upvote']; ?>
         </div>
-           
+            
         </form>
 
         <?php echo form_open('/posts/downvote/'.$post['id']); ?>
         <div class="btn  btn-danger ms-2 me-3 pe-3">
-        <input type="submit"  class="bg bg-danger border border-danger" value=" ">
+        <input type="submit"  class="bg bg-success border border-success" value="">
+        <input name="downvote" type="hidden" value="<?php echo $post['id']?>">
         <img src="<?php echo base_url('assets/node_modules/bootstrap-icons/icons/hand-thumbs-down.svg'); ?>" alt="Thumbsdown">
         <?php echo $post['downvote']; ?>
            
@@ -55,12 +69,12 @@
  
     <p class="mt-3 overflow-scroll" width="50" height="50"><?php echo $post['content']; ?>
     <br>
-    <img src="<?php echo base_url('images/posts/' . $post['post_image']  ); ?>"  class="mt-3" height="300" width="300" ></p>
     
+    <?php if($post['post_image']!='noimage.jpg'):?>
+        <img src="<?php echo base_url('images/posts/' . $post['post_image']  ); ?>"  class="mt-3" height="300" width="300" ></p>
+    <?php endif; ?>
 
 
-    
-        
     <?php if(isset($_SESSION['user']) && $this->session->userdata('user')['id'] == $id):?>
         <div class="d-flex">
             <a class="btn btn-edit mb-3 mx-2 px-3" id="edit" href="<?php echo base_url('posts/edit/'); ?><?php echo $post['slug']; ?>">Edit</a>

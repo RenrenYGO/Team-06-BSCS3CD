@@ -17,7 +17,7 @@
    -->
     <!-- User id to name -->
     <div class="d-flex flex-row ">
-    <h3 class="pt-5  "><?= $title1 ?></h3>
+    <h3 class="pt-5  "><?= $title ?></h3>
     <h3 class="pt-5 ms-auto text-decoration-none ">
       <a href="<?php echo base_url('posts/create'); ?>" class="btn btn-custom" type="button" id="create"> Add Post</a> 
     </h3>
@@ -38,25 +38,38 @@
   <dd class="col-sm-9 text-muted my-auto " id="date"><?php echo $post['date']; ?></dd>
 
 
-  <a id="title" href="<?php echo site_url('/posts/'. $post['slug']); ?>" class="link-secondary">
+  <?php
+        $id = $post['thread_id'];
+        $query = $this->db->query("SELECT * FROM threads WHERE id = '$id'");
+        $post['at'] = $query->row()->{'name'};
+  ?>
+
+  <?php echo $post['at']; ?>
+
+
+  <a id="title" href="<?php echo site_url('/posts/'. $post['id']); ?>" class="link-secondary">
   
   
     <h3 class="display py-2" ><?php echo $post['title']; ?></h3></a>
   
   
     <p class="lead d-inline-block text-truncate" id="description" style="max-width: 700px;"><?php echo $post['content']; ?></p>
+
     <div class="d-flex ">
+
       <div class="p-2">
-    <img class="display py-2 ms-2 me-1" src="<?php echo base_url('assets/node_modules/bootstrap-icons/icons/hand-thumbs-up.svg'); ?>"><?php echo $post['upvote']; ?>
+        <img class="display py-2 ms-2 me-1" src="<?php echo base_url('assets/node_modules/bootstrap-icons/icons/hand-thumbs-up.svg'); ?>"><?php echo $post['upvote']; ?>
+      </div>
+
+      <div class="p-2">
+        <img class="display py-2 me-1"  src="<?php echo base_url('assets/node_modules/bootstrap-icons/icons/hand-thumbs-down.svg');?>"><?php echo $post['downvote']; ?>
+      </div>
+
     </div>
-    <div class="p-2">
-    <img class="display py-2 me-1"  src="<?php echo base_url('assets/node_modules/bootstrap-icons/icons/hand-thumbs-down.svg');?>"><?php echo $post['downvote']; ?>
-</div>
-    </div>
-    </div>
+  </div>
    
     <?php endforeach ; ?>
-    </div>
+</div>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     </body>
