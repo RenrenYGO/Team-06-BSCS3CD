@@ -29,9 +29,6 @@
 	  <?php echo validation_errors(); ?>
 	  <div class="form-footer d-flex justify-content-between pt-2">
   	  <button type="submit" class="btn btn-custom" name="reg_user">Log in</button>
-
-		<a class="btn btn-custom" id="forgot" href="<?php echo base_url('forgot/index'); ?>">Forgot Password</a>
-		
 		<span class="signup  ms-3 align-middle lead">
 		Not yet a member? <a href="<?php echo base_url('registration/register'); ?>" class="link-custom text-decoration-none">Sign up</a>
 </span>

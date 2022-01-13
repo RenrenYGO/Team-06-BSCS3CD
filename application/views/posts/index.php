@@ -32,16 +32,24 @@
   <div class="container pt-3 border bg-white border-none mt-3">
   <dl class="row ps-3">
     <!-- href to profile -->
-  
-  <dt class="col-sm-1 my-auto"><a href="#"  id="username"> <?php echo $post['name']; ?> </a></dt> 
-    <!-- href to profile -->
-  <dd class="col-sm-9 text-muted my-auto " id="date"><?php echo $post['date']; ?></dd>
+
+<!-- <dt class="col-sm-1 my-auto"><a href="#"  id="username"> <?php echo $post['name']; ?> </a></dt> 
+
+    <dd class="col-sm-9 text-muted my-auto " id="date"><?php echo $post['date']; ?></dd>
+-->
+<div class="d-flex flex-wrap ">
+    <img src="<?php echo base_url('assets/avatar.png' ); ?>" width= "60" >
+    <div class=" ps-2 row">
+      <dt id="username"> <?php echo $post['name']; ?></dt> 
+      <dd class=" text-muted " id="date"><small> <?php echo $post['date']; ?></small></dd>
+    </div>
+</div>
 
 
   <a id="title" href="<?php echo site_url('/posts/'. $post['slug']); ?>" class="link-secondary">
   
   
-    <h3 class="display py-2" ><?php echo $post['title']; ?></h3></a>
+    <h4 class="display py-2" ><?php echo $post['title']; ?></h4></a>
   
   
     <p class="lead d-inline-block text-truncate" id="description" style="max-width: 700px;"><?php echo $post['content']; ?></p>

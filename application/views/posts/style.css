@@ -2,6 +2,7 @@
   margin: 0px;
   padding: 0px;
 }
+
 body {
   font-size: 120%;
   background: #F8F8FF;
@@ -18,55 +19,94 @@ body {
   border-radius: 10px 10px 0px 0px;
   padding: 20px;
 }
-form .form-footer .btn-custom{
+
+form .form-footer .btn-custom {
   background-color: #E8B04F;
 }
-.link-custom{
+
+.btn-floating{
   color: #E8B04F;
 }
-.btn-add{
-  background-color: #E8B04F;
+
+.link-custom {
+  color: #f0bc12a9;
 }
-#create{
-  background-color: #E8B04F!important;
+
+.link-custom:hover {
+  color: #f0bc12;
 }
+
 .success {
-  color: #3c763d; 
-  background: #dff0d8; 
+  color: #3c763d;
+  background: #dff0d8;
   border: 1px solid #3c763d;
   margin-bottom: 20px;
 }
+
+#about{
+  background-color: #E8B04F;
+}
+
 #edit{
   background-color: #E8B04F;
 }
+
+#create{
+  background-color: #E8B04F!important;
+}
+
 /*--------------------------------------------------------------
 # Nav
 --------------------------------------------------------------*/
+
 .navbar {
-background: #E8B04F;
+  background: #E8B04F;
 }
 
-#navbar-brand{
-position: fixed;
-left: 50%;
-top: -1px;
-transform: translateX(-50%);
-z-index: 999;
-overflow:visible;
-z-index: 999 !important;
+#what{
+  background: rgb(216, 100, 46);
+}
+#navbar-brand {
+  position: fixed;
+  left: 50%;
+  top: -1px;
+  transform: translateX(-50%);
+  z-index: 999;
+  overflow: visible;
+  z-index: 999 !important;
 }
 
-.avatar{
-position:fixed;
-top: .3em;
-right: 2%;
-z-index: 999 !important;
+.avatar {
+  position: fixed;
+  top: .3em;
+  right: 2%;
+  z-index: 999 !important;
+}
+.login {
+  position: fixed;
+  z-index: 999 !important;
+  right: 0.8%;
+}
+nav {
+  z-index: 998 !important;
 }
 
-nav{
-z-index: 998 !important; 
+#brandnav{
+  font-weight: 500;
+  letter-spacing: 3px;
 }
 
+#aboutnav{
+  font-weight: 300;
+}
+
+#whatsaucenav{
+  font-weight: 300;
+}
+
+#whatsaucenav:hover{
+  color: rgb(202, 55, 55);
+}
 /*--------------------------------------------------------------
 # Post
 --------------------------------------------------------------*/
@@ -88,12 +128,18 @@ z-index: 998 !important;
   text-decoration: none;
   color: rgb(50, 50, 50);
 }
+
+.reply{
+  align-items: center;
+  padding-top: 3px;
+}
 /*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
-button{
-background: #E8B04F !important;
-border: #E8B04F !important;
+
+button {
+  background: #E8B04F !important;
+  border: #E8B04F !important;
 }
 
 footer p{
@@ -102,4 +148,39 @@ footer p{
 
 footer a{
   font-size: 12px;
+}
+
+/*--------------------------------------------------------------
+# Terms (sign up)
+--------------------------------------------------------------*/
+.terms {
+  height: 250px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  font-size: .6rem;
+  background-color: #ffffffa9;
+  border-radius: 10px;
+}
+
+.checkbox {
+  font-size: .8rem;
+}
+
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #f0bc12a9;
+  border-radius: 10px;
+  border: 6px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #f0bc12;
 }
