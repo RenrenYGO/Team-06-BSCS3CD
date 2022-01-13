@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 12, 2022 at 11:51 AM
+-- Generation Time: Jan 13, 2022 at 02:17 PM
 -- Server version: 10.4.21-MariaDB
--- PHP Version: 7.4.25
+-- PHP Version: 8.0.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -36,33 +36,19 @@ CREATE TABLE `posts` (
   `slug` varchar(255) NOT NULL,
   `post_image` varchar(255) NOT NULL,
   `upvote` int(255) NOT NULL,
-  `downvote` int(255) NOT NULL
+  `downvote` int(255) NOT NULL,
+  `thread_id` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `posts`
 --
 
-INSERT INTO `posts` (`id`, `title`, `content`, `date`, `by`, `slug`, `post_image`, `upvote`, `downvote`) VALUES
-(12, 'lols', 'lols again\r\n', '2021-12-05 23:17:43', 1, 'lols', '', 7, 0),
-(26, 'aaa', 'aaaa', '2021-12-16 17:25:30', 1, 'aaa', '1_sadGriff.png', 0, 0),
-(27, 'aaaaaa', 'aaaaa', '2021-12-16 17:55:09', 1, 'aaaaaa', '1_umu.png', 0, 0),
-(33, 'aaaaaaaaaaaaaaaaaaaaaaaaaaa', 'qwerty', '2021-12-16 19:34:29', 2, 'aaaaaaaaaaaaaaaaaaaaaaaaaaa', '_umulovereverse.png', 0, 0),
-(34, 'a', 'a', '2021-12-16 19:40:06', 2, 'a', '_umugakita.png', 0, 0),
-(35, 'qqq', 'qqq', '2021-12-16 19:42:35', 2, 'qqq', '_2Q.png', 0, 0),
-(36, 'das', 'das', '2021-12-16 19:47:41', 2, 'das', '_umugakita.png', 0, 0),
-(37, 'binay jejomar', '69', '2021-12-16 19:49:57', 1, 'binay-jejomar', '_umugakita.png', 0, 0),
-(38, 'bobo', 'ako', '2021-12-16 19:57:05', 1, 'bobo', '_sadGriff.png', 0, 0),
-(39, 'daishouri', 'daishouri', '2021-12-16 20:01:53', 1, 'daishouri', '_okishock.png', 0, 0),
-(40, 'f', 'f', '2021-12-16 20:04:04', 1, 'f', '_frogmouth.png', 0, 0),
-(41, 'sadgriff', 'sad', '2021-12-16 20:07:48', 1, 'sadgriff', '1_sadGriff.png', 0, 0),
-(42, 'sadgriff 2', 'pogi parin si ramon', '2021-12-16 20:08:35', 2, 'sadgriff-2', '2_sadGriff.png', 0, 0),
-(43, 'sadgriff 3', 'asdasdasd', '2021-12-16 20:09:13', 2, 'sadgriff-3', '2_sadGriff.png', 0, 0),
-(44, 'obob', 'a', '2021-12-16 20:12:32', 2, 'obob', 'noimage.jpg', 0, 0),
-(45, 'tf', 'fffff', '2021-12-16 20:16:15', 2, 'tf', '2_sadGriff.png', 0, 0),
-(46, 'sadboi si ', 'ariel', '2021-12-16 20:17:20', 2, 'sadboi-si', '2_sadGriff.png', 0, 0),
-(47, 'a', 'a', '2021-12-16 20:18:32', 2, 'a', '2_sadGriff.png', 0, 0),
-(48, 'aaaaaaaaaa', 'aaaaaaaaaaaaaaaaaaa', '2021-12-16 20:19:14', 2, 'aaaaaaaaaa', '2_sadGriff.png', 0, 1);
+INSERT INTO `posts` (`id`, `title`, `content`, `date`, `by`, `slug`, `post_image`, `upvote`, `downvote`, `thread_id`) VALUES
+(12, 'lols', 'lols again\r\n', '2021-12-05 23:17:43', 1, 'lols', '', 7, 0, 1),
+(36, 'das', 'das', '2021-12-16 19:47:41', 2, 'das', '_umugakita.png', 0, 0, 2),
+(55, 'no image', 'dapat walang image', '2022-01-13 17:34:22', 2, 'no-image', 'noimage.jpg', 0, 0, 1),
+(57, 'COLOR PLS', '<p>WALA COLOR</p>\r\n', '2022-01-13 20:10:21', 2, 'COLOR-PLS', 'noimage.jpg', 0, 0, 2);
 
 -- --------------------------------------------------------
 
@@ -90,6 +76,15 @@ CREATE TABLE `threads` (
   `name` varchar(255) NOT NULL,
   `date` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `threads`
+--
+
+INSERT INTO `threads` (`id`, `name`, `date`) VALUES
+(1, 'Random Stuff', '2022-01-13 00:00:00'),
+(2, 'TUP Stuff', '2022-01-13 00:00:00'),
+(3, 'Game Stuff', '2022-01-13 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -126,7 +121,8 @@ INSERT INTO `user` (`id`, `name`, `email`, `password`) VALUES
 ALTER TABLE `posts`
   ADD PRIMARY KEY (`id`),
   ADD KEY `posts_by` (`by`),
-  ADD KEY `post_image` (`post_image`);
+  ADD KEY `post_image` (`post_image`),
+  ADD KEY `posts_from` (`thread_id`);
 
 --
 -- Indexes for table `replies`
@@ -157,7 +153,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
 -- AUTO_INCREMENT for table `replies`
@@ -169,7 +165,7 @@ ALTER TABLE `replies`
 -- AUTO_INCREMENT for table `threads`
 --
 ALTER TABLE `threads`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `user`
@@ -185,7 +181,8 @@ ALTER TABLE `user`
 -- Constraints for table `posts`
 --
 ALTER TABLE `posts`
-  ADD CONSTRAINT `posts_by` FOREIGN KEY (`by`) REFERENCES `user` (`id`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `posts_by` FOREIGN KEY (`by`) REFERENCES `user` (`id`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `posts_from` FOREIGN KEY (`thread_id`) REFERENCES `threads` (`id`);
 
 --
 -- Constraints for table `replies`
