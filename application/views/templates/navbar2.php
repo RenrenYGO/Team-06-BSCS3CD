@@ -24,9 +24,9 @@
 
                    <!-- for about page <a href="<?php echo base_url('registration/register'); ?>" class="nav-link nav-item "> About</a>
                         for support page <a href="<?php echo base_url('Login/index'); ?>" class="nav-link nav-item ">Support</a>-->
-                    <a href="<?php echo base_url('posts'); ?>" class="nav-link nav-item d-none d-lg-block"> Commhub</a>
-                    <a href="<?php echo base_url('pages/about'); ?>" class="nav-link nav-item d-lg-block"> About</a>
-                    <a href="<?php echo base_url('pages/temp'); ?>" class="nav-link nav-item ">WhatSauce</a>
+                    <a href="<?php echo base_url('posts'); ?>" id="brandnav" class="nav-link nav-item d-none d-lg-block"> Commhub</a>
+                    <a href="<?php echo base_url('pages/about');?>" id="aboutnav" class="nav-link nav-item d-lg-block"> About</a>
+                    <a href="<?php echo base_url('pages/temp'); ?>" id="whatsaucenav" class="nav-link nav-item ">WhatSauce</a>
                     <a href="<?php echo base_url('threads'); ?>" class="nav-link nav-item ">Threads</a>
             </div>
         </div>
@@ -38,7 +38,7 @@
         
         if(isset($user) && $user!=null):?>
             
-           <img src="<?php echo base_url('assets/hhh.png');?>" alt="hindi gumana" class=" avatar dropdown  " width="50" height="50" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false"> 
+           <img src="<?php echo base_url('assets/avatar.png');?>" class=" avatar dropdown  " width="50" height="50" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false"> 
            <span class="dropdown-menu dropdown-menu-end me-4" role = "menu" aria-labelledby="dropdownMenuLink">
            <a class="dropdown-item " href="#">Profile</a>
             <a class="dropdown-item " href="<?php echo base_url('logout'); ?>">Logout</a>
