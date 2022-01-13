@@ -20,7 +20,7 @@
     ?>
     <br>
     <div class="d-flex flex-wrap ">
-    <img src="<?php echo base_url('assets/avatar.jpg' ); ?>" width= "60" >
+    <img src="<?php echo base_url('assets/avatar.png' ); ?>" width= "60" >
     <div class=" ps-2 row">
     <dt id="username"> <?php echo $post['name']; ?></dt> 
     <dd class=" text-muted " id="date"><small> <?php echo $post['date']; ?></small></dd>
@@ -51,7 +51,7 @@
 </div>
     
     
-    <h2 class="ps-4 ms-3"><?php echo $post['title']; ?></h2>
+    <h2 class="mt-3"><?php echo $post['title']; ?></h2>
  
     <p class="mt-3 overflow-scroll" width="50" height="50"><?php echo $post['content']; ?>
     <br>
@@ -89,13 +89,19 @@
        
        <div class="row ms-1 ps-2 container border bg-white border-none">
     <!-- href to profile -->
-  
+  <!--  
   <dt class="col-sm-1"><a href="#"  id="username"> <?php echo $reply['name']; ?> </a></dt> 
-    <!-- href to profile -->
-  <dd class="col-sm-6 text-muted my-auto " id="date"><?php echo $reply['date']; ?></dd>
+
+  <dd class="col-sm-6 text-muted my-auto " id="date"><?php echo $reply['date']; ?></dd> -->
+  <div class="d-flex flex-wrap reply">
+    <img src="<?php echo base_url('assets/avatar.png' );?>"  width= "40" height="40">
+    <div class=" ps-2 row">
+    <dt id="username"> <?php echo $post['name']; ?></dt> 
+    <dd class=" text-muted " id="date"><small> <?php echo $post['date']; ?></small></dd>
+    </div>
+</div>
   
-  
-    <p class="lead ps-3 d-inline-block text-truncate" id="description" style="max-width: 700px;"><?php echo $reply['content']; ?></p>
+    <p class="lead d-inline-block text-truncate" id="description" style="max-width: 700px;"><?php echo $reply['content']; ?></p>
 
     </div>
         
