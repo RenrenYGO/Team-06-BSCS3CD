@@ -10,9 +10,18 @@
 </head>
 <body>
     <div class="container pt-5 mt-5">
-        <p> ********* </p>
-<h2><?=$title; ?></h2>
-
+    <!-- back button -->
+      <a href="<?php echo site_url('/posts/'. $post['id']); ?>" class="text-decoration-none fs-5" id="back" ><img src="<?php echo base_url('assets/node_modules/bootstrap-icons/icons/arrow-left.svg'); ?>" alt="edit"/> Go back to previous page </a>
+    <!-- back button -->
+    <div class="d-flex"> 
+        <h2 class="pt-4"><?=$title; ?></h2>
+    <!--delete button -->
+        <div class="ms-auto">
+            <?php echo '<a class="btn btn-danger mt-3 ms-2 px-3" title="Delete post" data-target="#endModal'.$post['id'].'" data-toggle="modal">Delete</a>'?>
+        <?php include "end_modal.php";?>
+        </div>
+    <!--delete button -->
+</div>
 <?php echo validation_errors();?>
 
 <?php echo form_open("posts/update"); ?>
@@ -27,9 +36,13 @@
         <textarea class="form-control" name="content" placeholder="Add Content"
         ><?php echo $post['content'];?></textarea>
     </div>
-<button type="submit" class="btn btn-default mt-3">Submit</button>
+    <div class="d-flex"> <!-- row align -->
+        <button type="submit" class="btn btn-default mt-3">Submit</button>
+        <!-- cancel button --> 
+        <a type="button" href="<?php echo site_url('/posts/'. $post['id']); ?>" class="btn btn-secondary ms-2 mt-3">Cancel</a>     
+        <!-- cancel button -->
 </form>
-
+    </div> <!-- row align --> 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     </body>
 </html>
