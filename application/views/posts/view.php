@@ -29,8 +29,8 @@
     </div>
 
     <?php
-        $id = $post['thread_id'];
-        $query = $this->db->query("SELECT * FROM threads WHERE id = '$id'");
+        $thread_id = $post['thread_id'];
+        $query = $this->db->query("SELECT * FROM threads WHERE id = '$thread_id'");
         $post['at'] = $query->row()->{'name'};
     ?>
 
@@ -77,7 +77,7 @@
 
     <?php if(isset($_SESSION['user']) && $this->session->userdata('user')['id'] == $id):?>
         <div class="d-flex">
-            <a class="btn btn-edit mb-3 mx-2 px-3" id="edit" href="<?php echo base_url('posts/edit/'); ?><?php echo $post['slug']; ?>">Edit</a>
+            <a class="btn btn-edit mb-3 mx-2 px-3" id="edit" href="<?php echo base_url('posts/edit/'); ?><?php echo $post['id']; ?>">Edit</a>
 
             <?php echo form_open('/posts/delete/'.$post['id']); ?>
                 <input type="submit" value="Delete" class="btn btn-danger">
@@ -130,7 +130,7 @@
     <div class="form-group">
         <textarea name="content" class="form-control" placeholder="Content"></textarea>
     </div>
-    <input type="hidden" name="slug" value="<?php echo $post['slug']; ?>">
+    <input type="hidden" name="slug" value="<?php echo $post['id']; ?>">
     <button class="btn btn-primary mt-4" type="submit">Submit</button>
     </form>
     </div>
