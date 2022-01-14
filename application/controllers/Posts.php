@@ -21,8 +21,8 @@ class Posts extends CI_Controller {
         
     }
 
-    public function view($slug = NULL){
-        $data['post'] = $this -> post_model -> get_posts($slug);
+    public function view($id = NULL){
+        $data['post'] = $this -> post_model -> get_posts($id);
         $post_id = $data['post']['id'];
         $data['replies'] = $this->replies_model->get_replies($post_id);
 
@@ -70,8 +70,8 @@ class Posts extends CI_Controller {
         $this->sitelayout->loadTemplate('posts/create', $data);
     }
 
-    public function edit($slug){
-        $data['post'] = $this -> post_model -> get_posts($slug);
+    public function edit($id){
+        $data['post'] = $this -> post_model -> get_posts($id);
         
         if(empty($data['post'])){
             show_404();
