@@ -6,14 +6,14 @@
 				$this->load->database();
 			}
 
-			public function get_posts($slug = FALSE){
-				if($slug === FALSE){
+			public function get_posts($id = FALSE){
+				if($id === FALSE){
 					$this->db->order_by('id', 'DESC');
 					$query = $this->db->get('posts');
 					return $query->result_array();
 				}
 				//$this->db->join('user', 'user.id = '.'posts'.'.by');
-				$query = $this->db->get_where('posts', array('id' => $slug));
+				$query = $this->db->get_where('posts', array('id' => $id));
 				return $query->row_array();
 			}
 
