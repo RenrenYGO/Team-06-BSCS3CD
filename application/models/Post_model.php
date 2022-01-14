@@ -40,7 +40,7 @@
 					'slug' => $slug,
 					'by' => $data['createdBy'],
 					'content' => $data['content'],
-					'thread_id' => $data['thread_id']
+					//'thread_id' => $data['thread_id']
 				);
 				$this->db->where('id', $this->input->post('id'));
 				return $this->db->update('posts', $data);

@@ -11,10 +11,6 @@
 <body>
   <div class="container pt-5 mt-5 mb-5">
 
-<p> ********* </p>
-    <!-- ADD POST
-<?php include ('create.php'); ?>
-   -->
     <!-- User id to name -->
     <div class="d-flex flex-row ">
     <h3 class="pt-5  "><?= $title ?></h3>
@@ -38,20 +34,23 @@
   <dd class="col-sm-9 text-muted my-auto " id="date"><?php echo $post['date']; ?></dd>
 
 
-  <?php
+
+
+  <div class="d-flex ">
+  <div class=" row">
+  <a id="title" href="<?php echo site_url('/posts/'. $post['id']); ?>" class="link-secondary">
+ 
+    <h3 class="display pt-2" ><?php echo $post['title']; ?></h3></a>
+    <?php
         $id = $post['thread_id'];
         $query = $this->db->query("SELECT * FROM threads WHERE id = '$id'");
         $post['at'] = $query->row()->{'name'};
   ?>
-
-  <?php echo $post['at']; ?>
-
-
-  <a id="title" href="<?php echo site_url('/posts/'. $post['id']); ?>" class="link-secondary">
-  
-  
-    <h3 class="display py-2" ><?php echo $post['title']; ?></h3></a>
-  
+<div class="d-inline-flex">
+  <dd class="ms-2 rounded rounded-3 px-2" id="tags"><?php echo $post['at']; ?></dd>
+  </div>
+</div>
+</div>
   
     <p class="lead d-inline-block text-truncate" id="description" style="max-width: 700px;"><?php echo $post['content']; ?></p>
 

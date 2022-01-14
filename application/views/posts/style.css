@@ -88,6 +88,20 @@ z-index: 998 !important;
   text-decoration: none;
   color: rgb(50, 50, 50);
 }
+/*---*/
+#back:hover{
+  color: #E8B04F;
+
+}
+#back{
+    color: rgb(11, 11, 11);
+}
+#tags{
+  background-color: #788383c9;
+  font-size: 1rem;
+  font-weight: 600;
+}
+/*---*/
 /*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/

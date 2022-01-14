@@ -10,7 +10,11 @@
 </head>
 <body>
     <div class="container pb-5 pt-5 mt-5">
-    <p> ********* </p>
+    <div class="mb-4">
+      <!-- back button -->
+      <a href="<?php echo base_url('posts'); ?>" class="text-decoration-none fs-5" id="back" ><img src="<?php echo base_url('assets/node_modules/bootstrap-icons/icons/arrow-left.svg'); ?>" alt="edit"/> Go back to Latest Posts </a>
+         <!-- back button -->
+</div>
     <div class="container pt-3 border bg-white border-none mt-3">
     <dl class="row pt-2 ps-3 pe-3">
 
@@ -37,30 +41,13 @@
     <?php echo $post['at']; ?>
 
     <div class="ms-auto">
+<!-- edit button-->  
+<?php if(isset($_SESSION['user']) && $this->session->userdata('user')['id'] == $id):?>
+    
+    <a class="btn mb-3 px-2" id="edit" href="<?php echo base_url('posts/edit/'); ?><?php echo $post['id']; ?>"> <img src="<?php echo base_url('assets/node_modules/bootstrap-icons/icons/pencil-square.svg'); ?>" alt="edit"></a>
+<?php endif; ?>
+<!-- edit button-->  
 
-    <?php if(isset($_SESSION['user'])):?>
-       <div class="d-flex mb-3">
-        <?php echo form_open('/posts/upvote/'.$post['id']); ?>
-        <div class="btn btn-success ms-2 me-3 pe-3">
-        <input type="submit"  class="bg bg-success border border-success" value="">
-        <input name="upvote" type="hidden" value="<?php echo $post['id']?>">
-        <img src="<?php echo base_url('assets/node_modules/bootstrap-icons/icons/hand-thumbs-up.svg'); ?>" alt="Thumbsup">
-        <?php echo $post['upvote']; ?>
-        </div>
-            
-        </form>
-
-        <?php echo form_open('/posts/downvote/'.$post['id']); ?>
-        <div class="btn  btn-danger ms-2 me-3 pe-3">
-        <input type="submit"  class="bg bg-success border border-success" value="">
-        <input name="downvote" type="hidden" value="<?php echo $post['id']?>">
-        <img src="<?php echo base_url('assets/node_modules/bootstrap-icons/icons/hand-thumbs-down.svg'); ?>" alt="Thumbsdown">
-        <?php echo $post['downvote']; ?>
-           
-        </form>
-        </div>
-    </div>
-    <?php endif; ?>
     </div>
 </div>
     
@@ -73,19 +60,33 @@
     <?php if($post['post_image']!='noimage.jpg'):?>
         <img src="<?php echo base_url('images/posts/' . $post['post_image']  ); ?>"  class="mt-3" height="300" width="300" ></p>
     <?php endif; ?>
+<!-- upvote and downvote -->
+    <?php if(isset($_SESSION['user'])):?>
+       <div class="d-flex mb-3">
+        <?php echo form_open('/posts/upvote/'.$post['id']); ?>
+        <div class="btn btn-success ms-2 me-2 pe-2 ps-1">
+        <input type="submit"  class="bg bg-success border border-success" value=" ">
+        <input name="upvote" type="hidden" value="<?php echo $post['id']?>">
+        <img src="<?php echo base_url('assets/node_modules/bootstrap-icons/icons/arrow-up-circle.svg'); ?>" alt="arrowup">
+        <?php echo $post['upvote']; ?>
+        </div>
+            
+        </form>
 
-
-    <?php if(isset($_SESSION['user']) && $this->session->userdata('user')['id'] == $id):?>
-        <div class="d-flex">
-            <a class="btn btn-edit mb-3 mx-2 px-3" id="edit" href="<?php echo base_url('posts/edit/'); ?><?php echo $post['id']; ?>">Edit</a>
-
-            <?php echo form_open('/posts/delete/'.$post['id']); ?>
-                <input type="submit" value="Delete" class="btn btn-danger">
-            </form>
-    
-    </div>
+        <?php echo form_open('/posts/downvote/'.$post['id']); ?>
+        <div class="btn  btn-danger ms-1 me-3 pe-2 ps-1">
+        <input type="submit"  class="bg bg-danger border border-danger" value=" ">
+        <input name="downvote" type="hidden" value="<?php echo $post['id']?>">
+        <img src="<?php echo base_url('assets/node_modules/bootstrap-icons/icons/arrow-down-circle.svg'); ?>" alt="arrowdown">
+        <?php echo $post['downvote']; ?>
+        </div>   
+        </form>
         
+    </div>
     <?php endif; ?>
+<!-- upvote and downvote -->
+
+
 
     <hr>
     <h3>Replies</h3>
