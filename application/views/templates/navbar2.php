@@ -24,10 +24,10 @@
 
                    <!-- for about page <a href="<?php echo base_url('registration/register'); ?>" class="nav-link nav-item "> About</a>
                         for support page <a href="<?php echo base_url('Login/index'); ?>" class="nav-link nav-item ">Support</a>-->
-                    <a href="<?php echo base_url('posts'); ?>" class="nav-link nav-item d-none d-lg-block"> Commhub</a>
-                    <a href="<?php echo base_url('pages/about'); ?>" class="nav-link nav-item d-lg-block"> About</a>
-                    <a href="<?php echo base_url('pages/temp'); ?>" class="nav-link nav-item ">WhatSauce</a>
-                    <a href="<?php echo base_url('threads'); ?>" class="nav-link nav-item ">Threads</a>
+                    <a href="<?php echo base_url('posts'); ?>" id="brand" class="nav-link nav-item d-none d-lg-block"> Commhub</a>
+                    <a href="<?php echo base_url('pages/about'); ?>" id="aboutnav" class="nav-link nav-item d-lg-block"> About</a>
+                    <a href="<?php echo base_url('pages/temp'); ?>" id="whatsaucenav" class="nav-link nav-item ">WhatSauce</a>
+                    <a href="<?php echo base_url('threads'); ?>" id="tagsnav" class="nav-link nav-item ">Tags</a>
             </div>
         </div>
     </div> 
