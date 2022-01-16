@@ -52,9 +52,9 @@
 </div>
     
     
-    <h2 class="ps-4 ms-3"><?php echo $post['title']; ?></h2>
+    <h2 class="mt-3"><?php echo $post['title']; ?></h2>
  
-    <p class="mt-3 overflow-scroll" width="50" height="50"><?php echo $post['content']; ?>
+    <p class="overflow-scroll" width="50" height="50"><?php echo $post['content']; ?>
     <br>
     
     <?php if($post['post_image']!='noimage.jpg'):?>
@@ -67,7 +67,7 @@
         <div class="btn btn-success ms-2 me-2 pe-2 ps-1">
         <input type="submit"  class="bg bg-success border border-success" value=" ">
         <input name="upvote" type="hidden" value="<?php echo $post['id']?>">
-        <img src="<?php echo base_url('assets/node_modules/bootstrap-icons/icons/arrow-up-circle.svg'); ?>" alt="arrowup">
+        <img src="<?php echo base_url('assets/node_modules/bootstrap-icons/icons/arrow-up-circle.svg'); ?>" id="arrowup">
         <?php echo $post['upvote']; ?>
         </div>
             
@@ -77,7 +77,7 @@
         <div class="btn  btn-danger ms-1 me-3 pe-2 ps-1">
         <input type="submit"  class="bg bg-danger border border-danger" value=" ">
         <input name="downvote" type="hidden" value="<?php echo $post['id']?>">
-        <img src="<?php echo base_url('assets/node_modules/bootstrap-icons/icons/arrow-down-circle.svg'); ?>" alt="arrowdown">
+        <img src="<?php echo base_url('assets/node_modules/bootstrap-icons/icons/arrow-down-circle.svg'); ?>" id="arrowdown">
         <?php echo $post['downvote']; ?>
         </div>   
         </form>
@@ -89,7 +89,7 @@
 
 
     <hr>
-    <h3>Replies</h3>
+    <h4>Replies</h4>
    
     
     <?php if(isset($replies)) : ?>
@@ -105,12 +105,14 @@
        <div class="row ms-1 ps-2 container border bg-white border-none">
     <!-- href to profile -->
   
-  <dt class="col-sm-1"><a href="#"  id="username"> <?php echo $reply['name']; ?> </a></dt> 
-    <!-- href to profile -->
-  <dd class="col-sm-6 text-muted my-auto " id="date"><?php echo $reply['date']; ?></dd>
-  
-  
-    <p class="lead ps-3 d-inline-block text-truncate" id="description" style="max-width: 700px;"><?php echo $reply['content']; ?></p>
+    <div class="d-flex flex-wrap mt-2">
+    <img src="<?php echo base_url('assets/avatar.jpg' ); ?>" width= "60" >
+    <div class=" ps-2 row">
+    <dt id="username"> <?php echo $post['name']; ?></dt> 
+    <dd class=" text-muted " id="date"><small> <?php echo $post['date']; ?></small></dd>
+    </div>
+    </div>
+    <p class="mt-1 ps-3 d-inline-block text-truncate" id="description" style="max-width: 700px;"><?php echo $reply['content']; ?></p>
 
     </div>
         
@@ -121,7 +123,7 @@
     <?php endif; ?>
     
    
-    <h3 class="mt-4">Add Reply</h3>
+    <h5 class="mt-4">Add Reply</h5>
     <?php echo validation_errors(); ?>
     <?php echo form_open('replies/create/'.$post['id']); ?>
     
