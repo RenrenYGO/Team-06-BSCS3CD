@@ -71,6 +71,13 @@
         <img class="display py-2 me-1"  src="<?php echo base_url('assets/node_modules/bootstrap-icons/icons/hand-thumbs-down.svg');?>"><?php echo $post['downvote']; ?>
       </div>
 
+      
+      <!--  -->
+      <div class="p-2">
+      </div>
+      <!--  -->
+
+
     </div>
   </div>
    

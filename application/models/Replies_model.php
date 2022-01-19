@@ -8,11 +8,9 @@
 			
 			$data = array(
 				'post_id' => $post_id,
-				'title' => $this->input->post('title'),
 				'by' => $this->session->userdata('user')['id'],
 				'content' => $this->input->post('content')
 			);
-
 			return $this->db->insert('replies', $data);
 		}
 
