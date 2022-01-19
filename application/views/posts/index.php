@@ -10,7 +10,12 @@
 </head>
 <body>
   <div class="container pt-5 mt-5 mb-5">
-
+  <h3 class="pt-5 mb-3">Popular Tags</h3>
+<div class="tags d-flex border border-2 p-3">
+<a class="ms-2 rounded rounded-3 px-2 text-decoration-none link-dark" id="tags" href="threads">Tup Stuff</a>
+<a class="ms-2 rounded rounded-3 px-2 text-decoration-none link-dark" id="tags" href="threads">Random Stuff</a>
+<a class="ms-2 rounded rounded-3 px-2 text-decoration-none link-dark" id="tags" href="threads">Game Stuff</a>
+</div>
     <!-- User id to name -->
     <div class="d-flex flex-row ">
     <h3 class="pt-5  "><?= $title ?></h3>

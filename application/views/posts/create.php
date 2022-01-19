@@ -20,7 +20,7 @@
 
 <?php echo form_open_multipart("posts/create"); ?>
 <input type="hidden" name="createdBy" value="<?php echo $user['id'];?>">  
-<div class="box mt-5 col-6 mx-auto border border-custom ">
+<div class="box mt-5 col-6 mx-auto border border-2 ">
 <h2 class="text-center pt-3">Create post</h2>
     <div class="px-5 mx-3 pt-4 mt-3">
     <div class="form-group mb-2">
