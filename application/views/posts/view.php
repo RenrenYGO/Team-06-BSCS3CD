@@ -69,8 +69,7 @@
         <input name="upvote" type="hidden" value="<?php echo $post['id']?>">
         <img src="<?php echo base_url('assets/node_modules/bootstrap-icons/icons/arrow-up-circle.svg'); ?>" id="arrowup">
         <?php echo $post['upvote']; ?>
-        </div>
-            
+        </div>   
         </form>
 
         <?php echo form_open('/posts/downvote/'.$post['id']); ?>
@@ -81,20 +80,18 @@
         <?php echo $post['downvote']; ?>
         </div>   
         </form>
-        
     </div>
     <?php endif; ?>
-<!-- upvote and downvote -->
 
 
 
     <hr>
     <h4>Replies</h4>
    
-    
+    <?php $count = 0; ?>
     <?php if(isset($replies)) : ?>
     <?php foreach($replies as $reply) : ?>
-        
+        <?php $count = $count+1; ?>
         
         <?php
             $id = $reply['by'];
@@ -122,22 +119,29 @@
     <p>No Replies To Display</p>
     <?php endif; ?>
     
-   
+    
+    <!--  -->
+    <?php echo "Reply Count: "; ?>
+    <?php echo $count; ?>
+    <!--  -->
+
+
     <h5 class="mt-4">Add Reply</h5>
     <?php echo validation_errors(); ?>
-    <?php echo form_open('replies/create/'.$post['id']); ?>
-    
-    <div class="form-group mb-3">
-        <input type="text" name="title" class="form-control" placeholder="Title">
+    <?php if(isset($_SESSION['user'])):?>
+        <?php echo form_open('replies/create/'.$post['id']); ?>
+        
+        <!-- <div class="form-group mb-3">
+            <input type="text" name="title" class="form-control" placeholder="Title">
+        </div> -->
+        <div class="form-group">
+            <textarea name="content" class="form-control" placeholder="Content"></textarea>
+        </div>
+            <input type="hidden" name="id" value="<?php echo $post['id']; ?>">
+            <button class="btn btn-primary mt-4" type="submit">Submit</button>
+        </form>
     </div>
-    <div class="form-group">
-        <textarea name="content" class="form-control" placeholder="Content"></textarea>
-    </div>
-    <input type="hidden" name="slug" value="<?php echo $post['id']; ?>">
-    <button class="btn btn-primary mt-4" type="submit">Submit</button>
-    </form>
-    </div>
-    
+    <?php endif; ?>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     </body>

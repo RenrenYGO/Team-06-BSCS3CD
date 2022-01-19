@@ -114,5 +114,4 @@ class Posts extends CI_Controller {
         $this->post_model->downvote_post($id);
         $this->view($this->input->post('downvote'));
     }
-    
 }

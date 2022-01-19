@@ -1,10 +1,9 @@
 <?php
 	class Replies extends CI_Controller{
 		public function create($post_id){
-			$slug = $this->input->post('slug');
-			$data['post'] = $this->post_model->get_posts($slug);
+			$id = $this->input->post('id');
+			$data['post'] = $this->post_model->get_posts($id);
 
-			$this->form_validation->set_rules('title', 'Title', 'required');
 			$this->form_validation->set_rules('content', 'Content', 'required');
 
 
@@ -15,7 +14,9 @@
                 $this->sitelayout->loadTemplate('posts/view', $data);
 			} else {
 				$this->replies_model->create_replies($post_id);
-				redirect('posts/'.$slug);
+				redirect('posts/'.$id);
 			}
+
+
 		}
 	}
