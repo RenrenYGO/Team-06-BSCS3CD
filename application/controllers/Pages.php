@@ -43,7 +43,7 @@ public function about($page = 'about') {
 }
 
 
-public function about($page = 'faqs') {
+public function faqs($page = 'faqs') {
         if ( ! file_exists(APPPATH.'views/templates/'.$page.'.php')){
                 echo "Whoops, we don't have a page for that!";
                 show_404();
