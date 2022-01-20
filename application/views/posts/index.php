@@ -10,12 +10,21 @@
 </head>
 <body>
   <div class="container pt-5 mt-5 mb-5">
+
+  <h2>Search in Commhub</h2>
+  <form action = "<?php echo site_url('posts/skeyword/');?>" method="post">
+    <input type="text" name="title">
+    <button type="submit" name="submit" value="Search">Search</button>
+  </form>
+
+
   <h3 class="pt-5 mb-3">Popular Tags</h3>
 <div class="tags d-flex border border-2 p-3">
 <a class="ms-2 rounded rounded-3 px-2 text-decoration-none link-dark" id="tags" href="threads">Tup Stuff</a>
 <a class="ms-2 rounded rounded-3 px-2 text-decoration-none link-dark" id="tags" href="threads">Random Stuff</a>
 <a class="ms-2 rounded rounded-3 px-2 text-decoration-none link-dark" id="tags" href="threads">Game Stuff</a>
 </div>
+
     <!-- User id to name -->
     <div class="d-flex flex-row ">
     <h3 class="pt-5  "><?= $title ?></h3>
@@ -24,14 +33,11 @@
     </h3>
     </div>
 <?php foreach($posts as $post) : ?>
-  <?php
-        $id = $post['by'];
-        $query = $this->db->query("SELECT * FROM user WHERE id = '$id'");
-        $post['name'] = $query->row()->{'name'};
-  ?>
+
         <!-- End -->
   <div class="container pt-3 border bg-white border-none mt-3">
   <dl class="row ps-3">
+
     <!-- href to profile -->
     <div class="d-flex flex-wrap ">
       <img src="<?php echo base_url('assets/avatar.jpg' ); ?>" width= "60" >
@@ -48,11 +54,7 @@
   <a id="title" href="<?php echo site_url('/posts/'. $post['id']); ?>" class="link-secondary">
  
     <h3 class="display pt-2" ><?php echo $post['title']; ?></h3></a>
-    <?php
-        $id = $post['thread_id'];
-        $query = $this->db->query("SELECT * FROM threads WHERE id = '$id'");
-        $post['at'] = $query->row()->{'name'};
-  ?>
+
 <div class="d-inline-flex">
   <dd class="ms-2 rounded rounded-3 px-2" id="tags"><?php echo $post['at']; ?></dd>
   </div>
@@ -71,6 +73,8 @@
         <img class="display py-2 me-1"  src="<?php echo base_url('assets/node_modules/bootstrap-icons/icons/hand-thumbs-down.svg');?>"><?php echo $post['downvote']; ?>
       </div>
 
+      <?php echo "Reply Count: "; ?>
+      <?php echo $post['reply_count']; ?>
       
       <!--  -->
       <div class="p-2">

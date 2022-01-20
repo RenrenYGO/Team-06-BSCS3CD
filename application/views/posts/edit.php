@@ -34,11 +34,23 @@
             <label>Title</label>
             <input type="text" class="form-control" name="title" placeholder= "Add Title" value="<?php echo $post['title'];?>">
     </div>
+
+
     <div class="form-group">
         <label>Content</label>
         <textarea class="form-control" id="editor1" name="content" placeholder="Add Content"
         ><?php echo $post['content'];?></textarea>
     </div>
+
+    <div class="form-group">
+    <label>Thread</label>
+    <select name="thread_id" class="form-control">
+        <?php foreach($threads as $thread): ?>
+        <option value="<?php echo $thread['id']; ?>"><?php echo $thread['name']; ?></option>
+        <?php endforeach; ?>
+    </select>
+    </div>
+
     <div class="d-flex mb-4"> <!-- row align -->
         <button type="submit" class="btn btn-default mt-3">Submit</button>
         <!-- cancel button --> 

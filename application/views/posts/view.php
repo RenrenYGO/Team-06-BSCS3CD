@@ -18,31 +18,27 @@
     <div class="container pt-3 border bg-white border-none mt-3">
     <dl class="row pt-2 ps-3 pe-3">
 
-    <?php
-        $id = $post['by'];
-        $query = $this->db->query("SELECT * FROM user WHERE id = '$id'");
-        $post['name'] = $query->row()->{'name'};
-    ?>
     <br>
 
     <div class="d-flex flex-wrap ">
     <img src="<?php echo base_url('assets/avatar.jpg' ); ?>" width= "60" >
     <div class=" ps-2 row">
     <dt id="username"> <?php echo $post['name']; ?></dt> 
+
+    
     <dd class=" text-muted " id="date"><small> <?php echo $post['date']; ?></small></dd>
     </div>
-
-    <?php
-        $thread_id = $post['thread_id'];
-        $query = $this->db->query("SELECT * FROM threads WHERE id = '$thread_id'");
-        $post['at'] = $query->row()->{'name'};
-    ?>
 
     <?php echo $post['at']; ?>
 
     <div class="ms-auto">
-<!-- edit button-->  
-<?php if(isset($_SESSION['user']) && $this->session->userdata('user')['id'] == $id):?>
+
+    
+<!-- edit button--> 
+    <?php 
+        if($this->session->userdata('user')['id'] == $post['by']): 
+    ?>
+    
     
     <a class="btn mb-3 px-2" id="edit" href="<?php echo base_url('posts/edit/'); ?><?php echo $post['id']; ?>"> <img src="<?php echo base_url('assets/node_modules/bootstrap-icons/icons/pencil-square.svg'); ?>" alt="edit"></a>
 <?php endif; ?>
@@ -88,16 +84,8 @@
     <hr>
     <h4>Replies</h4>
    
-    <?php $count = 0; ?>
     <?php if(isset($replies)) : ?>
     <?php foreach($replies as $reply) : ?>
-        <?php $count = $count+1; ?>
-        
-        <?php
-            $id = $reply['by'];
-            $query = $this->db->query("SELECT * FROM user WHERE id = '$id'");
-            $reply['name'] = $query->row()->{'name'};
-        ?>
        
        <div class="row ms-1 ps-2 container border bg-white border-none">
     <!-- href to profile -->
@@ -105,7 +93,7 @@
     <div class="d-flex flex-wrap mt-2">
     <img src="<?php echo base_url('assets/avatar.jpg' ); ?>" width= "60" >
     <div class=" ps-2 row">
-    <dt id="username"> <?php echo $post['name']; ?></dt> 
+    <dt id="username"> <?php echo $reply['name']; ?></dt> 
     <dd class=" text-muted " id="date"><small> <?php echo $post['date']; ?></small></dd>
     </div>
     </div>
@@ -118,13 +106,6 @@
         
     <p>No Replies To Display</p>
     <?php endif; ?>
-    
-    
-    <!--  -->
-    <?php echo "Reply Count: "; ?>
-    <?php echo $count; ?>
-    <!--  -->
-
 
     <h5 class="mt-4">Add Reply</h5>
     <?php echo validation_errors(); ?>
@@ -142,6 +123,9 @@
         </form>
     </div>
     <?php endif; ?>
+
+    <?php echo "Reply Count: "; ?>
+    <?php echo $post['reply_count']; ?>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     </body>

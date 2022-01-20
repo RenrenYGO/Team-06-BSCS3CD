@@ -6,15 +6,59 @@
 				$this->load->database();
 			}
 
+			public function get_view_data($id){
+
+				$query = $this->db->get_where('posts', array('id' => $id));
+				$post = $query->row_array();
+
+				$id = $post['by'];
+				$query = $this->db->query("SELECT * FROM user WHERE id = '$id'");
+				$post['name'] = $query->row()->{'name'};
+
+				$thread_id = $post['thread_id'];
+				$query = $this->db->query("SELECT * FROM threads WHERE id = '$thread_id'");
+				$post['at'] = $query->row()->{'name'};
+
+				return $post;
+				
+			}
+
+			public function get_index_data($posts){
+
+				// $this->db->order_by('id', 'DESC');
+				// $query = $this->db->get('posts');
+				// $posts = $query->result_array();
+					
+				
+				foreach($posts as $key => $post){
+					$id = $post['by'];
+					$query = $this->db->query("SELECT * FROM user WHERE id = '$id'");
+					$posts[$key]['name'] = $query->row()->{'name'};
+				}
+
+				foreach($posts as $key => $post){
+					$id = $post['thread_id'];
+					$query = $this->db->query("SELECT * FROM threads WHERE id = '$id'");
+					$posts[$key]['at'] = $query->row()->{'name'};
+				}
+
+				return $posts;
+
+			}
+
 			public function get_posts($id = FALSE){
 				if($id === FALSE){
+
 					$this->db->order_by('id', 'DESC');
 					$query = $this->db->get('posts');
-					return $query->result_array();
+					$posts = $query->result_array();
+
+					return $this->get_index_data($posts);
+
 				}
-				//$this->db->join('user', 'user.id = '.'posts'.'.by');
-				$query = $this->db->get_where('posts', array('id' => $id));
-				return $query->row_array();
+				
+				// $this->db->join('user', 'user.id = '.'posts'.'.by');
+				return $this->get_view_data($id);
 			}
 
 			public function create_post($data, $post_image){
@@ -40,6 +84,7 @@
 					'slug' => $slug,
 					'by' => $data['createdBy'],
 					'content' => $data['content'],
+					'thread_id' => $data['thread_id']
 					// 'reply_count' => $reply_count
 				);
 				$this->db->where('id', $this->input->post('id'));
@@ -76,10 +121,34 @@
 			}
 	
 			public function get_posts_by_thread($thread_id){
+				
+				$this->db->select('posts.*,threads.name');//get the name only in the threads table
 				$this->db->order_by('posts.id', 'DESC');
 				$this->db->join('threads', 'threads.id = posts.thread_id');
-					$query = $this->db->get_where('posts', array('thread_id' => $thread_id));
-				return $query->result_array();
+				$query = $this->db->get_where('posts', array('thread_id' => $thread_id));
+
+				
+				return $this->get_index_data($query->result_array());
+				// return $query->result_array();
+
+			}
+
+			public function get_search($key){
+
+				$this->db->like('title',$key);
+				$query = $this->db->get('posts');
+
+				// echo "<pre>";
+				// var_dump($query->result_array());
+				// echo "</pre>";
+				// exit;
+
+				return $this->get_index_data($query->result_array());
+				// return $query->result_array();
+
+				// $this->db->like('title',$key);
+				// $query = $this->db->get('posts');
+				// return $query->result();
 			}
 	}
 
