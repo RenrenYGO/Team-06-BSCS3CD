@@ -11,6 +11,9 @@
 				'by' => $this->session->userdata('user')['id'],
 				'content' => $this->input->post('content')
 			);
+			$this->db->set('reply_count', 'reply_count+1', FALSE);
+			$this->db->where('id', $post_id);
+			$this->db->update('posts');
 			return $this->db->insert('replies', $data);
 		}
 

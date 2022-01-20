@@ -21,6 +21,13 @@ class Posts extends CI_Controller {
         
     }
 
+    public function skeyword(){
+
+        $key = $this->input->post('title');
+        $data['results'] = $this->post_model->search($key);
+        $this->load->view('posts/skeyview',$data);
+    }
+
     public function view($id = NULL){
         $data['post'] = $this -> post_model -> get_posts($id);
         $post_id = $data['post']['id'];
@@ -81,7 +88,7 @@ class Posts extends CI_Controller {
             redirect('/login');
         } 
         
-
+        $data['threads'] = $this->post_model->get_threads();
         $data['title'] = 'Edit Post';
         $data['user'] = $this->user;
 

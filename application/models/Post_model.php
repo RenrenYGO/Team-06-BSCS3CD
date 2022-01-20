@@ -40,6 +40,7 @@
 					'slug' => $slug,
 					'by' => $data['createdBy'],
 					'content' => $data['content'],
+					'thread_id' => $data['thread_id']
 					// 'reply_count' => $reply_count
 				);
 				$this->db->where('id', $this->input->post('id'));
@@ -80,6 +81,12 @@
 				$this->db->join('threads', 'threads.id = posts.thread_id');
 					$query = $this->db->get_where('posts', array('thread_id' => $thread_id));
 				return $query->result_array();
+			}
+
+			public function search($key){
+				$this->db->like('title',$key);
+				$query = $this->db->get('posts');
+				return $query->result();
 			}
 	}
 

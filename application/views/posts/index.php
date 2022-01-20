@@ -10,12 +10,21 @@
 </head>
 <body>
   <div class="container pt-5 mt-5 mb-5">
+
+  <h2>Search in Commhub</h2>
+  <form action = "<?php echo site_url('posts/skeyword/');?>" method="post">
+    <input type="text" name="title">
+    <button type="submit" name="submit" value="Search">Search</button>
+  </form>
+
+
   <h3 class="pt-5 mb-3">Popular Tags</h3>
 <div class="tags d-flex border border-2 p-3">
 <a class="ms-2 rounded rounded-3 px-2 text-decoration-none link-dark" id="tags" href="threads">Tup Stuff</a>
 <a class="ms-2 rounded rounded-3 px-2 text-decoration-none link-dark" id="tags" href="threads">Random Stuff</a>
 <a class="ms-2 rounded rounded-3 px-2 text-decoration-none link-dark" id="tags" href="threads">Game Stuff</a>
 </div>
+
     <!-- User id to name -->
     <div class="d-flex flex-row ">
     <h3 class="pt-5  "><?= $title ?></h3>
@@ -71,6 +80,8 @@
         <img class="display py-2 me-1"  src="<?php echo base_url('assets/node_modules/bootstrap-icons/icons/hand-thumbs-down.svg');?>"><?php echo $post['downvote']; ?>
       </div>
 
+      <?php echo "Reply Count: "; ?>
+      <?php echo $post['reply_count']; ?>
       
       <!--  -->
       <div class="p-2">

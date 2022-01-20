@@ -29,8 +29,6 @@
     <img src="<?php echo base_url('assets/avatar.jpg' ); ?>" width= "60" >
     <div class=" ps-2 row">
     <dt id="username"> <?php echo $post['name']; ?></dt> 
-
-    
     <dd class=" text-muted " id="date"><small> <?php echo $post['date']; ?></small></dd>
     </div>
 

@@ -14,9 +14,8 @@
                 $this->sitelayout->loadTemplate('posts/view', $data);
 			} else {
 				$this->replies_model->create_replies($post_id);
+				// $this->view($this->input->post('reply_count'));
 				redirect('posts/'.$id);
 			}
-
-
 		}
 	}
