@@ -13,10 +13,7 @@ class Posts extends CI_Controller {
     public function index(){
        
         $data['title'] = 'Latest Posts';
-
         $data['posts'] = $this -> post_model -> get_posts();
-        
-
         $this->sitelayout->loadTemplate('posts/index', $data);
         
     }
@@ -24,8 +21,10 @@ class Posts extends CI_Controller {
     public function skeyword(){
 
         $key = $this->input->post('title');
-        $data['results'] = $this->post_model->search($key);
-        $this->load->view('posts/skeyview',$data);
+        $data['title'] = 'Searched: '.$key;
+        $data['posts'] = $this->post_model->get_search($key);
+        $this->sitelayout->loadTemplate('posts/index',$data);
+        
     }
 
     public function view($id = NULL){
@@ -36,6 +35,7 @@ class Posts extends CI_Controller {
         if(empty($data['post'])){
             show_404();
         }
+
         $data['title'] = $data['post']['title'];
 
         $this->sitelayout->loadTemplate('posts/view', $data);
@@ -86,7 +86,7 @@ class Posts extends CI_Controller {
     
         if(!isset($this->user) && $this->user==null){
             redirect('/login');
-        } 
+        }
         
         $data['threads'] = $this->post_model->get_threads();
         $data['title'] = 'Edit Post';

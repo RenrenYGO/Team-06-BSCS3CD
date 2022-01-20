@@ -18,11 +18,6 @@
     <div class="container pt-3 border bg-white border-none mt-3">
     <dl class="row pt-2 ps-3 pe-3">
 
-    <?php
-        $id = $post['by'];
-        $query = $this->db->query("SELECT * FROM user WHERE id = '$id'");
-        $post['name'] = $query->row()->{'name'};
-    ?>
     <br>
 
     <div class="d-flex flex-wrap ">
@@ -34,17 +29,16 @@
     <dd class=" text-muted " id="date"><small> <?php echo $post['date']; ?></small></dd>
     </div>
 
-    <?php
-        $thread_id = $post['thread_id'];
-        $query = $this->db->query("SELECT * FROM threads WHERE id = '$thread_id'");
-        $post['at'] = $query->row()->{'name'};
-    ?>
-
     <?php echo $post['at']; ?>
 
     <div class="ms-auto">
-<!-- edit button-->  
-<?php if(isset($_SESSION['user']) && $this->session->userdata('user')['id'] == $id):?>
+
+    
+<!-- edit button--> 
+    <?php 
+        if($this->session->userdata('user')['id'] == $post['by']): 
+    ?>
+    
     
     <a class="btn mb-3 px-2" id="edit" href="<?php echo base_url('posts/edit/'); ?><?php echo $post['id']; ?>"> <img src="<?php echo base_url('assets/node_modules/bootstrap-icons/icons/pencil-square.svg'); ?>" alt="edit"></a>
 <?php endif; ?>
@@ -92,12 +86,6 @@
    
     <?php if(isset($replies)) : ?>
     <?php foreach($replies as $reply) : ?>
-        
-        <?php
-            $id = $reply['by'];
-            $query = $this->db->query("SELECT * FROM user WHERE id = '$id'");
-            $reply['name'] = $query->row()->{'name'};
-        ?>
        
        <div class="row ms-1 ps-2 container border bg-white border-none">
     <!-- href to profile -->
@@ -105,7 +93,7 @@
     <div class="d-flex flex-wrap mt-2">
     <img src="<?php echo base_url('assets/avatar.jpg' ); ?>" width= "60" >
     <div class=" ps-2 row">
-    <dt id="username"> <?php echo $post['name']; ?></dt> 
+    <dt id="username"> <?php echo $reply['name']; ?></dt> 
     <dd class=" text-muted " id="date"><small> <?php echo $post['date']; ?></small></dd>
     </div>
     </div>

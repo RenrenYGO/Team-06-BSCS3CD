@@ -18,7 +18,21 @@
 		}
 
 		public function get_replies($post_id){
+
 			$query = $this->db->get_where('replies', array('post_id' => $post_id));
-			return $query->result_array();
+			$replies = $query->result_array();
+
+			// echo "<pre>";
+			// var_dump($replies);
+			// echo "</pre>";
+			// exit;
+
+			foreach($replies as $key => $reply){
+				$id = $reply['by'];
+				$query = $this->db->query("SELECT * FROM user WHERE id = '$id'");
+				$replies[$key]['name'] = $query->row()->{'name'};
+			}
+			
+			return $replies;
 		}
 	}

@@ -33,14 +33,11 @@
     </h3>
     </div>
 <?php foreach($posts as $post) : ?>
-  <?php
-        $id = $post['by'];
-        $query = $this->db->query("SELECT * FROM user WHERE id = '$id'");
-        $post['name'] = $query->row()->{'name'};
-  ?>
+
         <!-- End -->
   <div class="container pt-3 border bg-white border-none mt-3">
   <dl class="row ps-3">
+
     <!-- href to profile -->
     <div class="d-flex flex-wrap ">
       <img src="<?php echo base_url('assets/avatar.jpg' ); ?>" width= "60" >
@@ -57,11 +54,7 @@
   <a id="title" href="<?php echo site_url('/posts/'. $post['id']); ?>" class="link-secondary">
  
     <h3 class="display pt-2" ><?php echo $post['title']; ?></h3></a>
-    <?php
-        $id = $post['thread_id'];
-        $query = $this->db->query("SELECT * FROM threads WHERE id = '$id'");
-        $post['at'] = $query->row()->{'name'};
-  ?>
+
 <div class="d-inline-flex">
   <dd class="ms-2 rounded rounded-3 px-2" id="tags"><?php echo $post['at']; ?></dd>
   </div>
