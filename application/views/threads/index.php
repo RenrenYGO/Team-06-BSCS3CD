@@ -1,8 +1,28 @@
-<h2><?= $title; ?></h2>
-<ul class="list-group">
-<?php foreach($threads as $thread) : ?>
-	<li class="list-group-item"><a href="<?php echo site_url('/threads/posts/'.$thread['id']); ?>"><?php echo $thread['name']; ?></a>
-		
-	</li>
-<?php endforeach; ?>
-</ul>
+
+<!DOCTYPE html>
+<html>
+<head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <style>
+        <?php include 'threads.css';?>
+    </style>
+</head>
+
+<body>
+<div class="container mt-5">
+	<div class="p-5"><h1><?= $title; ?></h1></div>
+	<div class=" pb-5 pe-5 ps-5 bg-none text-dark rounded jumbotron">
+	
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat..</p> 
+  	</div>
+	
+	<ul class="list-group list-group  ps-1 tags">
+	<?php foreach($threads as $thread) : ?>
+		<li ><a class="button ms-5 position-relative" href="<?php echo site_url('/threads/posts/'.$thread['id']); ?>"><span class="tagname"><?php echo $thread['name']; ?></span><span class="position-absolute top-0 start-100 translate-middle badge rounded-pill badge_bg">99+</span></a>
+		</li>
+	<?php endforeach; ?>
+	</ul>
+</div>
+
+</body>
+</html>

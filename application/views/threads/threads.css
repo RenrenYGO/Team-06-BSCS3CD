@@ -1,0 +1,70 @@
+h2 {
+    color: rgb(0, 0, 0);
+}
+
+.jumbotron {
+    border-radius: 50px;
+}
+
+.tags a {
+    background-color: #E8B04F;
+    display: inline-block;
+    border-radius: 16px;
+    border: none;
+    color: #ffffff;
+    text-align: center;
+    font-size: 1rem;
+    padding: .4rem;
+    width: 8.5rem;
+    transition: all 0.2s;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.button {
+    border-radius: 4px;
+    border: none;
+    color: #ffffff;
+    text-align: center;
+    font-size: 1rem;
+    padding: .4rem;
+    width: 8.5rem;
+    transition: all 0.2s;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.button .tagname {
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.2s;
+}
+
+.button .tagname:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.2s;
+}
+
+.button:hover .tagname {
+    padding-right: 25px;
+    color: #382400;
+}
+
+.button:hover .tagname:after {
+    opacity: 1;
+    right: 0;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.badge_bg {
+    background-color: gray;
+}
