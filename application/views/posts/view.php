@@ -35,10 +35,7 @@
 
     
 <!-- edit button--> 
-    <?php 
-        if($this->session->userdata('user')['id'] == $post['by']): 
-    ?>
-    
+    <?php if($this->session->userdata('user')['id'] == $id):?>
     
     <a class="btn mb-3 px-2" id="edit" href="<?php echo base_url('posts/edit/'); ?><?php echo $post['id']; ?>"> <img src="<?php echo base_url('assets/node_modules/bootstrap-icons/icons/pencil-square.svg'); ?>" alt="edit"></a>
 <?php endif; ?>
