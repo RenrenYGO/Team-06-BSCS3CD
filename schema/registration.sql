@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 19, 2022 at 03:50 PM
+-- Generation Time: Jan 21, 2022 at 03:15 PM
 -- Server version: 10.4.21-MariaDB
--- PHP Version: 7.4.25
+-- PHP Version: 8.0.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,27 @@ SET time_zone = "+00:00";
 --
 -- Database: `registration`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `newsletter`
+--
+
+CREATE TABLE `newsletter` (
+  `id` int(255) NOT NULL,
+  `email` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `newsletter`
+--
+
+INSERT INTO `newsletter` (`id`, `email`) VALUES
+(1, 'cardo85@mail.com'),
+(2, 'woketh12@mail.com'),
+(3, 'ads@gmail.com'),
+(4, 'ekis@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -46,7 +67,7 @@ CREATE TABLE `posts` (
 --
 
 INSERT INTO `posts` (`id`, `title`, `content`, `date`, `by`, `slug`, `post_image`, `upvote`, `downvote`, `thread_id`, `reply_count`) VALUES
-(84, 'qweqwes', '<p>qweqweqeq</p>\r\n', '2022-01-19 22:46:56', 2, 'qweqwes', 'noimage.jpg', 0, 0, 3, 0);
+(85, 'ang galing ni mark', '<p>double vegi bite prickly trap</p>\r\n', '2022-01-21 21:50:13', 2, 'ang-galing-ni-mark', 'noimage.jpg', 1, 0, 3, 0);
 
 -- --------------------------------------------------------
 
@@ -61,13 +82,6 @@ CREATE TABLE `replies` (
   `date` datetime NOT NULL DEFAULT current_timestamp(),
   `by` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `replies`
---
-
-INSERT INTO `replies` (`id`, `post_id`, `content`, `date`, `by`) VALUES
-(39, 84, 'asdasdasdad', '2022-01-19 22:47:02', 2);
 
 -- --------------------------------------------------------
 
@@ -120,6 +134,12 @@ INSERT INTO `user` (`id`, `name`, `email`, `password`) VALUES
 --
 
 --
+-- Indexes for table `newsletter`
+--
+ALTER TABLE `newsletter`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `posts`
 --
 ALTER TABLE `posts`
@@ -155,10 +175,16 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT for table `newsletter`
+--
+ALTER TABLE `newsletter`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
 
 --
 -- AUTO_INCREMENT for table `replies`
