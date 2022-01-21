@@ -68,5 +68,17 @@ public function help($page = 'help') {
         //$this->load->view('registration/'.$page, $data);
        // $this->load->view('templates/footer', $data);
 }
+public function profile($page = 'profile') {
+        if ( ! file_exists(APPPATH.'views/templates/'.$page.'.php')){
+                echo "Whoops, we don't have a page for that!";
+                show_404();
+        }
+    
+        $data['title'] = ucfirst($page); // Capitalize the first letter
+        $this->sitelayout->loadTemplate('templates/profile', $data);
+       // $this->load->view('templates/header', $data);
+        //$this->load->view('registration/'.$page, $data);
+       // $this->load->view('templates/footer', $data);
+    }
 
 }
