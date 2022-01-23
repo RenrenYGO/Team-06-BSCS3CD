@@ -4,9 +4,9 @@ class Posts extends CI_Controller {
     private $user = null;
 
     public function __construct(){
+
         parent::__construct();
-        $this->user = $this->session->userdata('user');
-        
+        $this->user = $this->session->userdata('user');  
 
     }
 
@@ -121,4 +121,5 @@ class Posts extends CI_Controller {
         $this->post_model->downvote_post($id);
         $this->view($this->input->post('downvote'));
     }
+
 }

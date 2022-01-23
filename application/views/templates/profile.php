@@ -23,7 +23,15 @@
                                 <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/213e1bbd-241c-443a-bcd7-e8210970053b/d6wxpix-5c9e540d-7a2b-4f0d-91e9-6204645feec4.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzIxM2UxYmJkLTI0MWMtNDQzYS1iY2Q3LWU4MjEwOTcwMDUzYlwvZDZ3eHBpeC01YzllNTQwZC03YTJiLTRmMGQtOTFlOS02MjA0NjQ1ZmVlYzQuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.RhlesP7BcbUgJPb0bQ06lVIw9Tt_HtzWR9J7jUKYObE"
                                     alt="" class="img-raised img-fluid text-center">
                             <div class="name">
-                                <h3 class="title">Alexander Grahambell</h3>
+
+                            <?php
+                                // echo "<pre>";
+                                // var_dump($this->session->userdata('user'));
+                                // echo "</pre>";
+                                // exit;
+                            ?>
+
+                                <h3 class="title"><?php echo $this->session->userdata('user')['name'] ?></h3>
                             </div>
                         </div>
                     </div>
@@ -34,11 +42,13 @@
                     <div class="col-4 py-5 ">
                         <div class="p-3 border border-dark box">
                             <h3>About Me</h3>
-                            <p>Lorem ipsum dolor sit amet.</p>
-                            <p>Lorem ipsum dolor sit amet.</p>
-                            <p>Lorem ipsum dolor sit amet.</p>
-                            <p>Lorem ipsum dolor sit amet.</p>
-                            <p>Lorem ipsum dolor sit amet.</p>
+                            <p>
+                                <?php 
+                                    echo $user['bio'];
+                                ?>
+                        
+                                <a class="btn mb-3 px-2" id="edit" href="<?php echo base_url('users/index'); ?>"> <img src="<?php echo base_url('assets/node_modules/bootstrap-icons/icons/pencil-square.svg'); ?>" alt="edit"></a>
+                            </p>
                         </div>
                         <div class="mt-5 p-3 border border-dark box">
                             <h3>Top Tags</h3>
