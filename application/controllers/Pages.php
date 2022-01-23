@@ -75,7 +75,7 @@ public function profile($page = 'profile') {
         }
     
         $data['title'] = ucfirst($page); // Capitalize the first letter
-        $data['user'] = $this->user_model->get_bio();
+        $data['user'] = $this->user_model->get_profile();
         $this->sitelayout->loadTemplate('templates/profile', $data);
        // $this->load->view('templates/header', $data);
         //$this->load->view('registration/'.$page, $data);

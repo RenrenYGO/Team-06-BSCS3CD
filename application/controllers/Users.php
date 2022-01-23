@@ -19,10 +19,10 @@ class Users extends CI_Controller {
 
     }
 
-    public function edit_bio(){
+    public function edit_profile(){
 
         $data = $this->input->post();
-        $this->user_model->update_bio($data);
+        $this->user_model->update_profile($data);
         redirect('pages/profile');
         // $this->sitelayout->loadTemplate('users/index', $data);
 

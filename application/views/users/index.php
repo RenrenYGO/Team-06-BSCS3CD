@@ -8,16 +8,20 @@
 	<?php include 'style.css'; ?>
 </style>
 </head>
-<body>
+<body><br><br><br>
+<div class="container mt-5">
 
-
-<?php echo form_open("users/edit_bio"); ?>
-<input type="hidden" name="id" value="<?php echo $this->session->userdata('user')['id'];?>">   
+<?php echo form_open("users/edit_profile"); ?>
+<input type="hidden" name="id" value="<?php echo $this->session->userdata('user')['id'];?>">
    
     <div class="form-group">
-        <label>Bio</label>
-        <textarea class="form-control" id="editor1" name="bio" placeholder="Edit Bio"
-        ><?php //echo $user['bio'];?></textarea>
+
+        <label>Edit Username</label>
+        <textarea class="form-control" name="name" placeholder="Edit Username"></textarea>
+
+        <label>Edit Bio</label>
+        <textarea class="form-control" id="editor1" name="bio" placeholder="Edit Bio"></textarea>
+        
     </div>
 
     <div class="d-flex mb-4"> <!-- row align -->
@@ -30,5 +34,6 @@
     </div> <!-- row align --> 
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    </body>
+</div>  
+</body>
 </html>
