@@ -94,6 +94,20 @@
     </div>
     </div>
     <p class="mt-1 ps-3 d-inline-block text-truncate" id="description" style="max-width: 700px;"><?php echo $reply['content']; ?></p>
+    
+    <?php echo form_open('/replies/upvoteR/'.$reply['id'].'/'.$post['id']); ?>
+    <input type="submit"  class="bg bg-success border border-success" value=" ">
+    <input name="upvote" type="hidden" value="<?php echo $reply['id']?>">
+    <!-- <img src="<?php //echo base_url('assets/node_modules/bootstrap-icons/icons/arrow-up-circle.svg'); ?>" id="arrowup"> -->
+    <?php echo $reply['upvote']; ?>
+    </form>
+    <?php echo "---------------";?>
+    <?php echo form_open('/replies/downvoteR/'.$reply['id'].'/'.$post['id']); ?>
+    <input type="submit"  class="bg bg-success border border-success" value=" ">
+    <input name="downvote" type="hidden" value="<?php echo $reply['id']?>">
+    <!-- <img src="<?php //echo base_url('assets/node_modules/bootstrap-icons/icons/arrow-down-circle.svg'); ?>" id="arrowdown"> -->
+    <?php echo $reply['downvote']; ?>
+    </form>
 
     </div>
         

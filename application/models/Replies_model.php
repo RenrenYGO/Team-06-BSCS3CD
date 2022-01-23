@@ -35,4 +35,16 @@
 			
 			return $replies;
 		}
+
+		public function upvote_reply($id){
+			$this->db->set('upvote', 'upvote+1', FALSE);
+			$this->db->where('id', $id);
+			$this->db->update('replies');
+		}
+	
+		public function downvote_reply($id){
+			$this->db->set('downvote', 'downvote+1', FALSE);
+			$this->db->where('id', $id);
+			$this->db->update('replies');
+		}
 	}
