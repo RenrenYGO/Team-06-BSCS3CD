@@ -6,11 +6,12 @@ class User_model extends CI_Model{
         $this->load->database();
     }
 
-    public function update_bio($data){
+    public function update_profile($data){
 
         $data2 = array(
 
-            'bio' => $data['bio']
+            'bio' => $data['bio'],
+            'name' => $data['name']
 
         );
         
@@ -18,7 +19,7 @@ class User_model extends CI_Model{
         return $this->db->update('user', $data2);
     }
 
-    public function get_bio(){
+    public function get_profile(){
 
         $this->db->where('id', $this->session->userdata('user')['id']);
         $query = $this->db->get('user');
