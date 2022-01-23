@@ -17,7 +17,7 @@
     <div class="container p-3 pt-5 mt-5 ">
 
         <h1 class="heading text-center mt-5"> Ready to learn and contribute to the community? </h1>
-        <p class="subheading text-center pb-4"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae unde recusandae quibusdam </p>
+        <p class="subheading text-center pb-4"> Register and take on whatever is on your mind. </p>
         <div class="row pb-5 pt-2 col-lg-8 mx-auto border border-dark">
             <h3 class="pt-3 pb-1 text-center">
                  <?= $title; ?>
@@ -60,20 +60,24 @@
                     <p>
                         <b>AGREEMENT TO TERMS</b>
                         </h6>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate minima iste sapiente voluptatem corrupti ullam iure numquam enim atque, excepturi quis, dolor perferendis beatae impedit quod quae nisi magni odit consequatur
-                            tempora est eos sunt et. Odio atque, veritatis est harum omnis quae porro eum modi mollitia, eligendi explicabo in? Nostrum maiores laborum sunt? Quis exercitationem, dolor commodi suscipit rerum saepe, laboriosam sequi a labore
-                            temporibus repudiandae fugit voluptatibus veniam?
-                        </p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, sunt itaque. At, harum est nostrum mollitia excepturi rerum repellat quibusdam!
-                        </p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt harum dolores beatae nihil sed nostrum quae aperiam cum voluptates deleniti corrupti esse cupiditate veniam officia sint vitae saepe quas odit facere nam ad explicabo
-                            perspiciatis, maiores eius? Provident, perspiciatis architecto enim in nesciunt quae cum, mollitia impedit libero aliquam similique!
+                        <p>No one under 13 is allowed to use or access the Services. We may offer additional Services that require you to be older to use them, so please read all notices and any Additional Terms carefully when you access the Services.</p>
+
+                        <p> By using the Services, you state that:</p>
+
+                        <ul>You are at least 13 years old and over the minimum age required by the laws of your country of residence to access and use the Services;</ul> 
+                        <ul>You can form a binding contract with Reddit, or, if you are over 13 but under the age of majority in your jurisdiction, that your legal guardian has reviewed and agrees to these Terms; </ul>
+                        <ul>You are not barred from using the Services under all applicable laws; and</ul>
+                        <ul>You have not been permanently suspended or removed from the Services.</ul>
+
+                        <p>You understand that through your use of the Services, you consent to the collection and use of this information.</p>
+                        <p> If you are accepting these Terms on behalf of another legal entity, including a business or government entity, you represent that you have full legal authority to bind such entity to these Terms. </p>
+
                         </p>
                 </div>
                 <div class="checkbox form-check pt-2 ">
                     <input class=" form-check-input border-warning" type="checkbox" id="termsChkbx " onclick="change_button(this,'sub1')" />
                     <label class=" form-check-label " for="flexCheckDefault">
-					  I accept T&C
+					  I accept the all the <strike>Terms and Condition</strike>  cool stuff. 
 					</label>
                 </div>
             </form>

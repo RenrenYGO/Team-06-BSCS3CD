@@ -38,7 +38,7 @@
         
         if(isset($user) && $user!=null):?>
             
-           <img src="<?php echo base_url('assets/hhh.png');?>" alt="hindi gumana" class=" avatar dropdown  " width="50" height="50" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false"> 
+           <img src="<?php echo base_url('assets/avatar.jpg');?>" alt="hindi gumana" class=" avatar dropdown  " width="50" height="50" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false"> 
            <span class="dropdown-menu dropdown-menu-end me-4" role = "menu" aria-labelledby="dropdownMenuLink">
            <a class="dropdown-item " href="<?php echo base_url('pages/profile'); ?>">Profile</a>
             <a class="dropdown-item " href="<?php echo base_url('logout'); ?>">Logout</a>
