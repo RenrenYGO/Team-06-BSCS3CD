@@ -35,7 +35,7 @@ class Registration extends CI_Controller {
             $this->registration_model->get_reg($data);
             // Set message
             $this->session->set_flashdata('user_registered', 'You are now registered and can log in');
-                redirect('pages/view');
+                redirect('login');
         }
 	}
 
