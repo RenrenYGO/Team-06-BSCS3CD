@@ -14,7 +14,7 @@
         <div class="modal-header text-center border-0 ">
           <h3 class="modal-title w-100" >Reset your password </h3>
           <a href="<?php echo base_url('login'); ?>" class="link-custom text-decoration-none">
-          <button type="button" class="btn-close" aria-label="Close"></button></a>
+          <button type="button" class="btn-close" aria-label="Close">x</button></a>
         </div>
         <div class="form-group mb-2">
           <label for="exampleInputEmail1" style="margin-bottom: 10px; padding-top: 40px;">Email Address:</label>

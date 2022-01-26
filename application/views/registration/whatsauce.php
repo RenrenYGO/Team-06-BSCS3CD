@@ -14,20 +14,20 @@
 	</style>
 </head>
   <body>
-    <div class="container">
-      <div class="jumbotron shadow-sm rounded" style="padding: 100px; margin-top:60px; background-color: #ebe3e3a9; ">
-        <div class="col-md-6 px-0 ">
-          <h1 class="display-4 font-italic">Title</h1>
-          <p class="lead my-3">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Autem, voluptas?.</p>
-          <p class="lead mb-0"><a href="#" class=" font-weight-bold">Continue reading...</a></p>
-        </div>
+
+    <div class="jumbotron shadow-sm rounded" style="padding: 100px; margin-top:60px; background-color: #ebe3e3a9; ">
+      <div class="col-md-6 px-0 ">
+        <h1 class="display-4 font-italic">Need Sauce?</h1>
+        <p class="lead my-3">WhatSauce&trade; is right here with you!</p>
       </div>
+    </div>
+    <div class="container">
       <div class="row mb-2">
+        <h1 class="p-2 mt-3">Recent Additions</h1>
     	<div class="col-md-6">
           <div class="card flex-md-row mb-4 box-shadow h-md-250">
             <div class="card-body d-flex flex-column align-items-start">
-              <h3 class="mb-0">Featured post</h3>
-              <p class="blog-post-meta">January 26, 2022 by <a href="#">User</a></p>
+              <h3 class="mb-0">title of the topic</h3>
               <p class="card-text mb-auto">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus repellat ut, provident aperiam dolore numquam!</p>
               <a href="#">Continue reading...</a>
             </div>
@@ -36,8 +36,7 @@
         <div class="col-md-6">
           <div class="card flex-md-row mb-4 box-shadow h-md-250">
             <div class="card-body d-flex flex-column align-items-start">
-              <h3 class="mb-0">Featured post</h3>
-              <p class="blog-post-meta">January 26, 2022 by <a href="#">User</a></p>
+              <h3 class="mb-0">Title of the topic</h3>
               <p class="card-text mb-auto">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Debitis, blanditiis?</p>
               <a href="#">Continue reading...</a>
             </div>
@@ -53,21 +52,21 @@
 			<a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #e27114;" >All</a>
 			<ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
 				<li><a class="dropdown-item" href="#">All</a></li>
-    			<li><a class="dropdown-item" href="#">Category</a></li>
-    			<li><a class="dropdown-item" href="#">Another Category</a></li>
-    			<li><a class="dropdown-item" href="#">Another Category</a></li>
+    			<li><a class="dropdown-item" href="#">Science</a></li>
+    			<li><a class="dropdown-item" href="#">Math</a></li>
+    			<li><a class="dropdown-item" href="#">Programming</a></li>
+          <li><a class="dropdown-item" href="#">English</a></li>
+          <li><a class="dropdown-item" href="#">Filipino</a></li>
   			</ul>
 		</div>
         <div class="col-md-8 blog-main ">
         	<div class="blog-post "><hr>
             	<h2 class="blog-post-title">Title</h2>
-            	<p class="blog-post-meta">January 26, 2022 by <a href="#">User</a></p>
 				<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi dolorem veritatis reiciendis delectus est reprehenderit, cum quibusdam. Excepturi, eum eos fugit eveniet, officia alias accusamus nihil reprehenderit incidunt doloremque magnam.</p>
 				<a href="#">Continue reading...</a><hr>
 			</div>
 			<div class="blog-post">
             	<h2 class="blog-post-title">Another title post</h2>
-            	<p class="blog-post-meta">January 26, 2022 by <a href="#">User</a></p>
             	<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto sint cumque voluptatibus ea vero recusandae nam minus necessitatibus eligendi, quisquam sit, iure quos voluptates rem qui aspernatur, sapiente quis eaque officiis. Omnis, quae ad delectus quia alias nesciunt autem assumenda.</p>
 				<a href="#">Continue reading...</a><hr>
 			</div>

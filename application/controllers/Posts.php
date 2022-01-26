@@ -25,6 +25,7 @@ class Posts extends CI_Controller {
         $key = $this->input->post('title');
         $data['title'] = 'Searched: '.$key;
         $data['posts'] = $this->post_model->get_search($key);
+        $data['threads'] = $this->threads_model->get_threads();
         $this->sitelayout->loadTemplate('posts/index',$data);
         
     }
