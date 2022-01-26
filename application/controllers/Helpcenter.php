@@ -1,25 +1,25 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Newsletter extends CI_Controller {
+class Helpcenter extends CI_Controller {
     public function __construct(){
         parent::__construct();
     }
-
     public function index(){
-        $data['title'] = 'Sign Up for the Newsletter';
+        $data['title'] = 'Enter your Query';
         $this->form_validation->set_rules('email', 'Email', 'required|callback_check_email_exists');
 
-        if($this->form_validation->run() === false){
-            $this->load->view('registration/newsletter', $data);
+        if($this->form_validation->run() == FALSE){
+            $this->load->view('templates/help', $data);
         } else {
 			$data = array(
 				'email' => $this->input->post('email'),
+                'message'=>$this->input->post('editor1'),
 			);
 
-            $this->newsletter_model->get_news($data);
+            $this->helpcenter_model->get_help($data);
             // Set message
-            $this->session->set_flashdata('user_registered', 'You are now registered to the Commhub Newsletter!');
+             $this->session->set_flashdata('user_registered', 'You are now registered to the Commhub Newsletter!');
                 redirect('pages/view');
         }
 	}
