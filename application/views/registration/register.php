@@ -65,7 +65,7 @@
                         <p> By using the Services, you state that:</p>
 
                         <ul>You are at least 13 years old and over the minimum age required by the laws of your country of residence to access and use the Services;</ul> 
-                        <ul>You can form a binding contract with Reddit, or, if you are over 13 but under the age of majority in your jurisdiction, that your legal guardian has reviewed and agrees to these Terms; </ul>
+                        <ul>You can form a binding contract with Commhub, or, if you are over 13 but under the age of majority in your jurisdiction, that your legal guardian has reviewed and agrees to these Terms; </ul>
                         <ul>You are not barred from using the Services under all applicable laws; and</ul>
                         <ul>You have not been permanently suspended or removed from the Services.</ul>
 
