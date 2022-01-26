@@ -14,7 +14,9 @@ class Posts extends CI_Controller {
        
         $data['title'] = 'Latest Posts';
         $data['posts'] = $this -> post_model -> get_posts();
+        $data['threads'] = $this->threads_model->get_threads();
         $this->sitelayout->loadTemplate('posts/index', $data);
+        
         
     }
 
