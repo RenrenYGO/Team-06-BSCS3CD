@@ -11,7 +11,7 @@
 <body>
 <div class="container pt-5 mt-5">
                 <div class="my-5 d-flex flex-xl-row flex-lg-row flex-md-column flex-column justify-content-center  align-items-center">
-                <div class="imgyela ">
+                <div class="imgyela">
                         <img src=<?php echo base_url('assets/laptop.png');?> class="p-2" alt="laptop" height="650">
                     </div>
                                 <div class="text-black ps-lg-3 p-3">
