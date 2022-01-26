@@ -11,7 +11,11 @@
   <body>
     <div class="container-fluid" style="padding-top: 100px;">  
       <div class="box mt-5 col-6 mx-auto border border-2 " style="padding: 50px;">
-        <h3 class="text-center" >Reset your password </h3>
+        <div class="modal-header text-center border-0 ">
+          <h3 class="modal-title w-100" >Reset your password </h3>
+          <a href="<?php echo base_url('login'); ?>" class="link-custom text-decoration-none">
+          <button type="button" class="btn-close" aria-label="Close"></button></a>
+        </div>
         <div class="form-group mb-2">
           <label for="exampleInputEmail1" style="margin-bottom: 10px; padding-top: 40px;">Email Address:</label>
           <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your email">
