@@ -49,19 +49,20 @@
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">x </button>
                                     </div>
                                 <div class="modal-body">
-                                    <form>
+                                    <form id="helpcenter" name="helpcenter" method="post" action="<?php echo base_url();?>helpcenter/index" onsubmit='return validate()'>
                                         <div class="mb-3">
-                                            <label for="exampleInputEmail1" class="form-label">Email Address:</label>
-                                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                        <td>Enter Email: </td>
+                                        <input type="email" name="email" id="email" style="width:250px" required>
                                         </div>
                                         <div class="mb-3">
                                             <label for="message-text" class="col-form-label">Message:</label>
-                                            <textarea class="form-control" id="message-text"></textarea>
+                                            <textarea class="form-control" id="editor1" name="editor1"></textarea>
+                                            <input type = "submit" value="submit" class="button">
                                         </div>
                                     </form>
                                 </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn" style="background-color: #e8b04f;">Submit</button>
+                                        <!-- <button type="button" class="btn" style="background-color: #e8b04f;">Submit</button> -->
                                     </div>
                                 </div>
                             </div>

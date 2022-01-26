@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 23, 2022 at 02:08 PM
+-- Generation Time: Jan 26, 2022 at 03:03 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.11
 
@@ -24,6 +24,27 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `helpcenter`
+--
+
+CREATE TABLE `helpcenter` (
+  `id` int(255) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `message` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `helpcenter`
+--
+
+INSERT INTO `helpcenter` (`id`, `email`, `message`) VALUES
+(1, 'tabo@gmail.com', '<p>tabo tabo tabo</p>\r\n'),
+(2, 'ninjaskpasser@gmail.com', '<p>Help regarding Whatsauce</p>\r\n'),
+(3, 'renren@mail.com', '<p>Need some help regarding the forums<br />\r\n<br />\r\n&quot;Hello I am unable to currently view the section of Computer Science&quot;</p>\r\n');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `newsletter`
 --
 
@@ -40,7 +61,9 @@ INSERT INTO `newsletter` (`id`, `email`) VALUES
 (1, 'cardo85@mail.com'),
 (2, 'woketh12@mail.com'),
 (3, 'ads@gmail.com'),
-(4, 'ekis@gmail.com');
+(4, 'ekis@gmail.com'),
+(0, 'wew@gmail.com'),
+(0, 'meme@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -168,6 +191,12 @@ INSERT INTO `user` (`id`, `name`, `email`, `password`, `bio`) VALUES
 --
 
 --
+-- Indexes for table `helpcenter`
+--
+ALTER TABLE `helpcenter`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `posts`
 --
 ALTER TABLE `posts`
@@ -201,6 +230,12 @@ ALTER TABLE `user`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `helpcenter`
+--
+ALTER TABLE `helpcenter`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `posts`
