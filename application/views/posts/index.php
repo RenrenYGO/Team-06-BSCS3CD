@@ -12,11 +12,14 @@
 
 <div class="container pt-5 mt-5 mb-5">
     <!-- POPULAR TAGS -->
-    <h3 class="pt-5 mb-3">Popular Tags</h3>
-    <!--<?//php foreach//($threads as $thread) : ?>
-		<li ><a class="button ms-5 position-relative" href="<?php echo site_url('/threads/posts/'.$thread['id']); ?>"><span class="tagname"><?php echo $thread['name']; ?></span><span class="position-absolute top-0 start-100 translate-middle badge rounded-pill badge_bg">99+</span></a>
+   <a href="<?php echo base_url('threads'); ?>" id="poptags" data-bs-toggle="tooltip" data-bs-placement="right" title="Go to Tags"><h3 class="pt-5 mb-3">Popular Tags</h3></a>
+   
+   <ul class="list-group list-group-horizontal  ps-1 tags">
+   <?php foreach($threads as $thread) : ?>
+		<li ><a class="button ms-5 position-relative" href="<?php echo site_url('/threads/posts/'.$thread['id']); ?>"><span class="tagname"><?php echo $thread['name']; ?></span></a>
 		</li>
-	<?//php endforeach; ?>-->
+	<?php endforeach; ?>
+  </ul>
     <!-- CREATE POST BUTTON -->
     <h3 class="pt-5 text-center text-decoration-none ">
         <a href="<?php echo base_url('posts/create'); ?>" class="btn btn-custom" type="button" id="create"> Create a Post</a> 
