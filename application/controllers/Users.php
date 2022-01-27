@@ -20,7 +20,7 @@ class Users extends CI_Controller {
     }
 
     public function edit_profile(){
-
+        
         $data = $this->input->post();
         $this->user_model->update_profile($data);
         redirect('pages/profile');
