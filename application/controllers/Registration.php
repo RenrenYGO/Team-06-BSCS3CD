@@ -25,6 +25,7 @@ class Registration extends CI_Controller {
             
             // Encrypt password
             $enc_password = md5($this->input->post('password'));
+            // $enc_password = password_hash($this->input->post('password'), PASSWORD_DEFAULT);
 
 			$data = array(
 				'name' => $this->input->post('name'),

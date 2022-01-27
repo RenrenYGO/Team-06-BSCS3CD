@@ -26,7 +26,7 @@ class Helpcenter extends CI_Controller {
     // Check if email exists
 		public function check_email_exists($email){
 			$this->form_validation->set_message('check_email_exists', 'That email is already subscribed.');
-			if($this->newsletter_model->check_email_exists($email)){
+			if($this->helpcenter_model->check_email_exists($email)){
 				return true;
 			} else {
 				return false;

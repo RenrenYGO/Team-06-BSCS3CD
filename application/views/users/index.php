@@ -17,11 +17,22 @@
     <div class="form-group">
 
         <label>Edit Username</label>
-        <textarea class="form-control" name="name" placeholder="Edit Username"></textarea>
+        <input type="text" class="form-control" name="name" placeholder= "Edit Username" value="<?php echo $this->session->userdata('user')['name'];?>">
+        <!-- <textarea class="form-control" name="name" placeholder="Edit Username" value="<?php //echo $this->session->userdata('user')['name']?>" required></textarea> -->
 
         <label>Edit Bio</label>
-        <textarea class="form-control" id="editor1" name="bio" placeholder="Edit Bio"></textarea>
+        <textarea class="form-control" id="editor1" name="bio" placeholder="Edit Bio"
+        ><?php echo $this->session->userdata('user')['bio'];?></textarea>
+        <!-- <textarea class="form-control" id="editor1" name="bio" placeholder="Edit Bio" value="<?php //echo $this->session->userdata('user')['bio'];?>"></textarea> -->
         
+        <label>Current Password</label>
+        <input type="password" name="currpass" id="currpass" class="form-control" placeholder="Old Password">
+                
+        <label>New Password</label>
+        <input type="password" name="password" id="password" class="form-control" placeholder="New Password">
+        
+        <label>Confirm Password</label>
+        <input type="password" name="confpass" id="confpass" class="form-control" placeholder="Confirm Password">
     </div>
 
     <div class="d-flex mb-4"> <!-- row align -->

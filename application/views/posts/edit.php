@@ -33,7 +33,7 @@
         <div class="form-group mb-2">
             <label>Title</label>
             <input type="text" class="form-control" name="title" placeholder= "Add Title" value="<?php echo $post['title'];?>">
-    </div>
+        </div>
 
 
     <div class="form-group">
