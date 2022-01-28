@@ -1,0 +1,106 @@
+html * {
+    font-family: "Roboto Slab", "Times New Roman", serif;
+}
+
+.fixed-top {
+    position: fixed;
+    z-index: 1030;
+    left: 0;
+    right: 0;
+}
+
+body {
+    min-height: 100vh;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.profile-page .page-header {
+    height: 390px;
+    background-position: center;
+}
+
+.page-header {
+    height: 100vh;
+    background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/213e1bbd-241c-443a-bcd7-e8210970053b/d6wxpix-5c9e540d-7a2b-4f0d-91e9-6204645feec4.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzIxM2UxYmJkLTI0MWMtNDQzYS1iY2Q3LWU4MjEwOTcwMDUzYlwvZDZ3eHBpeC01YzllNTQwZC03YTJiLTRmMGQtOTFlOS02MjA0NjQ1ZmVlYzQuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.RhlesP7BcbUgJPb0bQ06lVIw9Tt_HtzWR9J7jUKYObE");
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    background: rgba(54, 54, 54, 0.5);
+}
+
+.main {
+    background: #FFF;
+    position: relative;
+    z-index: 3;
+    margin: -60px 0;
+}
+
+.profile-page .profile {
+    text-align: center;
+}
+
+.profile-page .profile img {
+    max-width: 200px;
+    width: 100%;
+    margin: 0 auto;
+    -webkit-transform: translate3d(0, -50%, 0);
+    -moz-transform: translate3d(0, -50%, 0);
+    -o-transform: translate3d(0, -50%, 0);
+    -ms-transform: translate3d(0, -50%, 0);
+    transform: translate3d(0, -50%, 0);
+    background-color: #E8B04F !important;
+}
+
+.img-raised {
+    box-shadow: 0 5px 15px -8px rgba(0, 0, 0, .24), 0 8px 10px -5px rgba(0, 0, 0, .2);
+    border-radius: 50%!important;
+}
+
+.img-fluid,
+.img-thumbnail {
+    max-width: 160x;
+    height: 200px;
+}
+
+.title {
+    font-size: 2.5rem;
+    margin-top: -4rem;
+    min-height: 32px;
+    color: #000000;
+    font-weight: 700;
+}
+
+.box {
+    border-radius: 10px;
+}
+
+.tab {
+    border-radius: 10px;
+}
+
+.scrollb {
+    height: 350px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    border-radius: 10px;
+}
+
+.scrollb::-webkit-scrollbar {
+    width: 20px;
+}
+
+.scrollb::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+.scrollb::-webkit-scrollbar-thumb {
+    background-color: #f0bc12a9;
+    border-radius: 10px;
+    border: 6px solid transparent;
+    background-clip: content-box;
+}
+
+.scrollb::-webkit-scrollbar-thumb:hover {
+    background-color: #f0bc12;
+}

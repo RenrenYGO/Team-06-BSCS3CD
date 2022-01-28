@@ -43,4 +43,44 @@ public function about($page = 'about') {
 }
 
 
+public function faqs($page = 'faqs') {
+        if ( ! file_exists(APPPATH.'views/templates/'.$page.'.php')){
+                echo "Whoops, we don't have a page for that!";
+                show_404();
+        }
+    
+        $data['title'] = ucfirst($page); // Capitalize the first letter
+        $this->sitelayout->loadTemplate('templates/faqs', $data);
+       // $this->load->view('templates/header', $data);
+        //$this->load->view('registration/'.$page, $data);
+       // $this->load->view('templates/footer', $data);
+}
+ 
+public function help($page = 'help') {
+        if ( ! file_exists(APPPATH.'views/templates/'.$page.'.php')){
+                echo "Whoops, we don't have a page for that!";
+                show_404();
+        }
+    
+        $data['title'] = ucfirst($page); // Capitalize the first letter
+        $this->sitelayout->loadTemplate('templates/help', $data);
+       // $this->load->view('templates/header', $data);
+        //$this->load->view('registration/'.$page, $data);
+       // $this->load->view('templates/footer', $data);
+}
+public function profile($page = 'profile') {
+        if ( ! file_exists(APPPATH.'views/templates/'.$page.'.php')){
+                echo "Whoops, we don't have a page for that!";
+                show_404();
+        }
+    
+        $data['title'] = ucfirst($page); // Capitalize the first letter
+        $data['user'] = $this->user_model->get_profile();
+        $data['posts'] = $this->post_model->get_posts_by_user($this->session->userdata('user')['id']);
+        $this->sitelayout->loadTemplate('templates/profile', $data);
+       // $this->load->view('templates/header', $data);
+        //$this->load->view('registration/'.$page, $data);
+       // $this->load->view('templates/footer', $data);
+    }
+
 }

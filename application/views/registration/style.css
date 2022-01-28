@@ -1,112 +1,174 @@
 * {
-    margin: 0px;
-    padding: 0px;
+  margin: 0px;
+  padding: 0px;
 }
-
 body {
-    font-size: 120%;
-    background: #F8F8FF;
+  font-size: 120%;
+  background: #F8F8FF;
 }
 
 .header {
-    width: 30%;
-    margin: 50px auto 0px;
-    color: white;
-    background: #5F9EA0;
-    text-align: center;
-    border: 1px solid #B0C4DE;
-    border-bottom: none;
-    border-radius: 10px 10px 0px 0px;
-    padding: 20px;
+  width: 30%;
+  margin: 50px auto 0px;
+  color: white;
+  background: #5F9EA0;
+  text-align: center;
+  border: 1px solid #B0C4DE;
+  border-bottom: none;
+  border-radius: 10px 10px 0px 0px;
+  padding: 20px;
 }
-
-form .form-footer .btn-custom {
-    background-color: #E8B04F;
+form .form-footer .btn-custom{
+  background-color: #E8B04F;
 }
-
-.link-custom {
-    color: #f0bc12a9;
+.link-custom{
+  color: #E8B04F;
 }
-
-.link-custom:hover {
-    color: #f0bc12;
+.btn-add{
+  background-color: #E8B04F;
 }
-
+.btn-floating{
+  color: #E8B04F;
+}
+#create{
+  background-color: #E8B04F!important;
+}
 .success {
-    color: #3c763d;
-    background: #dff0d8;
-    border: 1px solid #3c763d;
-    margin-bottom: 20px;
+  color: #3c763d; 
+  background: #dff0d8; 
+  border: 1px solid #3c763d;
+  margin-bottom: 20px;
 }
-
-
+#edit{
+  background-color: #E8B04F;
+}
+#about{
+  background-color: #E8B04F;
+}
 /*--------------------------------------------------------------
 # Nav
 --------------------------------------------------------------*/
-
 .navbar {
-    background: #E8B04F;
+background: #E8B04F;
 }
 
-#navbar-brand {
-    position: fixed;
-    left: 50%;
-    top: -1px;
-    transform: translateX(-50%);
-    z-index: 999;
-    overflow: visible;
-    z-index: 999 !important;
+#what{
+  background: #e27114;
 }
 
-.avatar {
-    position: fixed;
-    top: .3em;
-    right: 2%;
-    z-index: 999 !important;
+#navbar-brand{
+position: fixed;
+left: 50%;
+top: -1px;
+transform: translateX(-50%);
+z-index: 999;
+overflow:visible;
+z-index: 999 !important;
 }
 
-nav {
-    z-index: 998 !important;
+.avatar{
+position:fixed;
+top: .3em;
+right: 2%;
+z-index: 999 !important;
 }
 
+nav{
+z-index: 998 !important; 
+}
 
+.login {
+  position: fixed;
+  z-index: 999 !important;
+  right: 0.8%;
+}
+
+#brand{
+  letter-spacing: 2px;
+  font-weight: 500;
+}
+/*--------------------------------------------------------------
+# Post
+--------------------------------------------------------------*/
+#username{
+  font-size: 18px;
+  text-decoration: none;
+  color: rgb(11, 11, 11);
+}
+
+#date{
+  font-size: 14px;
+}
+
+#description{
+  font-size: 16px;
+}
+
+#title{
+  text-decoration: none;
+  color: rgb(50, 50, 50);
+}
+/*---*/
+#back:hover{
+  color: #E8B04F;
+
+}
+#back{
+    color: rgb(11, 11, 11);
+}
+#tags{
+  background-color: #788383c9;
+  font-size: 1rem;
+  font-weight: 600;
+}
+/*---*/
 /*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
-
-button {
-    background: #E8B04F !important;
-    border: #E8B04F !important;
+button{
+background: #E8B04F !important;
+border: #E8B04F !important;
 }
 
+footer p{
+  font-size: 12px;
+}
+
+footer a{
+  font-size: 12px;
+}
+
+/*--------------------------------------------------------------
+# Terns
+--------------------------------------------------------------*/
 .terms {
-    height: 250px;
-    overflow-x: hidden;
-    overflow-y: auto;
-    font-size: .6rem;
-    background-color: #ffffffa9;
-    border-radius: 10px;
+  height: 250px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  font-size: .6rem;
+  background-color: #ffffffa9;
+  border-radius: 10px;
 }
 
 .checkbox {
-    font-size: .8rem;
+  font-size: .8rem;
 }
 
 ::-webkit-scrollbar {
-    width: 20px;
+  width: 20px;
 }
 
 ::-webkit-scrollbar-track {
-    background-color: transparent;
+  background-color: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: #f0bc12a9;
-    border-radius: 10px;
-    border: 6px solid transparent;
-    background-clip: content-box;
+  background-color: #f0bc12a9;
+  border-radius: 10px;
+  border: 6px solid transparent;
+  background-clip: content-box;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background-color: #f0bc12;
+  background-color: #f0bc12;
 }

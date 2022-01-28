@@ -10,89 +10,57 @@
 </head>
 <body>
 <div class="container pt-5 mt-5">
-                <div class="my-5 d-flex flex-xl-row flex-lg-row flex-md-column flex-column 
-          justify-content-center  align-items-center">
-                <div class="imgyela ">
-                    <img src="images/bg.jpg" class="p-2" alt="1" height="200">
-                </div>
+                <div class="my-5 d-flex flex-xl-row flex-lg-row flex-md-column flex-column justify-content-center  align-items-center">
+                <div class="imgyela">
+                        <img src=<?php echo base_url('assets/laptop.png');?> class="p-2" alt="laptop" height="650">
+                    </div>
                                 <div class="text-black ps-lg-3 p-3">
-                                    <h3 class="card-title">Welcome to CommHub</h3>
-                                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                                        Distinctio, pariatur dolorem aperiam sapiente commodi 
-                                        sint beatae consectetur porro ullam temporibus praesentium 
-                                        eos soluta quaerat quis vitae quisquam esse dolores ea!</p>
+                                    <h1 class="card-title">About our Project</h1>
+                                    <p class="card-text">Commhub is a community based forum. It will be a safe haven for students and the like to connect, discuss, and have an endless and sometimes even pointless conversation. Whether about a subject that you have troubled with, or maybe just some conspiracies or maybe about gaming, Commhub is here for you.
+                                    <br><b> Discussions and threads are our specialties.</b> </p>
+                                    
+
+
                                       
                                         <a href="<?php echo base_url('registration/register'); ?>" type="button" class="btn btn-custom" id="about">Register</a>
                                     </div>
+                    
                 </div>
             </div>
 
             <div class="container mt-5 pt-5 text-black ">
                 <h2 class="text-center ">About the Team</h2>
-                <h6 class="text-center font-weight-light m-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem blanditiis perspiciatis fuga aperiam harum. Similique dignissimos, pariatur perferendis officia animi, sint saepe rerum doloribus doloremque amet impedit et illum perspiciatis? 
-                blanditiis fuga officiis ut nulla nisi.
+                <h6 class="text-center font-weight-light m-5">The developers behind the COMMHUB is made up of Computer Science student from the Technological University of the Philippines. Each one having different skills that made up the team. Please I still dont know what to add here, remind me to change this before the end of this week.
                 </h6>
-                    <div class="row text-center justify-content-evenly" >
+                    <div class="container row text-center justify-content-evenly" >
+                        
                         <div class="col-lg-3 col-md-6 ">
-                                <img src="images/screen.jpg" class="card-img-top img-fluid mt-3 mb-5" style="width: 60%">
+                                <img src=<?php echo base_url('assets/Rick.png');?> class="card-img-top img-fluid mt-3 mb-5" style="width: 60%">
                         </div>
                         <div class="col-lg-3 col-md-6 ">
-                            <img src="images/screen.jpg" class="card-img-top img-fluid mt-3 mb-5" style="width: 60%" >
+                            <img src=<?php echo base_url('assets/Law.png');?> class="card-img-top img-fluid mt-3 mb-5" style="width: 60%" >
                         </div>
                         <div class="col-lg-3 col-md-6 ">
-                            <img src="images/screen.jpg" class="card-img-top img-fluid mt-3 mb-5" style="width: 60%" >
+                            <img src=<?php echo base_url('assets/Kyle.png');?> class="card-img-top img-fluid mt-3 mb-5" style="width: 60%" >
                         </div>
                         <div class="col-lg-3 col-md-6 ">
-                            <img src="images/screen.jpg" class="card-img-top img-fluid mt-3 mb-5" style="width: 60%" >
+                            <img src=<?php echo base_url('assets/Yela.png');?> class="card-img-top img-fluid mt-3 mb-5" style="width: 60%" >
                         </div>
                     
                         <div class="col-lg-3 col-md-6">
-                            <img src="images/screen.jpg" class="card-img-top img-fluid mt-3 mb-5 " style="width: 60%" >
+                            <img src=<?php echo base_url('assets/Jer2.png');?> class="card-img-top img-fluid mt-3 mb-5 " style="width: 60%" >
                         </div>
                         <div class="col-lg-3 col-md-6">
-                            <img src="images/screen.jpg" class="card-img-top img-fluid mt-3 mb-5" style="width: 60%" >
+                            <img src=<?php echo base_url('assets/Jose.png');?> class="card-img-top img-fluid mt-3 mb-5" style="width: 60%" >
                         </div>
                         <div class="col-lg-3 col-md-6 ">
-                            <img src="images/screen.jpg" class="card-img-top img-fluid mt-3 mb-5" style="width: 60%" >
+                            <img src=<?php echo base_url('assets/Christian.png');?> class="card-img-top img-fluid mt-3 mb-5" style="width: 60%" >
                         </div>
         
-                    </div>
-                    <div class="badge d-flex flex-row justify-content-evenly">
-                    <a href="#" class=" badge badge-light text-black text-decoration-none"><h6>Mobile app</h6></a>
-                    <a href="#" class=" badge badge-light text-black text-decoration-none"><h6>Community</h6></a>
-                    <a href="#" class=" badge badge-light text-black text-decoration-none"><h6>Company</h6></a>
-                    <a href="#" class=" badge badge-light text-black text-decoration-none"><h6>Help desk</h6></a>
-                    <a href="#" class=" badge badge-light text-black text-decoration-none"><h6>Blog</h6></a>
-                    <a href="#" class=" badge badge-light text-black text-decoration-none"><h6>Resources</h6></a>
-                    </div>
+                   
             </div>
         </section>
-        
-        <footer class="page-footer text-black pt-4">
-            <div class="container-fluid">
-                <ul class="list-unstyled list-inline text-center">
-                    <li class="list-inline-item">
-                        <a href="#" class="btn-floating btn-fb mx-2">
-                            <i class="fab fa-facebook-f"> </i>
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a href="#" class="btn-floating btn-tw mx-2">
-                            <i class="fab fa-twitter"> </i>
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a href="#" class="btn-floating btn-gplus mx-2">
-                            <i class="fab fa-google-plus-g"> </i>
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a href="#" class="btn-floating btn-li mx-2">
-                            <i class="fab fa-linkedin-in"> </i>
-                        </a>
-                    </li>
-                </ul>
-            </div>
+    
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js " integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p " crossorigin="anonymous "></script>
 
 </body>

@@ -16,10 +16,10 @@
           <div class="row">
             <div class="col-6">
               <ul class="nav flex-column">
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Help Center</a></li>
+                <li class="nav-item mb-2"><a href="<?php echo base_url('pages/help'); ?>"class="nav-link p-0 text-muted">Help Center</a></li>
                 <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+                <li class="nav-item mb-2"><a href="<?php echo base_url('pages/faqs'); ?>" class="nav-link p-0 text-muted">FAQs</a></li>
+                <li class="nav-item mb-2"><a href="<?php echo base_url('pages/about'); ?>" class="nav-link p-0 text-muted">About</a></li>
               </ul>
             </div>
       
@@ -30,7 +30,7 @@
                 <div class="d-flex w-100 gap-2">
                   <label for="newsletter1" class="visually-hidden">Email address</label>
                   <input id="newsletter1" type="text" class="form-control" placeholder="Email address">
-                  <button class="btn btn-primary" type="button">Subscribe</button>
+                  <a class ="btn btn-custom" id="newsletter" href="<?php echo base_url('newsletter/index'); ?>">Subscribe</a>
                 </div>
               </form>
             </div>

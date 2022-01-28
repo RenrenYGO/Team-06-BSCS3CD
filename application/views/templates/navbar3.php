@@ -10,7 +10,7 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top ">
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top " id="what">
     <div class="container-fluid ">
         <button class="navbar-toggler mb-2" 
             type="button" 
@@ -25,10 +25,10 @@
                    <!-- for about page <a href="<?php echo base_url('registration/register'); ?>" class="nav-link nav-item "> About</a>
                         for support page <a href="<?php echo base_url('Login/index'); ?>" class="nav-link nav-item ">Support</a>-->
                     
-                    <a href="<?php echo base_url('posts'); ?>" class="nav-link nav-item d-none d-lg-block"> Commhub</a>
-                    <a href="<?php echo base_url('pages/about'); ?>" class="nav-link nav-item ">About</a>
-                    <a href="<?php echo base_url('pages/temp'); ?>" class="nav-link nav-item ">WhatSauce</a>
-                    <a href="<?php echo base_url('threads'); ?>" class="nav-link nav-item ">Threads</a>
+                    <a href="<?php echo base_url('posts'); ?>" id="brand" class="nav-link nav-item d-none d-lg-block"> Commhub</a>
+                    <a href="<?php echo base_url('pages/about'); ?>" id="aboutnav"  class="nav-link nav-item ">About</a>
+                    <a href="<?php echo base_url('pages/temp'); ?>" id="whatsaucenav" class="nav-link nav-item ">WhatSauce</a>
+                    <a href="<?php echo base_url('users/user'); ?>" class="nav-link nav-item ">Users(DEV ONLY)</a>
             </div>
         </div>
     </div> 
@@ -40,10 +40,10 @@
         
         if(isset($user) && $user!=null):?>
             
-           <img src="<?php echo base_url("/assets/hhh.png");?>" alt="hindi gumana" class=" avatar dropdown  " width="50" height="50" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false"> 
+           <img src="<?php echo base_url("/assets/avatar.jpg");?>" alt="hindi gumana" class=" avatar dropdown  " width="50" height="50" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false"> 
            <span class="dropdown-menu dropdown-menu-end me-4" role = "menu" aria-labelledby="dropdownMenuLink">
             
-            <a class="dropdown-item " href="#">Profile</a>
+            <a class="dropdown-item " href="<?php echo base_url('pages/profile'); ?>">Profile</a>
             <a class="dropdown-item " href="<?php echo base_url('logout'); ?>">Logout</a>
             </span>
 
