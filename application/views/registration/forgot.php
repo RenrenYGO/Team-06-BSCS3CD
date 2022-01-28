@@ -13,16 +13,19 @@
       <div class="box mt-5 col-6 mx-auto border border-2 " style="padding: 50px;">
         <div class="modal-header text-center border-0 ">
           <h3 class="modal-title w-100" >Reset your password </h3>
-          <a href="<?php echo base_url('login'); ?>" class="link-custom text-decoration-none">
-          <button type="button" class="btn-close" aria-label="Close">x</button></a>
-        </div>
-        <div class="form-group mb-2">
-          <label for="exampleInputEmail1" style="margin-bottom: 10px; padding-top: 40px;">Email Address:</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your email">
-        </div>
-        <div class="d-flex justify-content-end" style="margin-bottom: 50px; margin-top: 50px;">
-          <button type="submit" class="btn btn-default ">Submit</button>
-        </div>
+          <form id="resetPassword" name="resetPassword" method="post" action="<?php echo base_url();?>forgot/index" onsubmit ='return validate()'>
+         <table class="table table-bordered table-hover table-striped">                                      
+                    <tbody>
+                    <tr>
+                    <td>Enter Email: </td>
+                    <td>
+                <input type="email" name="email" id="email" style="width:250px" required>
+                 </td>
+                    <td><input type = "submit" value="submit" class="button"></td>
+                    </tr>
+                   
+                    </tbody>               </table></form> 
+                                     <div id="fade" class="black_overlay"></div>       
       </div>
     </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

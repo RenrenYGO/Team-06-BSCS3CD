@@ -7,14 +7,7 @@ class User_model extends CI_Model{
     }
 
     public function update_profile($data){
-        // echo "<pre>";
-        // var_dump(md5($data['password']));
-        // echo "</pre>";
         
-        // echo "<pre>";
-        // var_dump($this->session->userdata('user')['password']);
-        // echo "</pre>";
-        // exit;
         $data2 = array(
 
             'bio' => $data['bio'],
@@ -40,5 +33,16 @@ class User_model extends CI_Model{
         $query = $this->db->get('user');
         return $query->row_array();
 
+    }
+
+    public function get_users(){
+        $this->db->order_by('name');
+        $query = $this->db->get('user');
+        return $query->result_array();
+    }
+
+    public function get_user($id){
+        $query = $this->db->get_where('user', array('id' => $id));
+        return $query->row();
     }
 }
