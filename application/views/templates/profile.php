@@ -41,7 +41,6 @@
 
                                 <h3 class="title"><?php echo $user['name'] ?></h3>
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -56,6 +55,9 @@
                         </p>
                     </div>
             </div>
+            <?php
+                echo "Post Count: ".$user['post_count'];
+            ?>
         </div>
     </div>
 

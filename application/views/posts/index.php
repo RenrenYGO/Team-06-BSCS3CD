@@ -36,14 +36,19 @@
             </form>
           </div>
     </div>
-<?php foreach($posts as $post) : ?>
+<?php 
+  $post_count = 0;
+  foreach($posts as $post) : ?>
+  <?php
+    $post_count = $post_count+1;
+  ?>
     <div class="container pt-3 border bg-white border-none mt-3">
         <dl class="row ps-3">
     <!-- href to profile -->
             <div class="d-flex flex-wrap ">
               <img src="<?php echo base_url('assets/avatar.jpg' ); ?>" width= "60" >
                 <div class=" ps-2 row">
-                  <dt id="username"> <?php echo $post['name']; ?></dt> 
+                    <a class="display pt-2" href="<?php echo site_url('/users/posts/'.$post['by']); ?>"><span class="tagname"><?php echo $post['name']; ?></span></a> 
                   <dd class=" text-muted " id="date"><small> <?php echo $post['date']; ?></small></dd>
                 </div>
             </div>
@@ -74,6 +79,7 @@
     </div>
   </div>
 <?php endforeach ; ?>
+<?php echo "TOTAL POSTS: ".$post_count;?>
 </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     </body>
