@@ -10,7 +10,7 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top ">
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top shadow">
     <div class="container-fluid ">
         <button class="navbar-toggler mb-2" 
             type="button" 
