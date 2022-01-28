@@ -23,7 +23,6 @@
                  </td>
                     <td><input type = "submit" value="submit" class="button"></td>
                     </tr>
-                   
                     </tbody>               </table></form> 
                                      <div id="fade" class="black_overlay"></div>       
       </div>
