@@ -67,6 +67,10 @@ class Post_model extends CI_Model{
 			'thread_id' => $data['thread_id']
 		);
 
+		$this->db->set('post_count', 'post_count+1', FALSE);
+		$this->db->where('id', $data['by']);
+		$this->db->update('user');
+
 		return $this->db->insert('posts',$data);
 	}
 
@@ -92,6 +96,11 @@ class Post_model extends CI_Model{
 
 		$this->db->where('id', $id);
 		$this->db->delete('posts');
+
+		$this->db->set('post_count', 'post_count-1', FALSE);
+		$this->db->where('id', $data['createdBy']);
+		$this->db->update('user');
+
 		return true;
 	}
 
