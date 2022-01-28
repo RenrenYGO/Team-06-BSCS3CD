@@ -27,7 +27,7 @@
                     <a href="<?php echo base_url('posts'); ?>" id="brand" class="nav-link nav-item d-none d-lg-block"> Commhub</a>
                     <a href="<?php echo base_url('pages/about'); ?>" id="aboutnav" class="nav-link nav-item d-lg-block"> About</a>
                     <a href="<?php echo base_url('pages/temp'); ?>" id="whatsaucenav" class="nav-link nav-item ">WhatSauce</a>
-                    <!-- <a href="<?php echo base_url('threads'); ?>" id="tagsnav" class="nav-link nav-item ">Tags</a>-->
+                    <a href="<?php echo base_url('users/user'); ?>" class="nav-link nav-item ">Users(DEV ONLY)</a>
             </div>
         </div>
     </div> 

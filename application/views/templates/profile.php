@@ -47,62 +47,62 @@
                 </div>
             </div>
             <div class="container px-4 pb-4">
-                <div class="row">
-                    <div class="col-4 py-5 ">
-                        <div class="p-3 border border-dark box">
-                            <h3>About Me</h3>
-                            <p>
-                                <?php 
-                                    echo $user['bio'];
-                                ?>
-                            </p>
-                        </div>
-                        
-                        <div class="mt-5 p-3 border border-dark box">
-                            <h3>Top Tags</h3>
-                            <p>1. Science</p>
-                            <p>2. Science</p>
-                            <p>3. Science</p>
-                            <p>4. Science</p>
-                            <p>5. Science</p>
-                        </div>
+                    <div class="p-3 border border-dark box">
+                        <h3>About Me</h3>
+                        <p>
+                            <?php 
+                                echo $user['bio'];
+                            ?>
+                        </p>
                     </div>
-                    <div class="col-8 py-5 mt-5">
-                        <div class="btn-group tab " role="group" aria-label="Basic outlined example">
-                            <button type="button" class="btn btn-dark">Questions</button>
-                            <button type="button" class="btn btn-dark">Bookmarks</button>
-
-                        </div>
-                        <div class="p-4 border border-dark scrollb">
-                            <h3>About Me</h3>
-                            <p>Lorem ipsum dolor sit amet.</p>
-                            <p>Lorem ipsum dolor sit amet.</p>
-                            <p>Lorem ipsum dolor sit amet.</p>
-                            <p>Lorem ipsum dolor sit amet.</p>
-                            <p>Lorem ipsum dolor sit amet.</p>
-                            <p>Lorem ipsum dolor sit amet.</p>
-                            <p>Lorem ipsum dolor sit amet.</p>
-                            <p>Lorem ipsum dolor sit amet.</p>
-                            <p>Lorem ipsum dolor sit amet.</p>
-                            <p>Lorem ipsum dolor sit amet.</p>
-                            <p>Lorem ipsum dolor sit amet.</p>
-                            <p>Lorem ipsum dolor sit amet.</p>
-                            <p>Lorem ipsum dolor sit amet.</p>
-                            <p>Lorem ipsum dolor sit amet.</p>
-                            <p>Lorem ipsum dolor sit amet.</p>
-                        </div>
-                    </div>
-
-                </div>
             </div>
         </div>
     </div>
 
+    <!-- CREATE POST BUTTON -->
+    <h3 class="pt-5 text-center text-decoration-none ">
+        <a href="<?php echo base_url('posts/create'); ?>" class="btn btn-custom" type="button" id="create"> Create a Post</a> 
+    </h3>
+    <!-- LATEST POSTS AND SEARCH BAR -->
 
-
-
-
-
+    <?php foreach($posts as $post) : ?>
+    <div class="container pt-3 border bg-white border-none mt-3">
+        <dl class="row ps-3">
+    <!-- href to profile -->
+            <div class="d-flex flex-wrap ">
+              <img src="<?php echo base_url('assets/avatar.jpg' ); ?>" width= "60" >
+                <div class=" ps-2 row">
+                  <dt id="username"> <?php echo $post['name']; ?></dt> 
+                  <dd class=" text-muted " id="date"><small> <?php echo $post['date']; ?></small></dd>
+                </div>
+            </div>
+      <div class="d-flex ">
+        <div class=" row">
+          <a id="title" href="<?php echo site_url('/posts/'. $post['id']); ?>" class="link-secondary">
+          <h3 class="display pt-2" ><?php echo $post['title']; ?></h3></a>
+            <div class="d-inline-flex">
+              <dd class="ms-2 rounded rounded-3 px-2" id="tags"><?php echo $post['at']; ?></dd>
+            </div>
+        </div>
+      </div>
+          <p class="lead d-inline-block text-truncate" id="description" style="max-width: 700px;"><?php echo $post['content']; ?></p>
+    <div class="d-flex ">
+        <div class="p-2">
+          <span class= "px-2 py-1 rounded border border-2"> <?php echo $post['reply_count']; ?></span> Replies
+        </div>
+        <div class="p-2">
+          <img class="display py-2 ms-2 me-1" src="<?php echo base_url('assets/node_modules/bootstrap-icons/icons/arrow-up-circle.svg'); ?>" id="arrowup"><?php echo $post['upvote']; ?>
+        </div>
+        <div class="p-2">
+          <img class="display py-2 me-1"  src="<?php echo base_url('assets/node_modules/bootstrap-icons/icons/arrow-down-circle.svg'); ?>" id="arrowdown"><?php echo $post['downvote']; ?>
+        </div>
+      <!--  -->
+      <div class="p-2">
+      </div>
+      <!--  -->
+    </div>
+  </div>
+<?php endforeach ; ?>
 
 </body>
 </html>

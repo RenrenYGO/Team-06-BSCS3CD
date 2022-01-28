@@ -131,4 +131,14 @@ class Post_model extends CI_Model{
 		return $this->get_index_data($query->result_array());
 	}
 
+	public function get_posts_by_user($by){
+		
+		$this->db->select('posts.*,user.name');//get the name only in user table
+		$this->db->order_by('posts.id', 'DESC');
+		$this->db->join('user', 'user.id = posts.by');
+		$query = $this->db->get_where('posts', array('by' => $by));
+
+		return $this->get_index_data($query->result_array());
+
+	}
 }
