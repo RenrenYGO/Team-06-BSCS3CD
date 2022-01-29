@@ -98,7 +98,7 @@ class Post_model extends CI_Model{
 		$this->db->delete('posts');
 
 		$this->db->set('post_count', 'post_count-1', FALSE);
-		$this->db->where('id', $data['createdBy']);
+		$this->db->where('id', $data['by']);
 		$this->db->update('user');
 
 		return true;

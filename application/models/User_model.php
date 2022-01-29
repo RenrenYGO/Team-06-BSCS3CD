@@ -11,19 +11,12 @@ class User_model extends CI_Model{
         $data2 = array(
 
             'bio' => $data['bio'],
-            'name' => $data['name'],
-            'password' => md5($data['password'])
-            // 'password' => password_hash($data['password'], PASSWORD_DEFAULT)
+            'name' => $data['name']
 
         );
         
-        if(md5($data['currpass']) == $this->session->userdata('user')['password'] && md5($data['password']) == md5($data['confpass'])){
-            $this->db->where('id', $this->session->userdata('user')['id']);
-            return $this->db->update('user', $data2); 
-        } else {
-            echo "password does not match."; //MODAL YELA
-            redirect('login');
-        }
+        $this->db->where('id', $this->session->userdata('user')['id']);
+        return $this->db->update('user', $data2);
         
     }
 
