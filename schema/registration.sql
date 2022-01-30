@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 26, 2022 at 03:03 PM
+-- Generation Time: Jan 28, 2022 at 03:18 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.11
 
@@ -90,14 +90,9 @@ CREATE TABLE `posts` (
 --
 
 INSERT INTO `posts` (`id`, `title`, `content`, `date`, `by`, `slug`, `post_image`, `upvote`, `downvote`, `thread_id`, `reply_count`) VALUES
-(88, 'TEST', '<p>TEST1</p>\r\n\r\n<p>&nbsp;</p>\r\n', '2022-01-20 17:36:22', 2, 'TEST', 'noimage.jpg', 0, 0, 3, 0),
-(89, 'DONT SHOW1', '<p>DONT SHOW1</p>\r\n', '2022-01-20 17:36:31', 2, 'DONT-SHOW1', 'noimage.jpg', 2, 2, 3, 3),
-(91, 'asdad', '<p>adasds</p>\r\n', '2022-01-20 20:11:22', 3, 'asdad', 'noimage.jpg', 0, 0, 2, 3),
-(92, 'asdas', '<p>dasd</p>\r\n', '2022-01-20 20:33:09', 2, 'asdas', 'noimage.jpg', 0, 0, 1, 3),
-(93, 'DAS SMOOTH', '<p>DS</p>\r\n\r\n<p>&nbsp;</p>\r\n', '2022-01-20 20:38:25', 2, 'DAS-SMOOTH', 'noimage.jpg', 0, 0, 3, 3),
-(94, 'DSDSADSD', '<p>hhhhhhhhhhhhhhhhh</p>\r\n', '2022-01-20 20:38:55', 3, 'DSDSADSD', 'noimage.jpg', 0, 0, 2, 1),
-(95, 'asdasd', '<p>asdasd</p>\r\n', '2022-01-20 20:40:59', 3, 'asdasd', 'noimage.jpg', 0, 0, 1, 3),
-(96, 'EDITEDs', '<p>EDITEDs</p>\r\n', '2022-01-20 21:19:01', 2, 'EDITEDs', 'noimage.jpg', 0, 0, 1, 2);
+(101, 'Post1', '<p>Post1</p>\r\n', '2022-01-28 21:44:25', 2, 'Post1', 'noimage.jpg', 0, 0, 1, 0),
+(102, 'asdad', '<p>asdasd</p>\r\n', '2022-01-28 21:47:07', 1, 'asdad', 'noimage.jpg', 0, 0, 1, 0),
+(103, 'ddd', '<p>dd</p>\r\n', '2022-01-28 21:47:15', 1, 'ddd', 'noimage.jpg', 0, 0, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -114,30 +109,6 @@ CREATE TABLE `replies` (
   `upvote` int(255) NOT NULL,
   `downvote` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `replies`
---
-
-INSERT INTO `replies` (`id`, `post_id`, `content`, `date`, `by`, `upvote`, `downvote`) VALUES
-(51, 89, 'Xasd', '2022-01-20 17:45:36', 2, 0, 0),
-(56, 92, 'asdasd', '2022-01-20 20:33:19', 2, 0, 0),
-(57, 92, 'asdasda', '2022-01-20 20:33:37', 3, 0, 0),
-(58, 92, 'asdasd', '2022-01-20 20:34:19', 3, 0, 0),
-(59, 91, 'asdasd', '2022-01-20 20:34:42', 3, 0, 0),
-(60, 89, 'asdasd', '2022-01-20 20:34:48', 3, 0, 0),
-(61, 89, 'REPLY BRUTE', '2022-01-20 20:36:09', 3, 0, 0),
-(62, 91, 'CHECKEU\r\n', '2022-01-20 20:37:53', 2, 0, 0),
-(63, 93, 'ccc', '2022-01-20 20:38:34', 2, 0, 0),
-(64, 93, 'bbbbbbbbb', '2022-01-20 20:38:46', 3, 0, 0),
-(65, 95, 'asdasd', '2022-01-20 20:41:07', 3, 1, 0),
-(66, 94, 'asd', '2022-01-20 20:50:10', 3, 2, 4),
-(67, 95, 'asdd', '2022-01-20 20:50:18', 2, 0, 0),
-(68, 93, 'cc', '2022-01-20 20:58:56', 2, 0, 0),
-(69, 95, 'asd', '2022-01-20 21:18:46', 2, 0, 0),
-(70, 91, 'sad', '2022-01-20 21:18:52', 2, 0, 0),
-(71, 96, 'EDITED', '2022-01-20 23:06:12', 2, 15, 20),
-(72, 96, 'asdas', '2022-01-23 20:36:34', 2, 13, 14);
 
 -- --------------------------------------------------------
 
@@ -156,9 +127,7 @@ CREATE TABLE `threads` (
 --
 
 INSERT INTO `threads` (`id`, `name`, `date`) VALUES
-(1, 'Random Stuff', '2022-01-13 00:00:00'),
-(2, 'TUP Stuff', '2022-01-13 00:00:00'),
-(3, 'Game Stuff', '2022-01-13 00:00:00');
+(1, 'WhatSauce', '2022-01-28 20:25:25');
 
 -- --------------------------------------------------------
 
@@ -171,20 +140,21 @@ CREATE TABLE `user` (
   `name` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
-  `bio` varchar(255) NOT NULL DEFAULT 'Insert your bio here'
+  `bio` varchar(255) NOT NULL DEFAULT 'Insert your bio here',
+  `post_count` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `name`, `email`, `password`, `bio`) VALUES
-(1, 'asdasd', 'asdasd@gmail.com', '202cb962ac59075b964b07152d234b70', 'Insert your bio here'),
-(2, 'das', 'ads@gmail.com', '202cb962ac59075b964b07152d234b70', '<p>123</p>\r\n'),
-(3, 'user0', 'user0@gmail.com', '202cb962ac59075b964b07152d234b70', 'Insert your bio here'),
-(4, 'test1', 'test@gmail.com', '202cb962ac59075b964b07152d234b70', 'Insert your bio here'),
-(5, 'asdasdasd', 'asdasdasd@gmail.com', '202cb962ac59075b964b07152d234b70', 'Insert your bio here'),
-(9, 'Renren', 'renren@mail.com', '202cb962ac59075b964b07152d234b70', 'Insert your bio here');
+INSERT INTO `user` (`id`, `name`, `email`, `password`, `bio`, `post_count`) VALUES
+(1, 'asdasd', 'asdasd@gmail.com', '202cb962ac59075b964b07152d234b70', 'Insert your bio here', 2),
+(2, 'das', 'ads@gmail.com', '202cb962ac59075b964b07152d234b70', '<p>VALORANT</p>\r\n', 1),
+(3, 'user0', 'user0@gmail.com', '202cb962ac59075b964b07152d234b70', 'Insert your bio here', 0),
+(4, 'test1', 'test@gmail.com', '202cb962ac59075b964b07152d234b70', 'Insert your bio here', 0),
+(5, 'asdasdasd', 'asdasdasd@gmail.com', '202cb962ac59075b964b07152d234b70', 'Insert your bio here', 0),
+(9, 'Renren', 'renren@mail.com', '202cb962ac59075b964b07152d234b70', 'Insert your bio here', 0);
 
 --
 -- Indexes for dumped tables
@@ -241,13 +211,13 @@ ALTER TABLE `helpcenter`
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=98;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=104;
 
 --
 -- AUTO_INCREMENT for table `replies`
 --
 ALTER TABLE `replies`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 
 --
 -- AUTO_INCREMENT for table `threads`
