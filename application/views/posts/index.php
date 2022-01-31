@@ -42,6 +42,7 @@
   <?php
     $post_count = $post_count+1;
   ?>
+ 
     <div class="container pt-3 border bg-white border-none mt-3">
         <dl class="row ps-3">
     <!-- href to profile -->
@@ -80,6 +81,10 @@
   </div>
 <?php endforeach ; ?>
 <?php echo "TOTAL POSTS: ".$post_count;?>
+            <?php if($post_count==0) : ?>
+              <h4>No posts to display</h4>
+            <?php endif; ?>
+
 </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     </body>

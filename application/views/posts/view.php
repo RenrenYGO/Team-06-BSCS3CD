@@ -63,10 +63,17 @@
         </div>
     <?php endif; ?>
     <hr>
-    <div class="d-flex">
+    <!--<div class="d-flex">-->
         <h4>Replies
         [ <?php echo $post['reply_count']; ?> ]</h4>
-    </div>
+        <div class="text-center">
+        <?php if($post['reply_count']==0) : ?>
+            
+            <h4>No Replies To Display</h4>
+           
+            <?php endif; ?>
+            </div>
+    <!--</div>-->
     <?php if(isset($replies)) : ?>
     <?php foreach($replies as $reply) : ?>
        
@@ -106,9 +113,10 @@
     <p>No Replies To Display</p>
     <?php endif; ?>
 
-    <h5 class="mt-4">Add Reply</h5>
+    
     <?php echo validation_errors(); ?>
     <?php if(isset($_SESSION['user'])):?>
+        <h5 class="mt-4">Add Reply</h5>
         <?php echo form_open('replies/create/'.$post['id']); ?>
         <!-- <div class="form-group mb-3">
             <input type="text" name="title" class="form-control" placeholder="Title">
