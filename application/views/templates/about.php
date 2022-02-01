@@ -18,12 +18,15 @@
                                     <h1 class="card-title">About our Project</h1>
                                     <p class="card-text">Commhub is a community based forum. It will be a safe haven for students and the like to connect, discuss, and have an endless and sometimes even pointless conversation. Whether about a subject that you have troubled with, or maybe just some conspiracies or maybe about gaming, Commhub is here for you.
                                     <br><b> Discussions and threads are our specialties.</b> </p>
-                                    
+                                
+                                    <?php $user = $this->session->userdata('user');
+        
+                                        if(isset($user) && $user!=null):?>
 
-
-                                      
-                                        <a href="<?php echo base_url('registration/register'); ?>" type="button" class="btn btn-custom" id="about">Register</a>
-                                    </div>
+                                    <?php else:?>
+                                            <a href="<?php echo base_url('registration/register'); ?>" type="button" class="btn btn-custom" id="about">Register</a>
+                                        </div>
+                                    <?php endif; ?>
                     
                 </div>
             </div>
@@ -35,26 +38,26 @@
                     <div class="container row text-center justify-content-evenly" >
                         
                         <div class="col-lg-3 col-md-6 ">
-                                <img src=<?php echo base_url('assets/Rick.png');?> class="card-img-top img-fluid mt-3 mb-5" style="width: 60%">
+                            <img src=<?php echo base_url('assets/Rick.png');?> id="team6" class="card-img-top img-fluid mt-3 mb-5" style="width: 60%">
                         </div>
                         <div class="col-lg-3 col-md-6 ">
-                            <img src=<?php echo base_url('assets/Law.png');?> class="card-img-top img-fluid mt-3 mb-5" style="width: 60%" >
+                            <img src=<?php echo base_url('assets/Law.png');?> id="team6" class="card-img-top img-fluid mt-3 mb-5" style="width: 60%" >
                         </div>
                         <div class="col-lg-3 col-md-6 ">
-                            <img src=<?php echo base_url('assets/Kyle.png');?> class="card-img-top img-fluid mt-3 mb-5" style="width: 60%" >
+                            <img src=<?php echo base_url('assets/Kyle.png');?> id="team6" class="card-img-top img-fluid mt-3 mb-5" style="width: 60%" >
                         </div>
                         <div class="col-lg-3 col-md-6 ">
-                            <img src=<?php echo base_url('assets/Yela.png');?> class="card-img-top img-fluid mt-3 mb-5" style="width: 60%" >
+                            <img src=<?php echo base_url('assets/Yela.png');?> id="team6" class="card-img-top img-fluid mt-3 mb-5" style="width: 60%" >
                         </div>
                     
                         <div class="col-lg-3 col-md-6">
-                            <img src=<?php echo base_url('assets/Jer2.png');?> class="card-img-top img-fluid mt-3 mb-5 " style="width: 60%" >
+                            <img src=<?php echo base_url('assets/Jer2.png');?> id="team6" class="card-img-top img-fluid mt-3 mb-5 " style="width: 60%" >
                         </div>
                         <div class="col-lg-3 col-md-6">
-                            <img src=<?php echo base_url('assets/Jose.png');?> class="card-img-top img-fluid mt-3 mb-5" style="width: 60%" >
+                            <img src=<?php echo base_url('assets/Jose.png');?> id="team6" class="card-img-top img-fluid mt-3 mb-5" style="width: 60%" >
                         </div>
                         <div class="col-lg-3 col-md-6 ">
-                            <img src=<?php echo base_url('assets/Christian.png');?> class="card-img-top img-fluid mt-3 mb-5" style="width: 60%" >
+                            <img src=<?php echo base_url('assets/Christian.png');?> id="team6" class="card-img-top img-fluid mt-3 mb-5" style="width: 60%" >
                         </div>
         
                    

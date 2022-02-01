@@ -139,7 +139,7 @@ footer a{
 }
 
 /*--------------------------------------------------------------
-# Terns
+# Terms
 --------------------------------------------------------------*/
 .terms {
   height: 250px;
@@ -171,4 +171,8 @@ footer a{
 
 ::-webkit-scrollbar-thumb:hover {
   background-color: #f0bc12;
+}
+
+.jumbotron{
+  
 }
