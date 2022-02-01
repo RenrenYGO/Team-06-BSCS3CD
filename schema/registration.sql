@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 28, 2022 at 03:18 PM
+-- Generation Time: Feb 01, 2022 at 12:06 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.11
 
@@ -40,7 +40,9 @@ CREATE TABLE `helpcenter` (
 INSERT INTO `helpcenter` (`id`, `email`, `message`) VALUES
 (1, 'tabo@gmail.com', '<p>tabo tabo tabo</p>\r\n'),
 (2, 'ninjaskpasser@gmail.com', '<p>Help regarding Whatsauce</p>\r\n'),
-(3, 'renren@mail.com', '<p>Need some help regarding the forums<br />\r\n<br />\r\n&quot;Hello I am unable to currently view the section of Computer Science&quot;</p>\r\n');
+(3, 'renren@mail.com', '<p>Need some help regarding the forums<br />\r\n<br />\r\n&quot;Hello I am unable to currently view the section of Computer Science&quot;</p>\r\n'),
+(4, 'jollibee@gmail.com', '<p>kulang ng sauce yung spaghetti</p>\r\n'),
+(5, 'jollibee2@gmail.com', '<p>kulang ng sauce yung spaghetti</p>\r\n');
 
 -- --------------------------------------------------------
 
@@ -62,8 +64,18 @@ INSERT INTO `newsletter` (`id`, `email`) VALUES
 (2, 'woketh12@mail.com'),
 (3, 'ads@gmail.com'),
 (4, 'ekis@gmail.com'),
-(0, 'wew@gmail.com'),
-(0, 'meme@gmail.com');
+(5, 'wew@gmail.com'),
+(6, 'meme@gmail.com'),
+(7, 'yatap@gmail.com'),
+(8, 'yatap2@gmail.com'),
+(9, 'Sinio@gmail.com'),
+(14, 'lunaravoidance12@gmail.com'),
+(15, 'Loonie420@gmail.com'),
+(16, 'qwerty@gmail.com'),
+(17, 'sql@gmail.com'),
+(18, 'pogi@gmail.com'),
+(19, 'umu@gmail.com'),
+(20, 'clefcutie@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -90,9 +102,15 @@ CREATE TABLE `posts` (
 --
 
 INSERT INTO `posts` (`id`, `title`, `content`, `date`, `by`, `slug`, `post_image`, `upvote`, `downvote`, `thread_id`, `reply_count`) VALUES
-(101, 'Post1', '<p>Post1</p>\r\n', '2022-01-28 21:44:25', 2, 'Post1', 'noimage.jpg', 0, 0, 1, 0),
+(101, 'BATAS', '<p>AKO ANG BATAYAN NG HURADO</p>\r\n', '2022-01-28 21:44:25', 2, 'BATAS', 'noimage.jpg', 0, 0, 1, 0),
 (102, 'asdad', '<p>asdasd</p>\r\n', '2022-01-28 21:47:07', 1, 'asdad', 'noimage.jpg', 0, 0, 1, 0),
-(103, 'ddd', '<p>dd</p>\r\n', '2022-01-28 21:47:15', 1, 'ddd', 'noimage.jpg', 0, 0, 1, 0);
+(103, 'ddd', '<p>dd</p>\r\n', '2022-01-28 21:47:15', 1, 'ddd', 'noimage.jpg', 0, 0, 1, 0),
+(104, 'PAGSAMO', '<p>PARA SA ISA&#39;T ISA</p>\r\n', '2022-01-31 22:01:33', 9, 'PAGSAMO', 'noimage.jpg', 0, 0, 1, 0),
+(105, 'PRICKLY TRAP', '<p>TAMAAN MO AKO NG PRICKLY MO MARK</p>\r\n', '2022-01-31 22:06:23', 9, 'PRICKLY-TRAP', 'noimage.jpg', 0, 0, 1, 0),
+(106, 'VEGI BITE', '<p>KAGATIN MO AKO NG VEGI BITE MARK</p>\r\n', '2022-01-31 22:06:54', 9, 'VEGI-BITE', 'noimage.jpg', 0, 0, 1, 0),
+(107, 'OCTOBER TREAT', '<p>ANG LAKI NG PUMPKIN MO MARK</p>\r\n', '2022-01-31 22:07:47', 9, 'OCTOBER-TREAT', 'noimage.jpg', 3, 0, 1, 3),
+(111, 'POGI CONTEST', '<p>Pogi Ni Mark</p>\r\n', '2022-01-31 22:34:14', 2, 'POGI-CONTEST', 'noimage.jpg', 0, 0, 2, 0),
+(112, 'Ano ang Sabaw', '<p>Bakit may Sabaw</p>\r\n', '2022-01-31 22:34:37', 2, 'Ano-ang-Sabaw', 'noimage.jpg', 0, 0, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -109,6 +127,15 @@ CREATE TABLE `replies` (
   `upvote` int(255) NOT NULL,
   `downvote` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `replies`
+--
+
+INSERT INTO `replies` (`id`, `post_id`, `content`, `date`, `by`, `upvote`, `downvote`) VALUES
+(76, 107, 'MAS MALAKI UNG KAY ANO', '2022-01-31 22:10:09', 9, 3, 0),
+(77, 107, 'MAS MALAKI UNG KAY ANO', '2022-01-31 22:10:37', 9, 0, 0),
+(78, 107, 'MAS MALAKI UNG KAY ANO', '2022-01-31 22:24:43', 2, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -127,7 +154,8 @@ CREATE TABLE `threads` (
 --
 
 INSERT INTO `threads` (`id`, `name`, `date`) VALUES
-(1, 'WhatSauce', '2022-01-28 20:25:25');
+(1, 'WhatSauce', '2022-01-28 20:25:25'),
+(2, 'NSFW', '2022-01-31 22:33:03');
 
 -- --------------------------------------------------------
 
@@ -150,11 +178,11 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `name`, `email`, `password`, `bio`, `post_count`) VALUES
 (1, 'asdasd', 'asdasd@gmail.com', '202cb962ac59075b964b07152d234b70', 'Insert your bio here', 2),
-(2, 'das', 'ads@gmail.com', '202cb962ac59075b964b07152d234b70', '<p>VALORANT</p>\r\n', 1),
+(2, 'das', 'ads@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', '<p>MINECRAFT</p>\r\n', 6),
 (3, 'user0', 'user0@gmail.com', '202cb962ac59075b964b07152d234b70', 'Insert your bio here', 0),
 (4, 'test1', 'test@gmail.com', '202cb962ac59075b964b07152d234b70', 'Insert your bio here', 0),
 (5, 'asdasdasd', 'asdasdasd@gmail.com', '202cb962ac59075b964b07152d234b70', 'Insert your bio here', 0),
-(9, 'Renren', 'renren@mail.com', '202cb962ac59075b964b07152d234b70', 'Insert your bio here', 0);
+(9, 'Renren', 'renren@mail.com', '202cb962ac59075b964b07152d234b70', 'Insert your bio here', 4);
 
 --
 -- Indexes for dumped tables
@@ -164,6 +192,12 @@ INSERT INTO `user` (`id`, `name`, `email`, `password`, `bio`, `post_count`) VALU
 -- Indexes for table `helpcenter`
 --
 ALTER TABLE `helpcenter`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `newsletter`
+--
+ALTER TABLE `newsletter`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -205,19 +239,25 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `helpcenter`
 --
 ALTER TABLE `helpcenter`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `newsletter`
+--
+ALTER TABLE `newsletter`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=104;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=113;
 
 --
 -- AUTO_INCREMENT for table `replies`
 --
 ALTER TABLE `replies`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
 
 --
 -- AUTO_INCREMENT for table `threads`
