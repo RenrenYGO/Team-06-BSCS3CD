@@ -44,6 +44,7 @@
            <span class="dropdown-menu dropdown-menu-end me-4" role = "menu" aria-labelledby="dropdownMenuLink">
             
             <a class="dropdown-item " href="<?php echo base_url('pages/profile'); ?>">Profile</a>
+            <a class="dropdown-item " href="<?php echo base_url('pages/changepassword'); ?>">Account Settings</a>
             <a class="dropdown-item " href="<?php echo base_url('logout'); ?>">Logout</a>
             </span>
 

@@ -21,19 +21,26 @@
                 <li class="nav-item mb-2"><a href="<?php echo base_url('pages/faqs'); ?>" class="nav-link p-0 text-muted">FAQs</a></li>
                 <li class="nav-item mb-2"><a href="<?php echo base_url('pages/about'); ?>" class="nav-link p-0 text-muted">About</a></li>
               </ul>
-            </div>
+              </div>
       
             <div class="col-4 offset-2">
-              <form>
-                <h6>Subscribe to our newsletter</h6>
-                <p>Monthly digest of whats new and exciting from us.</p>
-                <div class="d-flex w-100 gap-2">
-                  <label for="newsletter1" class="visually-hidden">Email address</label>
-                  <input id="newsletter1" type="text" class="form-control" placeholder="Email address">
-                  <a class ="btn btn-custom" id="newsletter" href="<?php echo base_url('newsletter/index'); ?>">Subscribe</a>
-                </div>
-              </form>
-            </div>
+          <form id="newsletter" name="newsletter" method="post" action="<?php echo base_url();?>newsletter/index" onsubmit ='return validate()'>
+         <table class="table">                                      
+                    <h6>Subscribe to our newsletter!</h6>
+                    <p>A monthly digest of what's new and exciting from us.</p>
+                    <tr>
+                      <td>
+                        <input type="email" name="email" id="email" style="width:250px;height:36px;" placeholder="Email address" class="ps-2 display border border-secondary border-1 rounded rounded-1" required></input>
+                        <button type = "submit" value="Submit" class="btn mb-2 text-white">Subscribe</button>
+                      </td>
+                  </tr>
+                    </tbody>               
+         </table>
+          </form> 
+                                     <div id="fade" class="black_overlay"></div>       
+                      
+        </div>  
+     
           </div>
       
           <div class="d-flex justify-content-between mt-4 border-top">
