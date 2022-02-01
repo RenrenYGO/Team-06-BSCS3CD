@@ -30,7 +30,7 @@
                     <p>A monthly digest of what's new and exciting from us.</p>
                     <tr>
                       <td>
-                        <input type="email" name="email" id="email" style="width:250px;height:36px;" placeholder="Email address" class="ps-2 display border border-secondary border-1 rounded rounded-1" required></input>
+                        <input type="email" name="email" id="email" style="width:250px;height:36px;" placeholder="Email address" class="ps-2 display border border-secondary border-1 rounded rounded-1"></input>
                         <button type = "submit" value="Submit" class="btn mb-2 text-white">Subscribe</button>
                       </td>
                   </tr>
