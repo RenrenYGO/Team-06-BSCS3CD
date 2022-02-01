@@ -24,15 +24,23 @@
             </div>
       
             <div class="col-4 offset-2">
-              <form>
-                <h6>Subscribe to our newsletter</h6>
-                <p>Monthly digest of whats new and exciting from us.</p>
-                <div class="d-flex w-100 gap-2">
-                  <label for="newsletter1" class="visually-hidden">Email address</label>
-                  <input id="newsletter1" type="text" class="form-control" placeholder="Email address">
-                  <a class ="btn btn-custom" id="newsletter" href="<?php echo base_url('newsletter/index'); ?>">Subscribe</a>
-                </div>
-              </form>
+            <div class="modal-body">         
+          <form id="newsletter" name="newsletter" method="post" action="<?php echo base_url();?>newsletter/index" onsubmit ='return validate()'>
+         <table class="table table-bordered table-hover table-striped">                                      
+                    <h6>Subscribe to our newsletter!</h6>
+                    <p>A monthly digest of what's new and exciting from us.</p>
+                    <tr>
+                    <td>Enter Email: </td>
+                    <td>
+                <input type="email" name="email" id="email" style="width:250px" required>
+                 </td>
+                    <td><input type = "submit" value="submit" class="btn btn-custom"></td>
+                    </tr>
+                   
+                    </tbody>               </table></form> 
+                                     <div id="fade" class="black_overlay"></div>       
+                      
+        </div>  
             </div>
           </div>
       
