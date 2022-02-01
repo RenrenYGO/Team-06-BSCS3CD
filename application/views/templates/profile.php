@@ -27,8 +27,9 @@
                 <div class="row">
                     <div class="col-md-6 ml-auto mr-auto">
                         <div class="profile">
-                                <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/213e1bbd-241c-443a-bcd7-e8210970053b/d6wxpix-5c9e540d-7a2b-4f0d-91e9-6204645feec4.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzIxM2UxYmJkLTI0MWMtNDQzYS1iY2Q3LWU4MjEwOTcwMDUzYlwvZDZ3eHBpeC01YzllNTQwZC03YTJiLTRmMGQtOTFlOS02MjA0NjQ1ZmVlYzQuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.RhlesP7BcbUgJPb0bQ06lVIw9Tt_HtzWR9J7jUKYObE"
-                                    alt="" class="img-raised img-fluid text-center">
+                          <?php if($user['profile_picture']!='noimage.jpg'):?>
+                                  <img src="<?php echo base_url('images/profile_picture/' . $user['profile_picture']  ); ?>"></p>
+                          <?php endif; ?>
                             
                             
                             <div class="name">
@@ -73,7 +74,11 @@
         <dl class="row ps-3">
     <!-- href to profile -->
             <div class="d-flex flex-wrap ">
-              <img src="<?php echo base_url('assets/avatar.jpg' ); ?>" width= "60" >
+              <?php if($user['profile_picture']!='noimage.jpg'):?>
+                  <img src="<?php echo base_url('images/profile_picture/' . $user['profile_picture']  ); ?>" width= "60"></p>
+              <?php else:?>
+                  <img src="<?php echo base_url('assets/avatar.jpg' ); ?>" width= "60" >
+              <?php endif; ?>
                 <div class=" ps-2 row">
                   <dt id="username"> <?php echo $post['name']; ?></dt> 
                   <dd class=" text-muted " id="date"><small> <?php echo $post['date']; ?></small></dd>
