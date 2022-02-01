@@ -16,7 +16,7 @@
    
    <ul class="list-group list-group-horizontal  ps-1 tags">
    <?php foreach($threads as $thread) : ?>
-		<li ><a class="button ms-5 position-relative" href="<?php echo site_url('/threads/posts/'.$thread['id']); ?>"><span class="tagname"><?php echo $thread['name']; ?></span></a>
+		<li ><a class="button ms-5 position-relative" id="tagstyle" href="<?php echo site_url('/threads/posts/'.$thread['id']); ?>"><span class="tagname"><?php echo $thread['name']; ?></span></a>
 		</li>
 	<?php endforeach; ?>
   </ul>
@@ -47,9 +47,9 @@
         <dl class="row ps-3">
     <!-- href to profile -->
             <div class="d-flex flex-wrap ">
-              <img src="<?php echo base_url('assets/avatar.jpg' ); ?>" width= "60" >
+              <img src="<?php echo base_url('assets/avatar.jpg' ); ?>" width= "60" height="60" >
                 <div class=" ps-2 row">
-                    <a class="display pt-2" href="<?php echo site_url('/users/posts/'.$post['by']); ?>"><span class="tagname"><?php echo $post['name']; ?></span></a> 
+                    <a class="display pt-2" id="username" href="<?php echo site_url('/users/posts/'.$post['by']); ?>"><span class="tagname"><?php echo $post['name']; ?></span></a> 
                   <dd class=" text-muted " id="date"><small> <?php echo $post['date']; ?></small></dd>
                 </div>
             </div>

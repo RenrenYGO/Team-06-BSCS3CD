@@ -64,15 +64,18 @@
     <?php endif; ?>
     <hr>
     <!--<div class="d-flex">-->
+        <?php if($post['reply_count']!=0) : ?>
         <h4>Replies
         [ <?php echo $post['reply_count']; ?> ]</h4>
+        <?php endif; ?>
+
         <div class="text-center">
         <?php if($post['reply_count']==0) : ?>
             
             <h4>No Replies To Display</h4>
            
-            <?php endif; ?>
-            </div>
+        <?php endif; ?>
+        </div>
     <!--</div>-->
     <?php if(isset($replies)) : ?>
     <?php foreach($replies as $reply) : ?>

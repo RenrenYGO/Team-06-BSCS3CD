@@ -8,6 +8,7 @@
     <link rel="stylesgeet" href="https://rawgit.com/creativetimofficial/material-kit/master/assets/css/material-kit.css">
     <style>
         <?php include 'prof.css';?>
+        <?php include 'style.css';?>
     </style>
 </head>
 
