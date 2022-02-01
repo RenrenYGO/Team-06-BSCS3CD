@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 01, 2022 at 12:06 PM
+-- Generation Time: Feb 01, 2022 at 07:25 PM
 -- Server version: 10.4.21-MariaDB
--- PHP Version: 8.0.11
+-- PHP Version: 7.4.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -110,7 +110,10 @@ INSERT INTO `posts` (`id`, `title`, `content`, `date`, `by`, `slug`, `post_image
 (106, 'VEGI BITE', '<p>KAGATIN MO AKO NG VEGI BITE MARK</p>\r\n', '2022-01-31 22:06:54', 9, 'VEGI-BITE', 'noimage.jpg', 0, 0, 1, 0),
 (107, 'OCTOBER TREAT', '<p>ANG LAKI NG PUMPKIN MO MARK</p>\r\n', '2022-01-31 22:07:47', 9, 'OCTOBER-TREAT', 'noimage.jpg', 3, 0, 1, 3),
 (111, 'POGI CONTEST', '<p>Pogi Ni Mark</p>\r\n', '2022-01-31 22:34:14', 2, 'POGI-CONTEST', 'noimage.jpg', 0, 0, 2, 0),
-(112, 'Ano ang Sabaw', '<p>Bakit may Sabaw</p>\r\n', '2022-01-31 22:34:37', 2, 'Ano-ang-Sabaw', 'noimage.jpg', 0, 0, 1, 0);
+(112, 'Ano ang Sabaw', '<p>Bakit may Sabaw</p>\r\n', '2022-01-31 22:34:37', 2, 'Ano-ang-Sabaw', 'noimage.jpg', 0, 0, 1, 0),
+(113, 'das', '<p>asdasd</p>\r\n', '2022-02-02 00:21:30', 2, 'das', '2__sadGriff.png', 0, 0, 2, 0),
+(114, 'asd', '<p>asdasd</p>\r\n', '2022-02-02 00:58:42', 2, 'asd', '2__okishock.png', 0, 0, 2, 0),
+(115, 'daaas', '<p>ssssssssssaaaaaaaa</p>\r\n', '2022-02-02 01:34:44', 2, 'daaas', 'noimage.jpg', 0, 0, 2, 0);
 
 -- --------------------------------------------------------
 
@@ -169,20 +172,21 @@ CREATE TABLE `user` (
   `email` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
   `bio` varchar(255) NOT NULL DEFAULT 'Insert your bio here',
-  `post_count` int(255) NOT NULL
+  `post_count` int(255) NOT NULL,
+  `profile_picture` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `name`, `email`, `password`, `bio`, `post_count`) VALUES
-(1, 'asdasd', 'asdasd@gmail.com', '202cb962ac59075b964b07152d234b70', 'Insert your bio here', 2),
-(2, 'das', 'ads@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', '<p>MINECRAFT</p>\r\n', 6),
-(3, 'user0', 'user0@gmail.com', '202cb962ac59075b964b07152d234b70', 'Insert your bio here', 0),
-(4, 'test1', 'test@gmail.com', '202cb962ac59075b964b07152d234b70', 'Insert your bio here', 0),
-(5, 'asdasdasd', 'asdasdasd@gmail.com', '202cb962ac59075b964b07152d234b70', 'Insert your bio here', 0),
-(9, 'Renren', 'renren@mail.com', '202cb962ac59075b964b07152d234b70', 'Insert your bio here', 4);
+INSERT INTO `user` (`id`, `name`, `email`, `password`, `bio`, `post_count`, `profile_picture`) VALUES
+(1, 'asdasd', 'asdasd@gmail.com', '202cb962ac59075b964b07152d234b70', 'Insert your bio here', 2, ''),
+(2, 'das', 'ads@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', '<p>MINECRAFT</p>\r\n', 9, '2__okishock.png'),
+(3, 'user0', 'user0@gmail.com', '202cb962ac59075b964b07152d234b70', 'Insert your bio here', 0, ''),
+(4, 'test1', 'test@gmail.com', '202cb962ac59075b964b07152d234b70', 'Insert your bio here', 0, ''),
+(5, 'asdasdasd', 'asdasdasd@gmail.com', '202cb962ac59075b964b07152d234b70', 'Insert your bio here', 0, ''),
+(9, 'Renren', 'renren@mail.com', '202cb962ac59075b964b07152d234b70', 'Insert your bio here', 4, '');
 
 --
 -- Indexes for dumped tables
@@ -229,7 +233,8 @@ ALTER TABLE `threads`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `name` (`name`);
+  ADD UNIQUE KEY `name` (`name`),
+  ADD KEY `profile_picture` (`profile_picture`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -251,7 +256,7 @@ ALTER TABLE `newsletter`
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=113;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=116;
 
 --
 -- AUTO_INCREMENT for table `replies`
