@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 01, 2022 at 07:25 PM
+-- Generation Time: Feb 02, 2022 at 05:22 PM
 -- Server version: 10.4.21-MariaDB
--- PHP Version: 7.4.25
+-- PHP Version: 8.0.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -113,7 +113,7 @@ INSERT INTO `posts` (`id`, `title`, `content`, `date`, `by`, `slug`, `post_image
 (112, 'Ano ang Sabaw', '<p>Bakit may Sabaw</p>\r\n', '2022-01-31 22:34:37', 2, 'Ano-ang-Sabaw', 'noimage.jpg', 0, 0, 1, 0),
 (113, 'das', '<p>asdasd</p>\r\n', '2022-02-02 00:21:30', 2, 'das', '2__sadGriff.png', 0, 0, 2, 0),
 (114, 'asd', '<p>asdasd</p>\r\n', '2022-02-02 00:58:42', 2, 'asd', '2__okishock.png', 0, 0, 2, 0),
-(115, 'daaas', '<p>ssssssssssaaaaaaaa</p>\r\n', '2022-02-02 01:34:44', 2, 'daaas', 'noimage.jpg', 0, 0, 2, 0);
+(115, 'daaas', '<p>ssssssssssaaaaaaaa</p>\r\n', '2022-02-02 01:34:44', 2, 'daaas', 'noimage.jpg', 0, 0, 2, 2);
 
 -- --------------------------------------------------------
 
@@ -138,7 +138,9 @@ CREATE TABLE `replies` (
 INSERT INTO `replies` (`id`, `post_id`, `content`, `date`, `by`, `upvote`, `downvote`) VALUES
 (76, 107, 'MAS MALAKI UNG KAY ANO', '2022-01-31 22:10:09', 9, 3, 0),
 (77, 107, 'MAS MALAKI UNG KAY ANO', '2022-01-31 22:10:37', 9, 0, 0),
-(78, 107, 'MAS MALAKI UNG KAY ANO', '2022-01-31 22:24:43', 2, 0, 0);
+(78, 107, 'MAS MALAKI UNG KAY ANO', '2022-01-31 22:24:43', 2, 0, 0),
+(79, 115, 'this is das', '2022-02-02 23:58:03', 2, 0, 0),
+(80, 115, 'MAS MALAKI AKIN', '2022-02-02 23:58:32', 9, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -173,7 +175,7 @@ CREATE TABLE `user` (
   `password` varchar(100) NOT NULL,
   `bio` varchar(255) NOT NULL DEFAULT 'Insert your bio here',
   `post_count` int(255) NOT NULL,
-  `profile_picture` varchar(255) NOT NULL
+  `profile_picture` varchar(255) NOT NULL DEFAULT 'noimage.jpg'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -181,12 +183,12 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `name`, `email`, `password`, `bio`, `post_count`, `profile_picture`) VALUES
-(1, 'asdasd', 'asdasd@gmail.com', '202cb962ac59075b964b07152d234b70', 'Insert your bio here', 2, ''),
+(1, 'asdasd', 'asdasd@gmail.com', '202cb962ac59075b964b07152d234b70', 'Insert your bio here', 2, 'noimage.jpg'),
 (2, 'das', 'ads@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', '<p>MINECRAFT</p>\r\n', 9, '2__okishock.png'),
-(3, 'user0', 'user0@gmail.com', '202cb962ac59075b964b07152d234b70', 'Insert your bio here', 0, ''),
-(4, 'test1', 'test@gmail.com', '202cb962ac59075b964b07152d234b70', 'Insert your bio here', 0, ''),
-(5, 'asdasdasd', 'asdasdasd@gmail.com', '202cb962ac59075b964b07152d234b70', 'Insert your bio here', 0, ''),
-(9, 'Renren', 'renren@mail.com', '202cb962ac59075b964b07152d234b70', 'Insert your bio here', 4, '');
+(3, 'user0', 'user0@gmail.com', '202cb962ac59075b964b07152d234b70', 'Insert your bio here', 0, 'noimage.jpg'),
+(4, 'test1', 'test@gmail.com', '202cb962ac59075b964b07152d234b70', 'Insert your bio here', 0, 'noimage.jpg'),
+(5, 'asdasdasd', 'asdasdasd@gmail.com', '202cb962ac59075b964b07152d234b70', 'Insert your bio here', 0, 'noimage.jpg'),
+(9, 'Renren', 'renren@mail.com', '202cb962ac59075b964b07152d234b70', 'Insert your bio here', 4, 'noimage.jpg');
 
 --
 -- Indexes for dumped tables
@@ -262,7 +264,7 @@ ALTER TABLE `posts`
 -- AUTO_INCREMENT for table `replies`
 --
 ALTER TABLE `replies`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
 
 --
 -- AUTO_INCREMENT for table `threads`

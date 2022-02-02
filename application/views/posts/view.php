@@ -18,7 +18,23 @@
                 <dl class="row pt-2 ps-3 pe-3">
                      <br>
                     <div class="d-flex flex-wrap ">
-                        <img src="<?php echo base_url('assets/avatar.jpg' ); ?>" width= "60" >
+                    
+                    <?php $user_count = count($users);?>
+
+                    <?php for($i=0; $i<$user_count; $i++): ?>
+
+                        <?php if($post['by']==$users[$i]['id']):?>
+
+                        <?php if($users[$i]['profile_picture']!='noimage.jpg'):?>
+                            <img src="<?php echo base_url('images/profile_picture/' . $users[$i]['profile_picture']  ); ?>" width= "60" height="60">
+                        <?php else:?>
+                            <img src="<?php echo base_url('assets/avatar.jpg' ); ?>" width= "60" height="60" >
+                        <?php endif; ?>
+
+                        <?php endif; ?>
+
+                    <?php endfor ; ?>
+
                             <div class=" ps-2 row">
                             <dt id="username"> <?php echo $post['name']; ?></dt> 
                             <dd class=" text-muted " id="date"><small> <?php echo $post['date']; ?></small></dd>
@@ -84,7 +100,23 @@
     <!-- href to profile -->
   
         <div class="d-flex flex-wrap mt-2">
-            <img src="<?php echo base_url('assets/avatar.jpg' ); ?>" width= "60" >
+
+        <?php $user_count = count($users);?>
+
+        <?php for($i=0; $i<$user_count; $i++): ?>
+
+            <?php if($reply['by']==$users[$i]['id']):?>
+
+            <?php if($users[$i]['profile_picture']!='noimage.jpg'):?>
+                <img src="<?php echo base_url('images/profile_picture/' . $users[$i]['profile_picture']  ); ?>" width= "60" height="60">
+            <?php else:?>
+                <img src="<?php echo base_url('assets/avatar.jpg' ); ?>" width= "60" height="60" >
+            <?php endif; ?>
+
+            <?php endif; ?>
+
+        <?php endfor ; ?>
+
                 <div class=" ps-2 row">
                     <dt id="username"> <?php echo $reply['name']; ?></dt> 
                     <dd class=" text-muted " id="date"><small> <?php echo $post['date']; ?></small></dd>
