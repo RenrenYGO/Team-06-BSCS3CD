@@ -21,20 +21,21 @@
 	<?php endforeach; ?>
   </ul>
     <!-- CREATE POST BUTTON -->
-    <h3 class="pt-5 text-center text-decoration-none ">
-        <a href="<?php echo base_url('posts/create'); ?>" class="btn btn-custom" type="button" id="create"> Create a Post</a> 
-    </h3>
+  
     <!-- LATEST POSTS AND SEARCH BAR -->
     <div class="d-flex flex-row ">
         <h3 class="pt-5  "><?= $title ?></h3>
           <div class="pt-5 ms-auto">
             <form action = "<?php echo site_url('posts/skeyword/');?>" method="post">
-              <div class="input-group mb-3">
+              <div class="input-group">
                 <input type="text" name="title" placeholder="Search..." class=" bg-light border border-secondary form-control">  
                 <button class="btn bg-light border-start-0 border border-secondary" type="submit"> <img src="<?php echo base_url('assets/node_modules/bootstrap-icons/icons/search.svg'); ?>" id="search"></button>
               </div>
             </form>
           </div>
+            <h3 class="pt-5 text-center text-decoration-none ms-2">
+              <a href="<?php echo base_url('posts/create'); ?>" class="btn btn-custom mb-2" type="button" id="create" title="Create a Post"><img src="<?php echo base_url('assets/node_modules/bootstrap-icons/icons/plus-lg.svg'); ?>"></a> 
+            </h3>
     </div>
 <?php 
   $post_count = 0;
