@@ -56,21 +56,30 @@
                             ?>
                         </p>
                     </div>
+                    <div class="d-flex mt-3">
+                      <?php if($user['post_count']!=0) : ?>
+                        <h4 class="mt-4"> Posts:
+                          [<?php
+                              echo $user['post_count'];
+                          ?>]
+                        </h4>
+                      <?php endif; ?>
+                      <?php if($user['post_count']==0) : ?>
+                        <h4>No Posts To Display</h4>  
+                      <?php endif; ?>
+                      <h3 class=" mt-4 ms-auto box text-decoration-none ">
+                          <a href="<?php echo base_url('posts/create'); ?>" class="btn btn-custom" type="button" id="create" title="Create a Post"><img src="<?php echo base_url('assets/node_modules/bootstrap-icons/icons/plus-lg.svg'); ?>"></a> 
+                      </h3>
+                    </div>
             </div>
-            <?php
-                echo "Post Count: ".$user['post_count'];
-            ?>
         </div>
     </div>
 
-    <!-- CREATE POST BUTTON -->
-    <h3 class="pt-5 text-center text-decoration-none ">
-        <a href="<?php echo base_url('posts/create'); ?>" class="btn btn-custom" type="button" id="create"> Create a Post</a> 
-    </h3>
+    
     <!-- LATEST POSTS AND SEARCH BAR -->
 
     <?php foreach($posts as $post) : ?>
-    <div class="container pt-3 border bg-white border-none mt-3">
+    <div class="container pt-3 border bg-white border-none mt-5">
         <dl class="row ps-3">
     <!-- href to profile -->
             <div class="d-flex flex-wrap ">
