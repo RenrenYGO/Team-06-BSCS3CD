@@ -15,7 +15,14 @@
 	
 	<ul class="list-group list-group  ps-1 tags">
 	<?php foreach($users as $user) : ?>
-        <li ><a class="button ms-5 position-relative" href="<?php echo site_url('/users/posts/'.$user['id']); ?>"><span class="tagname"><?php echo $user['name']; ?></span></a>
+		<li>
+			<?php if($user['profile_picture']!='noimage.jpg'):?>
+				<img src="<?php echo base_url('images/profile_picture/' . $user['profile_picture']  ); ?>" width= "60" height="60">
+			<?php else:?>
+				<img src="<?php echo base_url('assets/avatar.jpg' ); ?>" width= "60" height="60" >
+			<?php endif; ?>
+			<a class="button ms-5 position-relative" href="<?php echo site_url('/users/posts/'.$user['id']); ?>"><span class="tagname"><?php echo $user['name']; ?></span></a>
+		</li>
 	<?php endforeach; ?>
 	</ul>
 </div>

@@ -37,18 +37,30 @@
               <a href="<?php echo base_url('posts/create'); ?>" class="btn btn-custom mb-2" type="button" id="create" title="Create a Post"><img src="<?php echo base_url('assets/node_modules/bootstrap-icons/icons/plus-lg.svg'); ?>"></a> 
             </h3>
     </div>
-<?php 
-  $post_count = 0;
-  foreach($posts as $post) : ?>
+
+  <?php $user_count = count($users);?>
   <?php
-    $post_count = $post_count+1;
-  ?>
+    foreach($posts as $post) : ?>
  
     <div class="container pt-3 border bg-white border-none mt-3">
         <dl class="row ps-3">
     <!-- href to profile -->
             <div class="d-flex flex-wrap ">
-              <img src="<?php echo base_url('assets/avatar.jpg' ); ?>" width= "60" height="60" >
+              
+            <?php for($i=0; $i<$user_count; $i++): ?>
+
+              <?php if($post['by']==$users[$i]['id']):?>
+
+                <?php if($users[$i]['profile_picture']!='noimage.jpg'):?>
+                  <img src="<?php echo base_url('images/profile_picture/' . $users[$i]['profile_picture']  ); ?>" width= "60" height="60">
+                <?php else:?>
+                  <img src="<?php echo base_url('assets/avatar.jpg' ); ?>" width= "60" height="60" >
+                <?php endif; ?>
+
+              <?php endif; ?>
+
+            <?php endfor ; ?>
+
                 <div class=" ps-2 row">
                     <a class="display pt-2" id="username" href="<?php echo site_url('/users/posts/'.$post['by']); ?>"><span class="tagname"><?php echo $post['name']; ?></span></a> 
                   <dd class=" text-muted " id="date"><small> <?php echo $post['date']; ?></small></dd>
@@ -81,7 +93,7 @@
     </div>
   </div>
 <?php endforeach ; ?>
-<?php echo "TOTAL POSTS: ".$post_count;?>
+<?php echo "TOTAL POSTS: ".$post_count=count($posts);?>
             <?php if($post_count==0) : ?>
               <h4>No posts to display</h4>
             <?php endif; ?>

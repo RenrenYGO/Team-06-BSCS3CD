@@ -56,6 +56,7 @@ class Users extends CI_Controller {
     public function profile_posts($id){
         $data['title'] = $this->user_model->get_user($id)->name;
         $data['threads'] = $this->threads_model->get_threads();
+        $data['users'] = $this->user_model->get_users();
         $data['posts'] = $this->post_model->get_posts_by_user($id);
 
         $this->sitelayout->loadTemplate('posts/index',$data);

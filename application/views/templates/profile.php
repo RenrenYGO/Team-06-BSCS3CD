@@ -27,9 +27,11 @@
                 <div class="row">
                     <div class="col-md-6 ml-auto mr-auto">
                         <div class="profile">
-                          <?php if($user['profile_picture']!='noimage.jpg'):?>
-                                  <img src="<?php echo base_url('images/profile_picture/' . $user['profile_picture']  ); ?>"></p>
-                          <?php endif; ?>
+                        <?php if($user['profile_picture']!='noimage.jpg'):?>
+                            <img src="<?php echo base_url('images/profile_picture/' . $user['profile_picture']  ); ?>" width= "60" height="60">
+                        <?php else:?>
+                            <img src="<?php echo base_url('assets/avatar.jpg' ); ?>" width= "60" height="60" >
+                        <?php endif; ?>
                             
                             
                             <div class="name">

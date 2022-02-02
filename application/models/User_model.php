@@ -30,9 +30,22 @@ class User_model extends CI_Model{
     }
 
     public function get_users(){
+
         $this->db->order_by('name');
         $query = $this->db->get('user');
+        
+        // echo "<pre>";
+        // var_dump($query->result_array());
+        // echo "</pre>";
+        // exit;
+
         return $query->result_array();
+
+        // foreach($users as $key => $user){
+		// 	$id = $post['by'];
+		// 	$query = $this->db->query("SELECT * FROM user WHERE id = '$id'");
+		// 	$users[$key]['name'] = $query->row()->{'name'};
+		// }
     }
 
     public function get_user($id){

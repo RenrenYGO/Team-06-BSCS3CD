@@ -7,9 +7,11 @@ class Sitelayout {
 
     public function __construct() {
         $this->CI =& get_instance();
+        
     }
 
     public function loadTemplate($content = null, $data = null) {
+        // $data['user'] = $this->user_model->get_profile();
         $layout = array();
         $layout['navbar2'] = $this->CI->load->view('templates/navbar2', null, true);
         $layout['navbar3'] = $this->CI->load->view('templates/navbar3', null, true);
@@ -21,6 +23,7 @@ class Sitelayout {
         $this->CI->load->view('templates/content', $layout);
     }
     public function loadWhatSauceTemplate($content = null, $data = null) {
+        // $data['user'] = $this->user_model->get_profile();
         $layout = array();
         $layout['navbar3'] = $this->CI->load->view('templates/navbar3', null, true);
        // $layout['header'] = $this->CI->load->view('templates/header', null, true);
