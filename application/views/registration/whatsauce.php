@@ -18,7 +18,7 @@
     <div class="jumbotron shadow-sm rounded" style="padding: 100px; margin-top:60px; background-color: #ebe3e3a9; "> 
       <div class="col-md-6 px-0 ">
         <h1 class="display-4 font-italic">Need Sauce?</h1>
-        <p class="lead my-3">WhatSauce&trade; is right here with you!</p>
+        <p class="lead my-3">WhatSauce&trade; got your back!</p>
       </div>
     </div>
     <div class="container">

@@ -26,9 +26,9 @@
                         <?php if($post['by']==$users[$i]['id']):?>
 
                         <?php if($users[$i]['profile_picture']!='noimage.jpg'):?>
-                            <img src="<?php echo base_url('images/profile_picture/' . $users[$i]['profile_picture']  ); ?>" width= "60" height="60">
+                            <img id="profile-picture" src="<?php echo base_url('images/profile_picture/' . $users[$i]['profile_picture']  ); ?>" width= "60" height="60">
                         <?php else:?>
-                            <img src="<?php echo base_url('assets/avatar.jpg' ); ?>" width= "60" height="60" >
+                            <img id="profile-picture" src="<?php echo base_url('assets/avatar.jpg' ); ?>" width= "60" height="60" >
                         <?php endif; ?>
 
                         <?php endif; ?>
@@ -40,8 +40,6 @@
                             <dd class=" text-muted " id="date"><small> <?php echo $post['date']; ?></small></dd>
                             </div>
 
-                            <?php echo $post['at']; ?>
-
                         <div class="ms-auto">  
                             <!-- edit button-->
                                 <?php if(isset($_SESSION['user']) && $this->session->userdata('user')['id'] == $post['by']):?>
@@ -52,6 +50,11 @@
                     </div>
                         <h2 class="mt-3"><?php echo $post['title']; ?></h2>
                         <p class="overflow-scroll" width="50" height="50"><?php echo $post['content']; ?>
+                            <br>
+                        <!-- tags -->
+                        <div class="d-inline-flex">
+                            <dd class="ms-2 rounded rounded-3 px-2 mb-3" id="tags"><?php echo $post['at']; ?></dd>
+                        </div>
                             <br>
                             <?php if($post['post_image']!='noimage.jpg'):?>
                                 <img src="<?php echo base_url('images/posts/' . $post['post_image']  ); ?>"  class="mt-3" height="300" width="300" ></p>
@@ -108,9 +111,9 @@
             <?php if($reply['by']==$users[$i]['id']):?>
 
             <?php if($users[$i]['profile_picture']!='noimage.jpg'):?>
-                <img src="<?php echo base_url('images/profile_picture/' . $users[$i]['profile_picture']  ); ?>" width= "60" height="60">
+                <img id="profile-picture" src="<?php echo base_url('images/profile_picture/' . $users[$i]['profile_picture']  ); ?>" width= "60" height="60">
             <?php else:?>
-                <img src="<?php echo base_url('assets/avatar.jpg' ); ?>" width= "60" height="60" >
+                <img id="profile-picture" src="<?php echo base_url('assets/avatar.jpg' ); ?>" width= "60" height="60" >
             <?php endif; ?>
 
             <?php endif; ?>
