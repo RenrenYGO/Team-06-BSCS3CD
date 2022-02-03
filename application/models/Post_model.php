@@ -18,6 +18,12 @@ class Post_model extends CI_Model{
 		$query = $this->db->query("SELECT * FROM threads WHERE id = '$thread_id'");
 		$post['at'] = $query->row()->{'name'};
 
+		if($post['whatsauce_id']==NULL){
+			$whatsauce_id = $post['whatsauce_id'];
+			$query = $this->db->query("SELECT * FROM whatsauce WHERE id = '$whatsauce_id'");
+			$post['what'] = $query->row()->{'name'};
+		}
+
 		return $post;
 		
 	}
@@ -36,6 +42,14 @@ class Post_model extends CI_Model{
 			$posts[$key]['at'] = $query->row()->{'name'};
 		}
 
+		foreach($posts as $key => $post){
+			if($post['whatsauce_id']==NULL){
+				$id = $post['whatsauce_id'];
+				$query = $this->db->query("SELECT * FROM whatsauce WHERE id = '$id'");
+				$posts[$key]['what'] = $query->row()->{'name'};
+			}
+		}
+		
 		return $posts;
 
 	}
@@ -146,6 +160,17 @@ class Post_model extends CI_Model{
 		$this->db->order_by('posts.id', 'DESC');
 		$this->db->join('user', 'user.id = posts.by');
 		$query = $this->db->get_where('posts', array('by' => $by));
+
+		return $this->get_index_data($query->result_array());
+
+	}
+
+	public function get_posts_by_whatsauce($whatsauce_id){
+
+		$this->db->select('posts.*,whatsauce.name');//get the name only in user table
+		$this->db->order_by('posts.id', 'DESC');
+		$this->db->join('whatsauce', 'whatsauce.id = posts.whatsauce_id');
+		$query = $this->db->get_where('posts', array('whatsauce_id' => $whatsauce_id));
 
 		return $this->get_index_data($query->result_array());
 

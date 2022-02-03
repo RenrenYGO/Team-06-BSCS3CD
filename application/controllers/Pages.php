@@ -14,19 +14,19 @@ class Pages extends CI_Controller {
        // $this->load->view('templates/footer', $data);
     }
 
-public function temp($page = 'whatsauce') {
-    if ( ! file_exists(APPPATH.'views/registration/'.$page.'.php')){
-            echo "Whoops, we don't have a page for that!";
-            show_404();
-    }
+//         public function temp($page = 'whatsauce') {
+//         if ( ! file_exists(APPPATH.'views/registration/'.$page.'.php')){
+//                 echo "Whoops, we don't have a page for that!";
+//                 show_404();
+//         }
     
-    $data['title'] = ucfirst($page); // Capitalize the first letter
-    $this->sitelayout->loadWhatSauceTemplate('registration/whatsauce', $data);
+//     $data['title'] = ucfirst($page); // Capitalize the first letter
+//     $this->sitelayout->loadWhatSauceTemplate('registration/whatsauce', $data);
    // $this->load->view('templates/header', $data);
     //$this->load->view('registration/'.$page, $data);
    // $this->load->view('templates/footer', $data);
 
-}
+// }
 // add this function to controllers/Pages.php
 
 public function about($page = 'about') {
