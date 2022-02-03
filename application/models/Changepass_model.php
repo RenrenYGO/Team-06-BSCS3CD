@@ -9,14 +9,17 @@ class Changepass_model extends CI_Model{
     public function update_password($data){
 
         $data2 = array(
-
-            'password'=> md5($data['password'])
-
+            'password'=> $data['password']
         );
 
-        if(md5($data['currpass']) == $this->session->userdata('user')['password'] && md5($data['password']) == md5($data['confpass'])){
+        if(password_verify($data['currpass'], $this->session->userdata('user')['password']) && $data['password'] == $data['confpass']){
             $this->db->where('id', $this->session->userdata('user')['id']);
-            return $this->db->update('user', $data2); 
+            // return $this->db->update('user', $data2);
+
+        $data3 = array(
+            'password'=> password_hash($data['password'], PASSWORD_DEFAULT)
+        );
+            return $this->db->update('user', $data3);
         } else {
             echo "password does not match."; //MODAL YELA
             redirect('login');
