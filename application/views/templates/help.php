@@ -29,10 +29,10 @@
                 </div>
                 <div class="card col-lg-6 py-4" style="width: 20rem; margin-right: 40px; margin-bottom: 40px;">
                     <div class="card-body text-center">
-                    <h5 class="card-title text-center"><i class="fas fa-user-cog" style="font-size: 40px; color: #e8b04f;"></i></h5>
-                    <h5 class="font-weight-bold text-center" style="margin-bottom:15px">Login & Logout</h5>
-                    <p class="card-text">Having problems with login?</p>
-                    <a href="<?php echo base_url('pages/about'); ?>"><button type="button" class="btn">How to LogIn & Logout</button></a><br>
+                    <h5 class="card-title text-center"><i class="fas fa-question" style="font-size: 40px; color: #e8b04f;"></i></h5>
+                    <h5 class="font-weight-bold text-center" style="margin-bottom:15px">FAQs</h5>
+                    <p class="card-text">Have any questions?</p>
+                    <a href="<?php echo base_url('pages/faqs'); ?>"><button type="button" class="btn">FAQs</button></a><br>
                     </div>
                 </div>
                 <div class="card col-lg-6 p-4" style="width: 20rem; margin-right: 40px; margin-bottom: 40px;">
