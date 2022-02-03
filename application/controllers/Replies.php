@@ -22,6 +22,7 @@
 
 		public function upvoteR($id,$post_id){
 			$this->replies_model->upvote_reply($id);
+			$data['users'] = $this->user_model->get_users();
 			$data['post'] = $this->post_model->get_posts($post_id);
 			$data['replies'] = $this->replies_model->get_replies($post_id);
 			$this->sitelayout->loadTemplate('posts/view', $data);
@@ -29,6 +30,7 @@
 		
 		public function downvoteR($id,$post_id){
 			$this->replies_model->downvote_reply($id);
+			$data['users'] = $this->user_model->get_users();
 			$data['post'] = $this->post_model->get_posts($post_id);
 			$data['replies'] = $this->replies_model->get_replies($post_id);
 			$this->sitelayout->loadTemplate('posts/view', $data);
