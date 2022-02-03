@@ -21,10 +21,10 @@ class Login extends CI_Controller {
             $result = $this->login_model->login($data['name'], $data['password']);
 
             if(!is_bool($result)){
-                $session['user'] = $result[0];
+                $session['user'] = $result;
                 $this->session->set_userdata($session);
                 redirect('/posts');
-            } 
+            }
         }
         
 		$this->sitelayout->loadTemplate('registration/login');

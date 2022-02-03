@@ -24,15 +24,15 @@ class Registration extends CI_Controller {
         } else {
             
             // Encrypt password
-            $enc_password = md5($this->input->post('password'));
-            // $enc_password = password_hash($this->input->post('password'), PASSWORD_DEFAULT);
+            // $enc_password = md5($this->input->post('password'));
+            $enc_password = password_hash($this->input->post('password'), PASSWORD_DEFAULT);
 
 			$data = array(
 				'name' => $this->input->post('name'),
 				'email' => $this->input->post('email'),
                 'password' => $enc_password
 			);
-
+            
             $this->registration_model->get_reg($data);
             // Set message
             $this->session->set_flashdata('user_registered', 'You are now registered and can log in');
