@@ -57,7 +57,7 @@
                         </div>
                             <br>
                             <?php if($post['post_image']!='noimage.jpg'):?>
-                                <img src="<?php echo base_url('images/posts/' . $post['post_image']  ); ?>"  class="mt-3" height="300" width="300" ></p>
+                                <img src="<?php echo base_url('images/posts/' . $post['post_image']  ); ?>"  class="mt-3" height="1000" width="1000" ></p>
                             <?php endif; ?>
     <!-- upvote and downvote -->
     <?php if(isset($_SESSION['user'])):?>
