@@ -39,14 +39,14 @@
         if(isset($user) && $user!=null):?>
 
             <?php if($user['profile_picture']!='noimage.jpg'):?>
-                <img id="profile-picture" src="<?php echo base_url('images/profile_picture/' . $user['profile_picture']  ); ?>" class=" avatar dropdown  " width="50" height="50" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                <img id="profile-picture"  src="<?php echo base_url('images/profile_picture/' . $user['profile_picture']  ); ?>" class=" avatar dropdown rounded rounded-circle"  width="50" height="50" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
             <?php else:?>
-                <img id="profile-picture" src="<?php echo base_url('assets/avatar.jpg' ); ?>" class=" avatar dropdown  " width="50" height="50" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                <img id="profile-picture" src="<?php echo base_url('assets/avatar.jpg' ); ?>" class=" avatar dropdown rounded rounded-circle" width="50" height="50" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
             <?php endif; ?>
            
            <span class="dropdown-menu dropdown-menu-end me-4" role = "menu" aria-labelledby="dropdownMenuLink">
            <a class="dropdown-item " href="<?php echo base_url('pages/profile'); ?>">Profile</a>
-           <a class="dropdown-item " href="<?php echo base_url('pages/changepassword'); ?>">Account Settings</a>
+           <a class="dropdown-item " href="<?php echo base_url('pages/changepassword'); ?>">Change password</a>
             <a class="dropdown-item " href="<?php echo base_url('logout'); ?>">Logout</a>
             </span>
 

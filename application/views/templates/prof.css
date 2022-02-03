@@ -11,8 +11,6 @@ body {
     margin: 0 auto;
 }
 
-.profile-page {}
-
 .profile-page .page-header {
     height: 390px;
     background-position: center;
@@ -63,7 +61,7 @@ body {
 }
 
 .title {
-    font-size: 2.5rem;
+    font-size: 3rem;
     margin-top: -4rem;
     min-height: 32px;
     color: #000000;

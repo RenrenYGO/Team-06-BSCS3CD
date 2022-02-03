@@ -17,9 +17,9 @@
 	<?php foreach($users as $user) : ?>
 		<li>
 			<?php if($user['profile_picture']!='noimage.jpg'):?>
-				<img src="<?php echo base_url('images/profile_picture/' . $user['profile_picture']  ); ?>" width= "60" height="60">
+				<img src="<?php echo base_url('images/profile_picture/' . $user['profile_picture']  ); ?>" width= "60" height="60" class="rounded rounded-circle">
 			<?php else:?>
-				<img src="<?php echo base_url('assets/avatar.jpg' ); ?>" width= "60" height="60" >
+				<img src="<?php echo base_url('assets/avatar.jpg' ); ?>" width= "60" height="60" class="rounded rounded-circle" >
 			<?php endif; ?>
 			<a class="button ms-5 position-relative" href="<?php echo site_url('/users/posts/'.$user['id']); ?>"><span class="tagname"><?php echo $user['name']; ?></span></a>
 		</li>
