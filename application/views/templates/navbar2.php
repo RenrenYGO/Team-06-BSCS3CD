@@ -39,9 +39,9 @@
         if(isset($user) && $user!=null):?>
 
             <?php if($user['profile_picture']!='noimage.jpg'):?>
-                <img src="<?php echo base_url('images/profile_picture/' . $user['profile_picture']  ); ?>" class=" avatar dropdown  " width="50" height="50" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                <img id="profile-picture" src="<?php echo base_url('images/profile_picture/' . $user['profile_picture']  ); ?>" class=" avatar dropdown  " width="50" height="50" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
             <?php else:?>
-                <img src="<?php echo base_url('assets/avatar.jpg' ); ?>" class=" avatar dropdown  " width="50" height="50" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                <img id="profile-picture" src="<?php echo base_url('assets/avatar.jpg' ); ?>" class=" avatar dropdown  " width="50" height="50" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
             <?php endif; ?>
            
            <span class="dropdown-menu dropdown-menu-end me-4" role = "menu" aria-labelledby="dropdownMenuLink">

@@ -34,7 +34,7 @@
             </form>
           </div>
             <h3 class="pt-5 text-center text-decoration-none ms-2">
-              <a href="<?php echo base_url('posts/create'); ?>" class="btn btn-custom mb-2" type="button" id="create" title="Create a Post"><img src="<?php echo base_url('assets/node_modules/bootstrap-icons/icons/plus-lg.svg'); ?>"></a> 
+              <a href="<?php echo base_url('posts/create'); ?>" class="btn btn-custom mb-2" type="button" id="create" title="Create a Post">Ask something</a> 
             </h3>
     </div>
 
@@ -52,9 +52,9 @@
               <?php if($post['by']==$users[$i]['id']):?>
 
                 <?php if($users[$i]['profile_picture']!='noimage.jpg'):?>
-                  <img src="<?php echo base_url('images/profile_picture/' . $users[$i]['profile_picture']  ); ?>" width= "60" height="60">
+                  <img src="<?php echo base_url('images/profile_picture/' . $users[$i]['profile_picture']  ); ?>" width= "60" height="60" id="profile-picture">
                 <?php else:?>
-                  <img src="<?php echo base_url('assets/avatar.jpg' ); ?>" width= "60" height="60" >
+                  <img src="<?php echo base_url('assets/avatar.jpg' ); ?>" width= "60" height="60" id="profile-picture">
                 <?php endif; ?>
 
               <?php endif; ?>
