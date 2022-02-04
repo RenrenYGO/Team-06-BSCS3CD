@@ -33,61 +33,60 @@
 
             <div class="container mt-5 pt-5 text-black ">
                 <h2 class="text-center ">About the Team</h2>
-                <h6 class="text-center font-weight-light m-5">The developers behind the COMMHUB is made up of Computer Science student from the Technological University of the Philippines. 
+                <h6 class="text-center font-weight-light m-5">The developers behind the COMMHUB is made up of Computer Science students from the Technological University of the Philippines. 
                 </h6>
                     <div class="container row text-center justify-content-evenly" >
-                    <div class="tile">
-                    <img src=<?php echo base_url('assets/Jer2.png');?>>
-                        <div class="text">
-                            <h2 class="animate-text mx-auto">Jerry Mandap</h2>
-                            <p class="animate-text mx-auto">Frontend Developer </p>
-                        </div>
-                </div>  
-                 
-                <div class="tile">
-                    <img src=<?php echo base_url('assets/Christian.png');?>>
-                        <div class="text">
-                            <h4 class="animate-text mx-auto">Christian Del Rosario</h4>
-                            <p class="animate-text mx-auto para">Frontend Developer </p>
-                        </div>
-                </div> 
-                <div class="tile">
-                    <img src=<?php echo base_url('assets/Kyle.png');?>>
-                        <div class="text">
-                            <h2 class="animate-text mx-auto">Kyle Mendoza</h2>
-                            <p class="animate-text mx-auto">Frontend Developer </p>
-                        </div>
-                </div>
-                <div class="tile">
-                    <img src=<?php echo base_url('assets/Yela.png');?>>
-                        <div class="text">
-                            <h2 class="animate-text mx-auto">Marielle Tario</h2>
-                            <p class="animate-text mx-auto">Frontend Developer </p>
-                        </div>
-                </div>
-               
-                <div class="tile">
-                    <img src=<?php echo base_url('assets/Law.png');?>>
-                        <div class="text">
-                            <h3 class="animate-text mx-auto">Lawrence Trinidad</h3>
-                            <p class="animate-text mx-auto">Backend Developer</p>
-                        </div>
-                </div>
-                <div class="tile">
-                    <img src=<?php echo base_url('assets/Jose.png');?>>
-                        <div class="text">
-                            <h2 class="animate-text mx-auto">Jose Rebagoda</h2>
-                            <p class="animate-text mx-auto">Backend Developer </p>
-                        </div>
+                        <div class="tile">
+                        <img src=<?php echo base_url('assets/Jer2.png');?>>
+                            <div class="text">
+                                <h2 class="animate-text mx-auto">Jerry Mandap</h2>
+                                <p class="animate-text mx-auto">Frontend Developer </p>
+                            </div>
+                        </div>  
+                    
+                        <div class="tile">
+                        <img src=<?php echo base_url('assets/Christian.png');?>>
+                                <div class="text">
+                                    <h4 class="animate-text mx-auto">Christian Del Rosario</h4>
+                                    <p class="animate-text mx-auto para">Frontend Developer </p>
+                                </div>
+                        </div> 
+                        <div class="tile">
+                        <img src=<?php echo base_url('assets/Kyle.png');?>>
+                                <div class="text">
+                                    <h2 class="animate-text mx-auto">Kyle Mendoza</h2>
+                                    <p class="animate-text mx-auto">Frontend Developer </p>
+                                </div>
                         </div>
                         <div class="tile">
-                    <img src=<?php echo base_url('assets/Rick.png');?>>
-                        <div class="text">
-                            <h2 class="animate-text mx-auto">Rick Dela Cruz</h2>
-                            <p class="animate-text mx-auto">Backend Developer </p>
+                        <img src=<?php echo base_url('assets/Yela.png');?>>
+                                <div class="text">
+                                    <h2 class="animate-text mx-auto">Marielle Tario</h2>
+                                    <p class="animate-text mx-auto">Frontend Developer </p>
+                                </div>
                         </div>
-             
-                </div>
+                
+                        <div class="tile">
+                        <img src=<?php echo base_url('assets/Law.png');?>>
+                                <div class="text">
+                                    <h3 class="animate-text mx-auto">Lawrence Trinidad</h3>
+                                    <p class="animate-text mx-auto">Backend Developer</p>
+                                </div>
+                        </div>
+                        <div class="tile">
+                        <img src=<?php echo base_url('assets/Jose.png');?>>
+                                <div class="text">
+                                    <h2 class="animate-text mx-auto">Jose Rebagoda</h2>
+                                    <p class="animate-text mx-auto">Backend Developer </p>
+                                </div>
+                        </div>
+                        <div class="tile">
+                        <img src=<?php echo base_url('assets/Rick.png');?>>
+                            <div class="text">
+                                <h2 class="animate-text mx-auto">Rick Dela Cruz</h2>
+                                <p class="animate-text mx-auto">Backend Developer </p>
+                            </div>
+                        </div>
                                  
             </div>
         </section>
