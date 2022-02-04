@@ -16,39 +16,53 @@
    
    <ul class="list-group list-group-horizontal  ps-1 tags">
    <?php foreach($threads as $thread) : ?>
-		<li ><a class="button ms-5 position-relative" href="<?php echo site_url('/threads/posts/'.$thread['id']); ?>"><span class="tagname"><?php echo $thread['name']; ?></span></a>
+		<li ><a class="button ms-5 position-relative" id="tagstyle" href="<?php echo site_url('/threads/posts/'.$thread['id']); ?>"><span class="tagname"><?php echo $thread['name']; ?></span></a>
 		</li>
 	<?php endforeach; ?>
   </ul>
     <!-- CREATE POST BUTTON -->
-    <h3 class="pt-5 text-center text-decoration-none ">
-        <a href="<?php echo base_url('posts/create'); ?>" class="btn btn-custom" type="button" id="create"> Create a Post</a> 
-    </h3>
+  
     <!-- LATEST POSTS AND SEARCH BAR -->
     <div class="d-flex flex-row ">
         <h3 class="pt-5  "><?= $title ?></h3>
           <div class="pt-5 ms-auto">
             <form action = "<?php echo site_url('posts/skeyword/');?>" method="post">
-              <div class="input-group mb-3">
+              <div class="input-group">
                 <input type="text" name="title" placeholder="Search..." class=" bg-light border border-secondary form-control">  
                 <button class="btn bg-light border-start-0 border border-secondary" type="submit"> <img src="<?php echo base_url('assets/node_modules/bootstrap-icons/icons/search.svg'); ?>" id="search"></button>
               </div>
             </form>
           </div>
+            <h3 class="pt-5 text-center text-decoration-none ms-2">
+              <a href="<?php echo base_url('posts/create'); ?>" class="btn btn-custom mb-2" type="button" id="create" title="Ask something">Create a Post</a> 
+            </h3>
     </div>
-<?php 
-  $post_count = 0;
-  foreach($posts as $post) : ?>
+
+  <?php $user_count = count($users);?>
   <?php
-    $post_count = $post_count+1;
-  ?>
+    foreach($posts as $post) : ?>
+ 
     <div class="container pt-3 border bg-white border-none mt-3">
         <dl class="row ps-3">
     <!-- href to profile -->
             <div class="d-flex flex-wrap ">
-              <img src="<?php echo base_url('assets/avatar.jpg' ); ?>" width= "60" >
+              
+            <?php for($i=0; $i<$user_count; $i++): ?>
+
+              <?php if($post['by']==$users[$i]['id']):?>
+
+                <?php if($users[$i]['profile_picture']!='noimage.jpg'):?>
+                  <img src="<?php echo base_url('images/profile_picture/' . $users[$i]['profile_picture']  ); ?>" width= "60" height="60" id="profile-picture">
+                <?php else:?>
+                  <img src="<?php echo base_url('assets/avatar.jpg' ); ?>" width= "60" height="60" id="profile-picture">
+                <?php endif; ?>
+
+              <?php endif; ?>
+
+            <?php endfor ; ?>
+
                 <div class=" ps-2 row">
-                    <a class="display pt-2" href="<?php echo site_url('/users/posts/'.$post['by']); ?>"><span class="tagname"><?php echo $post['name']; ?></span></a> 
+                    <a class="display pt-2" id="username" href="<?php echo site_url('/users/posts/'.$post['by']); ?>"><span class="tagname"><?php echo $post['name']; ?></span></a> 
                   <dd class=" text-muted " id="date"><small> <?php echo $post['date']; ?></small></dd>
                 </div>
             </div>
@@ -79,7 +93,11 @@
     </div>
   </div>
 <?php endforeach ; ?>
-<?php echo "TOTAL POSTS: ".$post_count;?>
+<?php echo "TOTAL POSTS: ".$post_count=count($posts);?>
+            <?php if($post_count==0) : ?>
+              <h4>No posts to display</h4>
+            <?php endif; ?>
+
 </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     </body>

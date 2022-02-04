@@ -15,10 +15,18 @@
 	
 	<ul class="list-group list-group  ps-1 tags">
 	<?php foreach($users as $user) : ?>
-        <li ><a class="button ms-5 position-relative" href="<?php echo site_url('/users/posts/'.$user['id']); ?>"><span class="tagname"><?php echo $user['name']; ?></span></a>
+		<li>
+			<?php if($user['profile_picture']!='noimage.jpg'):?>
+				<img src="<?php echo base_url('images/profile_picture/' . $user['profile_picture']  ); ?>" width= "60" height="60" class="rounded rounded-circle">
+			<?php else:?>
+				<img src="<?php echo base_url('assets/avatar.jpg' ); ?>" width= "60" height="60" class="rounded rounded-circle" >
+			<?php endif; ?>
+			<a class="button ms-5 position-relative" href="<?php echo site_url('/users/posts/'.$user['id']); ?>"><span class="tagname"><?php echo $user['name']; ?></span></a>
+		</li>
 	<?php endforeach; ?>
 	</ul>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js " integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p " crossorigin="anonymous "></script>
 
 </body>
 </html>

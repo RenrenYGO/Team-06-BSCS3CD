@@ -11,7 +11,7 @@ class Newsletter extends CI_Controller {
         $this->form_validation->set_rules('email', 'Email', 'required|callback_check_email_exists');
 
         if($this->form_validation->run() === false){
-            $this->load->view('registration/newsletter', $data);
+            $this->load->view('templates/footer', $data);
         } else {
 			$data = array(
 				'email' => $this->input->post('email'),
@@ -20,7 +20,7 @@ class Newsletter extends CI_Controller {
             $this->newsletter_model->get_news($data);
             // Set message
             $this->session->set_flashdata('user_registered', 'You are now registered to the Commhub Newsletter!');
-                redirect('pages/view');
+                redirect('posts');
         }
 	}
     // Check if email exists

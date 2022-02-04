@@ -31,26 +31,31 @@
     <textarea id="editor1" class="form-control rounded-pill" name="content" placeholder="Add Content"
     ></textarea>
 </div>
-
+<div class="d-flex">
     <div class="form-group">
 	  <label>Thread</label>
-	  <select name="thread_id" class="form-control">
+	  <select name="thread_id" class="form-control" style="width:470px;">
 		  <?php foreach($threads as $thread): ?>
 		  	<option value="<?php echo $thread['id']; ?>"><?php echo $thread['name']; ?></option>
 		  <?php endforeach; ?>
 	  </select>
     </div>
-
-<div class="d-flex mt-3 justify-content-end">
-<button type="submit" class="btn btn-default ">Add post</button>
-</div>
-</div>
-<div class="form-group p-3 pb-4">
-<label>Upload Image:</label>
-<input type="file" name="post_image" size="200">
-</div>
+    <div class="form-group mt-4">
+        <label class="label" title="Add Media">
+            <span><img src="<?php echo base_url('assets/node_modules/bootstrap-icons/icons/image.svg'); ?>"/></span>
+            <input type="file" name="post_image" size="100">
+        </label>
+    </div>
 </div>
 
+<div class="d-flex mb-3 mt-3 justify-content-end">
+<button type="submit" class="btn btn-default text-white">Add post</button>
+
+</div>
+</div>
+
+</div>
+</form>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     </body>
 </html>

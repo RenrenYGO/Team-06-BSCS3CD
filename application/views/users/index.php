@@ -10,8 +10,8 @@
 </head>
 <body><br><br><br>
 <div class="container mt-5">
-
-<?php echo form_open("users/edit_profile"); ?>
+<?php echo validation_errors();?>
+<?php echo form_open_multipart("users/edit_profile"); ?>
 <input type="hidden" name="id" value="<?php echo $this->session->userdata('user')['id'];?>">
    
     <div class="form-group">
@@ -25,6 +25,8 @@
         ><?php echo $this->session->userdata('user')['bio'];?></textarea>
         <!-- <textarea class="form-control" id="editor1" name="bio" placeholder="Edit Bio" value="<?php //echo $this->session->userdata('user')['bio'];?>"></textarea> -->
         
+        <label>Upload Profile Image:</label>
+        <input type="file" name="profile_picture" size="200">
     </div>
 
     <div class="d-flex mb-4"> <!-- row align -->

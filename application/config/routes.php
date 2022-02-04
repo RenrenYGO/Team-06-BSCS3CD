@@ -19,5 +19,8 @@ $route['threads/posts/(:any)'] = 'threads/posts/$1';
 $route['users'] = 'users/index';
 $route['users/posts/(:any)'] = 'users/profile_posts/$1';
 
+$route['whatsauce'] = 'whatsauce/index';
+$route['whatsauce/posts/(:any)'] = 'whatsauce/posts/$1';
+
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

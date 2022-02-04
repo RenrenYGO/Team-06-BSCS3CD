@@ -26,7 +26,7 @@ class Forgot_model extends CI_Model{
         if ($query1->num_rows()>0){
             $passwordplain = "";
             $passwordplain  = rand(999999999,9999999999);
-            $newpass['password'] = md5($passwordplain);
+            $newpass['password'] = password_hash($passwordplain, PASSWORD_DEFAULT);
             $this->db->where('email', $email);
             $this->db->update('user', $newpass); 
             $mail_message.='Commhub is sending you this email in order to reset your password,<br> Your temporary <b>Password</b> is <b>'.$passwordplain.'</b>'."\r\n";
@@ -34,7 +34,7 @@ class Forgot_model extends CI_Model{
             $mail_message.='<br>Please update your password.<br> Thanks & Regards';
             $mail_message.='<br>Commhub';        
             date_default_timezone_set('Etc/UTC');    
-          
+            
             $mail = new PHPMailer();
             $mail->isSMTP();
             $mail->Mailer="smtp";
@@ -43,9 +43,11 @@ class Forgot_model extends CI_Model{
             $mail->Debugoutput = 'html';
             $mail->Host = "smtp.gmail.com";
             $mail->Port = 587;
-            $mail->SMTPAuth = true;   
-            $mail->Username = "commhub3cd@gmail.com";    
-            $mail->Password = "testyolo123";
+            $mail->SMTPAuth = true;
+            $username = env('EMAIL_USERNAME');
+            $password = env('EMAIL_PASSWORD'); 
+            $mail->Username = $username;    
+            $mail->Password = $password;
             $mail->setFrom('admin@site', 'admin');
             $mail->IsHTML(true);
             $mail->addAddress($email);

@@ -18,46 +18,76 @@
                                     <h1 class="card-title">About our Project</h1>
                                     <p class="card-text">Commhub is a community based forum. It will be a safe haven for students and the like to connect, discuss, and have an endless and sometimes even pointless conversation. Whether about a subject that you have troubled with, or maybe just some conspiracies or maybe about gaming, Commhub is here for you.
                                     <br><b> Discussions and threads are our specialties.</b> </p>
-                                    
+                                
+                                    <?php $user = $this->session->userdata('user');
+        
+                                        if(isset($user) && $user!=null):?>
 
-
-                                      
-                                        <a href="<?php echo base_url('registration/register'); ?>" type="button" class="btn btn-custom" id="about">Register</a>
-                                    </div>
+                                    <?php else:?>
+                                            <a href="<?php echo base_url('registration/register'); ?>" type="button" class="btn btn-custom" id="about">Register</a>
+                                        </div>
+                                    <?php endif; ?>
                     
                 </div>
             </div>
 
             <div class="container mt-5 pt-5 text-black ">
                 <h2 class="text-center ">About the Team</h2>
-                <h6 class="text-center font-weight-light m-5">The developers behind the COMMHUB is made up of Computer Science student from the Technological University of the Philippines. Each one having different skills that made up the team. Please I still dont know what to add here, remind me to change this before the end of this week.
+                <h6 class="text-center font-weight-light m-5">The developers behind the COMMHUB is made up of Computer Science students from the Technological University of the Philippines. 
                 </h6>
                     <div class="container row text-center justify-content-evenly" >
-                        
-                        <div class="col-lg-3 col-md-6 ">
-                                <img src=<?php echo base_url('assets/Rick.png');?> class="card-img-top img-fluid mt-3 mb-5" style="width: 60%">
-                        </div>
-                        <div class="col-lg-3 col-md-6 ">
-                            <img src=<?php echo base_url('assets/Law.png');?> class="card-img-top img-fluid mt-3 mb-5" style="width: 60%" >
-                        </div>
-                        <div class="col-lg-3 col-md-6 ">
-                            <img src=<?php echo base_url('assets/Kyle.png');?> class="card-img-top img-fluid mt-3 mb-5" style="width: 60%" >
-                        </div>
-                        <div class="col-lg-3 col-md-6 ">
-                            <img src=<?php echo base_url('assets/Yela.png');?> class="card-img-top img-fluid mt-3 mb-5" style="width: 60%" >
-                        </div>
+                        <div class="tile">
+                        <img src=<?php echo base_url('assets/Jer2.png');?>>
+                            <div class="text">
+                                <h2 class="animate-text mx-auto">Jerry Mandap</h2>
+                                <p class="animate-text mx-auto">Frontend Developer </p>
+                            </div>
+                        </div>  
                     
-                        <div class="col-lg-3 col-md-6">
-                            <img src=<?php echo base_url('assets/Jer2.png');?> class="card-img-top img-fluid mt-3 mb-5 " style="width: 60%" >
+                        <div class="tile">
+                        <img src=<?php echo base_url('assets/Christian.png');?>>
+                                <div class="text">
+                                    <h4 class="animate-text mx-auto">Christian Del Rosario</h4>
+                                    <p class="animate-text mx-auto para">Frontend Developer </p>
+                                </div>
+                        </div> 
+                        <div class="tile">
+                        <img src=<?php echo base_url('assets/Kyle.png');?>>
+                                <div class="text">
+                                    <h2 class="animate-text mx-auto">Kyle Mendoza</h2>
+                                    <p class="animate-text mx-auto">Frontend Developer </p>
+                                </div>
                         </div>
-                        <div class="col-lg-3 col-md-6">
-                            <img src=<?php echo base_url('assets/Jose.png');?> class="card-img-top img-fluid mt-3 mb-5" style="width: 60%" >
+                        <div class="tile">
+                        <img src=<?php echo base_url('assets/Yela.png');?>>
+                                <div class="text">
+                                    <h2 class="animate-text mx-auto">Marielle Tario</h2>
+                                    <p class="animate-text mx-auto">Frontend Developer </p>
+                                </div>
                         </div>
-                        <div class="col-lg-3 col-md-6 ">
-                            <img src=<?php echo base_url('assets/Christian.png');?> class="card-img-top img-fluid mt-3 mb-5" style="width: 60%" >
+                
+                        <div class="tile">
+                        <img src=<?php echo base_url('assets/Law.png');?>>
+                                <div class="text">
+                                    <h3 class="animate-text mx-auto">Lawrence Trinidad</h3>
+                                    <p class="animate-text mx-auto">Backend Developer</p>
+                                </div>
                         </div>
-        
-                   
+                        <div class="tile">
+                        <img src=<?php echo base_url('assets/Jose.png');?>>
+                                <div class="text">
+                                    <h2 class="animate-text mx-auto">Jose Rebagoda</h2>
+                                    <p class="animate-text mx-auto">Backend Developer </p>
+                                </div>
+                        </div>
+                        <div class="tile">
+                        <img src=<?php echo base_url('assets/Rick.png');?>>
+                            <div class="text">
+                                <h2 class="animate-text mx-auto">Rick Dela Cruz</h2>
+                                <p class="animate-text mx-auto">Backend Developer </p>
+                            </div>
+                        </div>
+                                 
             </div>
         </section>
     

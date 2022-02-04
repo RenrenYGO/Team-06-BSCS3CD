@@ -38,8 +38,12 @@ form .form-footer .btn-custom {
 
 #create {
     background-color: #E8B04F!important;
+    color: white;
 }
 
+#create:hover{
+    box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.15);
+}
 .success {
     color: #3c763d;
     background: #dff0d8;
@@ -100,6 +104,9 @@ nav {
     font-weight: 500;
 }
 
+#profile-picture{
+    border-radius: 50%;
+}
 
 /*--------------------------------------------------------------
 # Post
@@ -153,7 +160,9 @@ nav {
     color: rgba(11, 11, 11, 0.583);
 }
 
-
+#tagstyle:hover{
+    box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.15);
+}
 /*---*/
 
 
@@ -261,3 +270,32 @@ h2 {
 ul {
     list-style-type: none;
 }
+/*--------------------------------------------------------------
+# Create
+--------------------------------------------------------------*/
+
+label.label input[type="file"] {
+    position: absolute;
+    top:-1000px;
+  }
+  .label {
+    cursor: pointer;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    padding: 5px 12px;
+    margin: 5px;
+    background: #E8B04F;
+    display: inline-block;
+  }
+  .label:hover {
+    background:  #9fa1a0;
+  }
+  .label:active {
+    background: #9fa1a0;
+  }
+  .label:invalid+span {
+    color: #000000;
+  }
+  .label:valid+span {
+    color: #ffffff;
+  }

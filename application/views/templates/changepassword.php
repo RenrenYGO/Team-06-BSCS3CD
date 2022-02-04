@@ -7,31 +7,35 @@
 <style>
 	<?php include 'style.css'; ?>
 </style>
+
 </head>
 <body><br><br><br>
-<div class="container mt-5">
+<div class="container mt-5 pt-3">
 
 <?php echo form_open("changepass/edit_password"); ?>
 <input type="hidden" name="id" value="<?php echo $this->session->userdata('user')['id'];?>">
-   
-    <div class="form-group">
+   <div class="box mt-5 col-6 mx-auto border border-2">
+   <h2 class="text-center pt-4">Change Password</h2>
+    <div class="form-group px-5 pt-3">
         
-        <label>Current Password</label>
-        <input type="password" name="currpass" id="currpass" class="form-control" placeholder="Old Password">
+        <!--<label>Current Password</label> -->
+        <input type="password" name="currpass" id="currpass" class="form-control " placeholder="Current Password"/>
                 
-        <label>New Password</label>
-        <input type="password" name="password" id="password" class="form-control" placeholder="New Password">
+        <!--<label>New Password</label> -->
+        <input type="password" name="password" id="password" class="form-control mt-3" placeholder="New Password"/>
         
-        <label>Confirm Password</label>
-        <input type="password" name="confpass" id="confpass" class="form-control" placeholder="Confirm Password">
+        <!--<label>Confirm Password</label> -->
+        <input type="password" name="confpass" id="confpass" class="form-control mt-3 mb-3" placeholder="Confirm Password"/>
     </div>
 
-    <div class="d-flex mb-4"> <!-- row align -->
-        <button type="submit" class="btn btn-default mt-3">Submit</button>
+    <div class="d-flex mb-4 ms-5"> <!-- row align -->
+        <button type="submit" id="btn_changepass" name="btn_changepass" class="btn btn-default mt-3">Submit</button>
+        <a type="button"  class="btn btn-secondary mt-3 ms-2" href=<?php echo base_url('pages/profile'); ?>>Cancel</a>
     </div>
         
 </form>
 
+</div>
 </div>
     </div> <!-- row align --> 
 </div>
@@ -39,3 +43,9 @@
 </div>  
 </body>
 </html>
+<?php
+                            include "duplicate_error.php";
+                            include "func.php";
+           
+                ?>
+            

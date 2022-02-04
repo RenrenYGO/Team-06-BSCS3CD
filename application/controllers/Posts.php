@@ -16,6 +16,7 @@ class Posts extends CI_Controller {
         $data['posts'] = $this -> post_model -> get_posts();
         $data['users'] = $this->user_model->get_users();
         $data['threads'] = $this->threads_model->get_threads();
+
         $this->sitelayout->loadTemplate('posts/index', $data);
         
         
@@ -25,14 +26,17 @@ class Posts extends CI_Controller {
 
         $key = $this->input->post('title');
         $data['title'] = 'Searched: '.$key;
+
         $data['posts'] = $this->post_model->get_search($key);
         $data['users'] = $this->user_model->get_users();
+
         $data['threads'] = $this->threads_model->get_threads();
         $this->sitelayout->loadTemplate('posts/index',$data);
         
     }
 
     public function view($id = NULL){
+        $data['users'] = $this->user_model->get_users();
         $data['post'] = $this -> post_model -> get_posts($id);
         $post_id = $data['post']['id'];
         $data['replies'] = $this->replies_model->get_replies($post_id);
@@ -75,15 +79,15 @@ class Posts extends CI_Controller {
             $config['allowed_types'] = 'gif|jpg|png';
             $config['max_size'] = '50000';
             $config['file_name'] = $this->session->userdata('user')['id']. '_'. $_FILES['post_image']['name'];
-             $this->load->library('upload', $config);
-           if(!$this->upload->do_upload('post_image')){
-            $errors = array('error' => $this->upload->display_errors());
-            $post_image = 'noimage.jpg';
-         } else {
-            // $data = array('upload_data' => $this->upload->data());
-             $post_image = $config['file_name'];
+            $this->load->library('upload', $config);
             
-         }  
+            if(!$this->upload->do_upload('post_image')){
+                $errors = array('error' => $this->upload->display_errors());
+                $post_image = 'noimage.jpg';
+            } else {
+                // $data = array('upload_data' => $this->upload->data());
+                $post_image = $config['file_name'];
+            }  
             $this->post_model->create_post($data,$post_image);
 
             redirect('posts');

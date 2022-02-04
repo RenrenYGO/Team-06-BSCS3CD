@@ -1,51 +1,46 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
-    <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons">
-    <link rel="stylesgeet" href="https://rawgit.com/creativetimofficial/material-kit/master/assets/css/material-kit.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
     <style>
         <?php include 'prof.css';?>
+        <?php include 'style.css';?>
     </style>
 </head>
 
 <body class="profile-page">
 
     <div class="page-header"></div>
-
-
     <div class="main">
-
-        <!-- EDIT BUTTON FOR PROFILE -->
-        <a class="btn mb-3 px-2" id="edit" href="<?php echo base_url('users/index'); ?>"> <img src="<?php echo base_url('assets/node_modules/bootstrap-icons/icons/pencil-square.svg'); ?>" alt="edit"></a>
-        
         <div class="profile-content">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-6 ml-auto mr-auto">
+                    <div class="col-md-6 mx-auto">
                         <div class="profile">
-                                <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/213e1bbd-241c-443a-bcd7-e8210970053b/d6wxpix-5c9e540d-7a2b-4f0d-91e9-6204645feec4.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzIxM2UxYmJkLTI0MWMtNDQzYS1iY2Q3LWU4MjEwOTcwMDUzYlwvZDZ3eHBpeC01YzllNTQwZC03YTJiLTRmMGQtOTFlOS02MjA0NjQ1ZmVlYzQuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.RhlesP7BcbUgJPb0bQ06lVIw9Tt_HtzWR9J7jUKYObE"
-                                    alt="" class="img-raised img-fluid text-center">
-                            
-                            
-                            <div class="name">
-
+                        <?php if($user['profile_picture']!='noimage.jpg'):?>
+                            <img src="<?php echo base_url('images/profile_picture/' . $user['profile_picture']  ); ?>" width= "60" height="60" class="rounded rounded-circle">
+                        <?php else:?>
+                            <img src="<?php echo base_url('assets/avatar.jpg' ); ?>" width= "60" height="60" class="rounded rounded-circle">
+                        <?php endif; ?>
                             <?php
                                 // echo "<pre>";
                                 // var_dump($this->session->userdata('user'));
                                 // echo "</pre>";
                                 // exit;
                             ?>
-
-                                <h3 class="title"><?php echo $user['name'] ?></h3>
-                            </div>
                         </div>
+                        <div class="name d-inline text-center mb-5">
+                             <!-- EDIT BUTTON FOR PROFILE -->
+                             <h1 class="title"><?php echo $user['name'] ?>
+                             <a class="btn px-2" id="edit" href="<?php echo base_url('users/index'); ?>"> <img src="<?php echo base_url('assets/node_modules/bootstrap-icons/icons/pencil-square.svg'); ?>" alt="edit"></a></h1>
+                            </div>
                     </div>
                 </div>
             </div>
-            <div class="container px-4 pb-4">
+          
+            <div class="container px-4 pb-4 mt-5">
                     <div class="p-3 border border-dark box">
                         <h3>About Me</h3>
                         <p>
@@ -54,25 +49,36 @@
                             ?>
                         </p>
                     </div>
+                    <div class="d-flex mt-3">
+                      <?php if($user['post_count']!=0) : ?>
+                        <h4 class="mt-4"> Posts:
+                          [<?php
+                              echo $user['post_count'];
+                          ?>]
+                        </h4>
+                      <?php endif; ?>
+                      <?php if($user['post_count']==0) : ?>
+                        <h4>No Posts To Display</h4>  
+                      <?php endif; ?>
+                      <h3 class=" mt-4 ms-auto box text-decoration-none ">
+                          <a href="<?php echo base_url('posts/create'); ?>" class="btn btn-custom" type="button" id="create" title="Create a Post"><img src="<?php echo base_url('assets/node_modules/bootstrap-icons/icons/plus-lg.svg'); ?>"></a> 
+                      </h3>
+                    </div>
             </div>
-            <?php
-                echo "Post Count: ".$user['post_count'];
-            ?>
         </div>
     </div>
-
-    <!-- CREATE POST BUTTON -->
-    <h3 class="pt-5 text-center text-decoration-none ">
-        <a href="<?php echo base_url('posts/create'); ?>" class="btn btn-custom" type="button" id="create"> Create a Post</a> 
-    </h3>
     <!-- LATEST POSTS AND SEARCH BAR -->
 
     <?php foreach($posts as $post) : ?>
-    <div class="container pt-3 border bg-white border-none mt-3">
+    <div class="container pt-3 border bg-white border-none mt-5">
         <dl class="row ps-3">
     <!-- href to profile -->
             <div class="d-flex flex-wrap ">
-              <img src="<?php echo base_url('assets/avatar.jpg' ); ?>" width= "60" >
+              <?php if($user['profile_picture']!='noimage.jpg'):?>
+                  <img src="<?php echo base_url('images/profile_picture/' . $user['profile_picture']  ); ?>" width= "60" height="60"  class="rounded rounded-circle"></p>
+              <?php else:?>
+                  <img src="<?php echo base_url('assets/avatar.jpg' ); ?>" width= "60" height="60" class="rounded rounded-circle" >
+              <?php endif; ?>
                 <div class=" ps-2 row">
                   <dt id="username"> <?php echo $post['name']; ?></dt> 
                   <dd class=" text-muted " id="date"><small> <?php echo $post['date']; ?></small></dd>
@@ -105,6 +111,7 @@
     </div>
   </div>
 <?php endforeach ; ?>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js " integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p " crossorigin="anonymous "></script>
 
 </body>
 </html>

@@ -6,12 +6,13 @@ class User_model extends CI_Model{
         $this->load->database();
     }
 
-    public function update_profile($data){
+    public function update_profile($data, $profile_picture){
         
         $data2 = array(
 
             'bio' => $data['bio'],
-            'name' => $data['name']
+            'name' => $data['name'],
+            'profile_picture' => $profile_picture
 
         );
         
@@ -29,9 +30,12 @@ class User_model extends CI_Model{
     }
 
     public function get_users(){
+
         $this->db->order_by('name');
         $query = $this->db->get('user');
+
         return $query->result_array();
+
     }
 
     public function get_user($id){

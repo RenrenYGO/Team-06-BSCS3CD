@@ -18,13 +18,27 @@
                 <dl class="row pt-2 ps-3 pe-3">
                      <br>
                     <div class="d-flex flex-wrap ">
-                        <img src="<?php echo base_url('assets/avatar.jpg' ); ?>" width= "60" >
+                    
+                    <?php $user_count = count($users);?>
+
+                    <?php for($i=0; $i<$user_count; $i++): ?>
+
+                        <?php if($post['by']==$users[$i]['id']):?>
+
+                        <?php if($users[$i]['profile_picture']!='noimage.jpg'):?>
+                            <img id="profile-picture" src="<?php echo base_url('images/profile_picture/' . $users[$i]['profile_picture']  ); ?>" width= "60" height="60">
+                        <?php else:?>
+                            <img id="profile-picture" src="<?php echo base_url('assets/avatar.jpg' ); ?>" width= "60" height="60" >
+                        <?php endif; ?>
+
+                        <?php endif; ?>
+
+                    <?php endfor ; ?>
+
                             <div class=" ps-2 row">
                             <dt id="username"> <?php echo $post['name']; ?></dt> 
                             <dd class=" text-muted " id="date"><small> <?php echo $post['date']; ?></small></dd>
                             </div>
-
-                            <?php echo $post['at']; ?>
 
                         <div class="ms-auto">  
                             <!-- edit button-->
@@ -37,8 +51,13 @@
                         <h2 class="mt-3"><?php echo $post['title']; ?></h2>
                         <p class="overflow-scroll" width="50" height="50"><?php echo $post['content']; ?>
                             <br>
+                        <!-- tags -->
+                        <div class="d-inline-flex">
+                            <dd class="ms-2 rounded rounded-3 px-2 mb-3" id="tags"><?php echo $post['at']; ?></dd>
+                        </div>
+                            <br>
                             <?php if($post['post_image']!='noimage.jpg'):?>
-                                <img src="<?php echo base_url('images/posts/' . $post['post_image']  ); ?>"  class="mt-3" height="300" width="300" ></p>
+                                <img src="<?php echo base_url('images/posts/' . $post['post_image']  ); ?>"  class="mt-3" height="1000" width="1000" ></p>
                             <?php endif; ?>
     <!-- upvote and downvote -->
     <?php if(isset($_SESSION['user'])):?>
@@ -63,10 +82,20 @@
         </div>
     <?php endif; ?>
     <hr>
-    <div class="d-flex">
+    <!--<div class="d-flex">-->
+        <?php if($post['reply_count']!=0) : ?>
         <h4>Replies
         [ <?php echo $post['reply_count']; ?> ]</h4>
-    </div>
+        <?php endif; ?>
+
+        <div class="text-center">
+        <?php if($post['reply_count']==0) : ?>
+            
+            <h4>No Replies To Display</h4>
+           
+        <?php endif; ?>
+        </div>
+    <!--</div>-->
     <?php if(isset($replies)) : ?>
     <?php foreach($replies as $reply) : ?>
        
@@ -74,7 +103,23 @@
     <!-- href to profile -->
   
         <div class="d-flex flex-wrap mt-2">
-            <img src="<?php echo base_url('assets/avatar.jpg' ); ?>" width= "60" >
+
+        <?php $user_count = count($users);?>
+
+        <?php for($i=0; $i<$user_count; $i++): ?>
+
+            <?php if($reply['by']==$users[$i]['id']):?>
+
+            <?php if($users[$i]['profile_picture']!='noimage.jpg'):?>
+                <img id="profile-picture" src="<?php echo base_url('images/profile_picture/' . $users[$i]['profile_picture']  ); ?>" width= "60" height="60">
+            <?php else:?>
+                <img id="profile-picture" src="<?php echo base_url('assets/avatar.jpg' ); ?>" width= "60" height="60" >
+            <?php endif; ?>
+
+            <?php endif; ?>
+
+        <?php endfor ; ?>
+
                 <div class=" ps-2 row">
                     <dt id="username"> <?php echo $reply['name']; ?></dt> 
                     <dd class=" text-muted " id="date"><small> <?php echo $post['date']; ?></small></dd>
@@ -106,9 +151,10 @@
     <p>No Replies To Display</p>
     <?php endif; ?>
 
-    <h5 class="mt-4">Add Reply</h5>
+    
     <?php echo validation_errors(); ?>
     <?php if(isset($_SESSION['user'])):?>
+        <h5 class="mt-4">Add Reply</h5>
         <?php echo form_open('replies/create/'.$post['id']); ?>
         <!-- <div class="form-group mb-3">
             <input type="text" name="title" class="form-control" placeholder="Title">
