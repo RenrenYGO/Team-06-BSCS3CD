@@ -19,6 +19,6 @@ class Changepass extends CI_Controller {
 
         $data = $this->input->post();
         $this->changepass_model->update_password($data);
-        redirect('posts');
+        redirect('pages/changepassword');
     }
 }

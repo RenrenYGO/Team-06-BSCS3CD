@@ -270,3 +270,32 @@ h2 {
 ul {
     list-style-type: none;
 }
+/*--------------------------------------------------------------
+# Create
+--------------------------------------------------------------*/
+
+label.label input[type="file"] {
+    position: absolute;
+    top:-1000px;
+  }
+  .label {
+    cursor: pointer;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    padding: 5px 12px;
+    margin: 5px;
+    background: #E8B04F;
+    display: inline-block;
+  }
+  .label:hover {
+    background:  #9fa1a0;
+  }
+  .label:active {
+    background: #9fa1a0;
+  }
+  .label:invalid+span {
+    color: #000000;
+  }
+  .label:valid+span {
+    color: #ffffff;
+  }

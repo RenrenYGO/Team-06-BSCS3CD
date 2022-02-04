@@ -19,10 +19,13 @@ class Changepass_model extends CI_Model{
         $data3 = array(
             'password'=> password_hash($data['password'], PASSWORD_DEFAULT)
         );
+            $_SESSION['change'] = 1;// echo password changed
             return $this->db->update('user', $data3);
+            
+            
         } else {
-            echo "password does not match."; //MODAL YELA
-            redirect('login');
+            $_SESSION['mismatch'] = 1; // echo passwords do not match
+            //redirect('pages/profile'); (login)
         }
     }
 }

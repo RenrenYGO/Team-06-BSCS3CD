@@ -34,7 +34,7 @@
             </form>
           </div>
             <h3 class="pt-5 text-center text-decoration-none ms-2">
-              <a href="<?php echo base_url('posts/create'); ?>" class="btn btn-custom mb-2" type="button" id="create" title="Create a Post">Ask something</a> 
+              <a href="<?php echo base_url('posts/create'); ?>" class="btn btn-custom mb-2" type="button" id="create" title="Ask something">Create a Post</a> 
             </h3>
     </div>
 
