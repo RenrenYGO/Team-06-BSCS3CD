@@ -46,7 +46,9 @@
     <label>Thread</label>
     <select name="thread_id" class="form-control">
         <?php foreach($threads as $thread): ?>
-        <option value="<?php echo $thread['id']; ?>"><?php echo $thread['name']; ?></option>
+            <?php if($thread['name']!='WhatSauce'):?>
+                <option value="<?php echo $thread['id']; ?>"><?php echo $thread['name']; ?></option>
+            <?php endif;?>
         <?php endforeach; ?>
     </select>
     </div>
@@ -56,9 +58,6 @@
             <span><img src="<?php echo base_url('assets/node_modules/bootstrap-icons/icons/image.svg'); ?>"/></span>
             <input type="file" name="post_image" size="100">
             <input type="hidden" name="post_image" value="<?php echo $post['post_image'];?>">
-            <?php //var_dump($post['post_image']);
-                //exit;
-            ?>
         </label>
     </div>
 
