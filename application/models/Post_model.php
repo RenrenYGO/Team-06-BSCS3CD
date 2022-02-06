@@ -88,10 +88,11 @@ class Post_model extends CI_Model{
 		return $this->db->insert('posts',$data);
 	}
 
-	public function update_post($data){
+	public function update_post($data, $post_image){
 		$slug = url_title($data['title']);
 
 		$data = array(
+			'post_image' => $post_image,
 			'title' => $data['title'],
 			'slug' => $slug,
 			'by' => $data['createdBy'],

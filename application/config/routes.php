@@ -6,7 +6,7 @@ $route['posts/create'] = 'posts/create';
 $route['posts/update'] = 'posts/update';
 $route['posts/skeyword'] = 'posts/skeyword';
 
-// $route['default_controller'] = 'Pages/view';
+$route['default_controller'] = 'posts';
 //$route['(:any)'] = 'Pages/view/$1';
 
 $route['posts/(:any)']="posts/view/$1";
