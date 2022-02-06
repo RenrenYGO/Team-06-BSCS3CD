@@ -36,7 +36,7 @@ class Whatsauce extends CI_Controller {
         $data['users'] = $this->user_model->get_users();
 
         $data['threads'] = $this->threads_model->get_threads();
-        $this->sitelayout->loadTemplate('whatsauce/index',$data);
+        $this->sitelayout->loadWhatSauceTemplate('whatsauce/index',$data);
         
     }
 }

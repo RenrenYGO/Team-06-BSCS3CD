@@ -26,7 +26,7 @@
 </div>
 <?php echo validation_errors();?>
 
-<?php echo form_open("posts/update"); ?>
+<?php echo form_open_multipart("posts/update"); ?>
 <input type="hidden" name="id" value="<?php echo $post['id'];?>">   
     <input type="hidden" name="createdBy" value="<?php echo $user['id'];?>">
    
@@ -51,16 +51,28 @@
     </select>
     </div>
 
+    <div class="form-group mt-4">
+        <label class="label" title="Add Media">
+            <span><img src="<?php echo base_url('assets/node_modules/bootstrap-icons/icons/image.svg'); ?>"/></span>
+            <input type="file" name="post_image" size="100">
+            <input type="hidden" name="post_image" value="<?php echo $post['post_image'];?>">
+            <?php //var_dump($post['post_image']);
+                //exit;
+            ?>
+        </label>
+    </div>
+
     <div class="d-flex mb-4"> <!-- row align -->
         <button type="submit" class="btn btn-default mt-3">Submit</button>
         <!-- cancel button --> 
         <?php echo '<a type="button"  class="btn btn-secondary ms-2 mt-3"  data-target="#cancelModal'.$post['id'].'" data-toggle="modal">Cancel</a>' ?>     
         <?php include 'cancel_modal.php' ?>
         <!-- cancel button -->
-</form>
+
 </div>
     </div> <!-- row align --> 
 </div>
+</form>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     </body>
 </html>
