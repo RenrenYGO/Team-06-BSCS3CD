@@ -26,4 +26,17 @@ class Whatsauce extends CI_Controller {
 
         $this->sitelayout->loadWhatSauceTemplate('whatsauce/index',$data);
     }
+
+    public function skeyword(){
+
+        $key = $this->input->post('title');
+        $data['title'] = 'Searched: '.$key;
+
+        $data['posts'] = $this->post_model->get_search($key);
+        $data['users'] = $this->user_model->get_users();
+
+        $data['threads'] = $this->threads_model->get_threads();
+        $this->sitelayout->loadTemplate('whatsauce/index',$data);
+        
+    }
 }
