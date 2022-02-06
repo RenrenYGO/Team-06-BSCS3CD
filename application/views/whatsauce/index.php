@@ -23,6 +23,18 @@
         <p class="lead my-3">WhatSauce&trade; got your back!</p>
       </div>
     </div>
+    
+    <div class="d-flex flex-row ">
+          <div class="pt-5 ms-auto">
+            <form action = "<?php echo site_url('whatsauce/skeyword/');?>" method="post">
+              <div class="input-group">
+                <input type="text" name="title" placeholder="Search..." class=" bg-light border border-secondary form-control">  
+                <button class="btn bg-light border-start-0 border border-secondary" type="submit"> <img src="<?php echo base_url('assets/node_modules/bootstrap-icons/icons/search.svg'); ?>" id="search"></button>
+              </div>
+            </form>
+          </div>
+    </div>
+
     <div class="container">
       <div class="row mb-2">
         <h1 class="p-2 mt-3">Recent Additions</h1>
