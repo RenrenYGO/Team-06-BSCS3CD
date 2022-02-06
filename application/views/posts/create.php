@@ -36,7 +36,9 @@
 	  <label>Thread</label>
 	  <select name="thread_id" class="form-control" style="width:470px;">
 		  <?php foreach($threads as $thread): ?>
-		  	<option value="<?php echo $thread['id']; ?>"><?php echo $thread['name']; ?></option>
+            <?php if($thread['name']!='WhatSauce'):?>
+                <option value="<?php echo $thread['id']; ?>"><?php echo $thread['name']; ?></option>
+            <?php endif;?>
 		  <?php endforeach; ?>
 	  </select>
     </div>
