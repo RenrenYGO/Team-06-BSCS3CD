@@ -11,16 +11,6 @@ class Posts extends CI_Controller {
 
     }
 
-    public function popularity(){
-
-        $data['title'] = "Most Popular Posts";
-        $data['posts'] = $this->post_model->get_posts_by_popularity();
-        $data['users'] = $this->user_model->get_users();
-        $data['threads'] = $this->threads_model->get_threads();
-
-        $this->sitelayout->loadTemplate('posts/index',$data);
-    }
-
     public function index(){
        
         $data['title'] = 'Latest Posts';

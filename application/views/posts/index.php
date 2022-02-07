@@ -14,7 +14,7 @@
     <!-- POPULAR TAGS -->
    <a href="<?php echo base_url('threads'); ?>" id="poptags" data-bs-toggle="tooltip" data-bs-placement="right" title="Go to Tags"><h3 class="pt-5 mb-3">Popular Tags</h3></a>
    
-   <ul class="list-group list-group-horizontal  ps-1 tags">
+   <ul class="list-group list-group-horizontal  ps-1 tags overflow-scroll">
    <?php foreach($threads as $thread) : ?>
 		<li ><a class="button ms-5 position-relative" id="tagstyle" href="<?php echo site_url('/threads/posts/'.$thread['id']); ?>"><span class="tagname"><?php echo $thread['name']; ?></span></a>
 		</li>
@@ -24,10 +24,22 @@
   
     <!-- LATEST POSTS AND SEARCH BAR -->
     <div class="d-flex flex-row ">
-        <h3 class="pt-5  "><?= $title ?></h3>
-
-        <a class="pt-5  " href="<?php echo site_url('/popularity/posts'); ?>"><span>Top Posts</span></a>
-
+          <div class="btn-group pt-5 ">
+            <h3> 
+              <?= $title ?>
+            </h3>
+            <div class="dropdown ms-1">
+               <a type="button" class="dropbtn dropdown-toggle dropdown-toggle-split" id="title1"  data-bs-toggle="dropdown" aria-expanded="false">
+                  <span class="visually-hidden ">Toggle Dropdown</span>
+                </a>
+                  <ul class="dropdown-content px-4 py-2">
+                  <h5><a href="<?php echo site_url('posts'); ?>" id="title1" class="text-decoration-none">Latest</a></h5>
+                  <h5><a href="<?php echo site_url('/popularity/posts'); ?>" id="title1" class="text-decoration-none">Top</a></h5>
+                  </ul>
+              </div>
+         </div>
+        <!--<a class="pt-5  " href="<?php echo site_url('/popularity/posts'); ?>"><span>Top Posts</span></a>
+        </div>-->
           <div class="pt-5 ms-auto">
             <form action = "<?php echo site_url('posts/skeyword/');?>" method="post">
               <div class="input-group">
@@ -45,7 +57,7 @@
   <?php
     foreach($posts as $post) : ?>
  
-    <div class="container pt-3 border bg-white border-none mt-3">
+    <div class="container pt-3 border bg-white border-none mt-5">
         <dl class="row ps-3">
     <!-- href to profile -->
             <div class="d-flex flex-wrap ">
