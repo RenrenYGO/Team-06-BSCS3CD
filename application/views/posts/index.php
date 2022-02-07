@@ -25,6 +25,9 @@
     <!-- LATEST POSTS AND SEARCH BAR -->
     <div class="d-flex flex-row ">
         <h3 class="pt-5  "><?= $title ?></h3>
+
+        <a class="pt-5  " href="<?php echo site_url('/popularity/posts'); ?>"><span>Top Posts</span></a>
+
           <div class="pt-5 ms-auto">
             <form action = "<?php echo site_url('posts/skeyword/');?>" method="post">
               <div class="input-group">
@@ -65,6 +68,7 @@
                     <a class="display pt-2" id="username" href="<?php echo site_url('/users/posts/'.$post['by']); ?>"><span class="tagname"><?php echo $post['name']; ?></span></a> 
                   <dd class=" text-muted " id="date"><small> <?php echo $post['date']; ?></small></dd>
                 </div>
+
             </div>
       <div class="d-flex ">
         <div class=" row">
