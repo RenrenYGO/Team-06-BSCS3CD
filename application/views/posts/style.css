@@ -130,6 +130,13 @@ nav {
     text-decoration: none;
     color: rgb(50, 50, 50);
 }
+#title1:hover {
+    opacity: .75;
+    color: rgba(11, 11, 11, 0.583);
+}
+#title1 {
+    color: rgb(11, 11, 11);
+}
 
 
 /*---*/
@@ -299,3 +306,42 @@ label.label input[type="file"] {
   .label:valid+span {
     color: #ffffff;
   }
+  .dropbtn {
+    font-size: 20px;
+    border: none;
+  }
+  
+  /* The container <div> - needed to position the dropdown content */
+  .dropdown {
+    position: absolute;
+    display: inline;
+
+    
+  }
+  
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    margin-top: 20px;
+    background-color: #f1f1f1;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    
+  }
+  
+  /* Links inside the dropdown */
+  .dropdown-content h5 a {
+    color: black;
+    text-decoration: none;
+  }
+
+  
+  /* Show the dropdown menu on hover */
+  .dropdown:hover .dropdown-content {display: inline-block;
+    padding-inline-start: 20px;
+    padding-inline-end: 20px;
+    
+    
+    
+}
+  
