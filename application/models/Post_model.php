@@ -246,4 +246,14 @@ class Post_model extends CI_Model{
 			return false;
 		}
 	}
+
+	public function get_posts_by_popularity(){
+
+		$this->db->order_by('upvote', 'DESC');
+		$query = $this->db->get('posts');
+		$posts = $query->result_array();
+
+		return $this->get_index_data($posts);
+
+	}
 }

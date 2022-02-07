@@ -1,4 +1,5 @@
 <?php
+defined('BASEPATH') OR exit('No direct script access allowed');
 	class Replies extends CI_Controller{
 
 		public function create($post_id){

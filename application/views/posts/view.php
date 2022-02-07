@@ -36,7 +36,7 @@
                     <?php endfor ; ?>
 
                             <div class=" ps-2 row">
-                            <dt id="username"> <?php echo $post['name']; ?></dt> 
+                            <a class="display pt-2" id="username" href="<?php echo site_url('/users/posts/'.$post['by']); ?>"><span class="tagname"><?php echo $post['name']; ?></span></a> 
                             <dd class=" text-muted " id="date"><small> <?php echo $post['date']; ?></small></dd>
                             </div>
 
@@ -121,13 +121,14 @@
         <?php endfor ; ?>
 
                 <div class=" ps-2 row">
-                    <dt id="username"> <?php echo $reply['name']; ?></dt> 
+                <a class="display pt-2" id="username" href="<?php echo site_url('/users/posts/'.$reply['by']); ?>"><span class="tagname"><?php echo $reply['name']; ?></span></a>
                     <dd class=" text-muted " id="date"><small> <?php echo $post['date']; ?></small></dd>
                 </div>
         </div>
     <p class="mt-1 ps-3 d-inline-block text-truncate" id="description" style="max-width: 700px;"><?php echo $reply['content']; ?></p>
     
   <div class="d-flex mb-3">
+    <?php if(isset($_SESSION['user'])):?>
         <?php echo form_open('/replies/upvoteR/'.$reply['id'].'/'.$post['id']); ?>
             <div class="input-group ms-1 me-1 pe-2 ps-1">
                 <input name="upvote" type="hidden" value="<?php echo $reply['id']?>">
@@ -135,7 +136,9 @@
                 <?php echo $reply['upvote']; ?> </button>
             </div>
         </form>
-  
+    <?php endif; ?>
+    
+    <?php if(isset($_SESSION['user'])):?>
         <?php echo form_open('/replies/downvoteR/'.$reply['id'].'/'.$post['id']); ?>
             <div class="input-group  pe-2 ps-1">
                 <input name="downvote" type="hidden" value="<?php echo $reply['id']?>">
@@ -143,6 +146,8 @@
                 <?php echo $reply['downvote']; ?></button>
             </div>
         </form>
+    <?php endif; ?>
+    
     </div>
 </div>
     <?php endforeach; ?>
