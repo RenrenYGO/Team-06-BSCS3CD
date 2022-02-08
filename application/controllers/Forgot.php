@@ -8,7 +8,6 @@ class Forgot extends CI_Controller {
 
     public function index(){
         $this->sitelayout->loadTemplate('registration/forgot');
-        // if ($_SERVER['REQUEST_METHOD']=='POST'){
         if ($this->input->post()){
             $email = $this->input->post('email');      
             $findemail = $this->forgot_model->forgotpassword($email);  

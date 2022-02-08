@@ -18,6 +18,7 @@
           <button type="button" class="btn-close" aria-label="Close"></button></a>
         </div>
         <p class="text-center" style="margin-bottom: 50px;">Enter the email address associated with your account</p>
+        <p class="text-center" style="margin-bottom: 50px;">DO NOT SHARE YOUR EMAIL WITH ANYONE, IT IS LIKE YOUR PASSWORD. YOU HAVE BEEN WARNED.</p>
       <form id="resetPassword" name="resetPassword" method="post" action="<?php echo base_url();?>forgot/index" onsubmit ='return validate()'>
         <table class="table table-borderless table-condensed">                                       
             <tbody>

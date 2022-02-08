@@ -22,14 +22,20 @@ class Forgot_model extends CI_Model{
     public function sendpassword($data){
         $email = $data['email'];
         $query1=$this->db->query("SELECT *  from user where email = '".$email."' ");
+
         $row=$query1->result_array();
+
         if ($query1->num_rows()>0){
+
             $passwordplain = "";
             $passwordplain  = rand(999999999,9999999999);
+            // $passwordplain = $row[0]['password'];
+
             $newpass['password'] = password_hash($passwordplain, PASSWORD_DEFAULT);
             $this->db->where('email', $email);
-            $this->db->update('user', $newpass); 
-            $mail_message.='Commhub is sending you this email in order to reset your password,<br> Your temporary <b>Password</b> is <b>'.$passwordplain.'</b>'."\r\n";
+            $this->db->update('user', $newpass);
+
+            $mail_message='Commhub is sending you this email in order to reset your password,<br> Your temporary <b>Password</b> is <b>'.$passwordplain.'</b>'."\r\n";
             $mail_message.='<br>Ignore this message if you did not send this request.';
             $mail_message.='<br>Please update your password.<br> Thanks & Regards';
             $mail_message.='<br>Commhub';        
