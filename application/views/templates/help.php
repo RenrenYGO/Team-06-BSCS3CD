@@ -46,7 +46,7 @@
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="exampleModalLabel">Support</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">x </button>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><h6>X</h6></button>
                                     </div>
                                 <div class="modal-body">
                                     <form id="helpcenter" name="helpcenter" method="post" action="<?php echo base_url();?>helpcenter/index" onsubmit='return validate()'>
