@@ -77,7 +77,7 @@
                 <div class="checkbox form-check pt-2 ">
                     <input class=" form-check-input border-warning" type="checkbox" id="termsChkbx " onclick="change_button(this,'sub1')" />
                     <label class=" form-check-label " for="flexCheckDefault">
-					  I accept the all the <strike>Terms and Condition</strike>  cool stuff. 
+					  I accept all the <strike>Terms and Condition</strike>  cool stuff. 
 					</label>
                 </div>
             </form>
