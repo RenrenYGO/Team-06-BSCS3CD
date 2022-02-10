@@ -1,15 +1,14 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Threads extends CI_Controller {
-
+class Threads extends CI_Controller{
+    
     public function __construct(){
 	    parent::__construct();
 	}
 
     public function index(){
         $data['title'] = 'Tags';
-
         $data['threads'] = $this->threads_model->get_threads();
 
         $this->sitelayout->loadTemplate('threads/index',$data);
