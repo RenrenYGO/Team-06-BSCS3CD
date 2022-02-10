@@ -64,14 +64,14 @@ class Forgot_model extends CI_Model{
             $mail->AltBody = $mail_message;        
             
             if(!$mail->send()){
-                $this->session->set_flashdata('msg','Failed to send password, please try again!');
+                $_SESSION['invalid'] = 1;
             }else{
                 $this->session->set_flashdata('email',$email);
             }
             redirect(base_url('forgot/pin'));
 
         }else{
-            $this->session->set_flashdata('msg','Email not found try again!');
+            $_SESSION['invalid'] = 1;
             redirect(base_url('login'));
         }
     }

@@ -10,11 +10,7 @@
 
 <body>
 <div class="container mt-5">
-	<div class="p-5"><h1><?= $title; ?></h1></div>
-	<div class=" pb-5 pe-5 ps-5 bg-none text-dark rounded jumbotron">
-	
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat..</p> 
-  	</div>
+	<div class="p-5 text-center"><h1><?= $title; ?></h1></div>
 	
 	<ul class="list-group list-group  ps-1 tags">
 	<?php foreach($threads as $thread) : ?>

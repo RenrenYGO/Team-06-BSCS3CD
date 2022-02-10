@@ -28,12 +28,11 @@
                     <a href="<?php echo base_url('posts'); ?>" id="brand" class="nav-link nav-item d-none d-lg-block"> Commhub</a>
                     <a href="<?php echo base_url('pages/about'); ?>" id="aboutnav"  class="nav-link nav-item ">About</a>
                     <a href="<?php echo base_url('whatsauce/index'); ?>" id="whatsaucenav" class="nav-link nav-item ">WhatSauce</a>
-                    <a href="<?php echo base_url('users/user'); ?>" class="nav-link nav-item ">Users(DEV ONLY)</a>
             </div>
         </div>
     </div> 
 
-    <a href="<?php echo base_url('posts'); ?>" > <img src="<?php echo base_url("/assets/whatsauce_logo.png");?>"  id="navbar-brand" width="100" height="100"></a>          
+    <a href="<?php echo base_url('whatsauce'); ?>" > <img src="<?php echo base_url("/assets/whatsauce_logo.png");?>"  id="navbar-brand" width="100" height="100"></a>          
 
     <?php
         $user = $this->session->userdata('user');
