@@ -1,5 +1,7 @@
 <?php
-	class Replies_model extends CI_Model{
+
+class Replies_model extends CI_Model{
+	
 		public function __construct(){
 			$this->load->database();
 		}
@@ -11,6 +13,7 @@
 				'by' => $this->session->userdata('user')['id'],
 				'content' => $this->input->post('content')
 			);
+			
 			$this->db->set('reply_count', 'reply_count+1', FALSE);
 			$this->db->where('id', $post_id);
 			$this->db->update('posts');
@@ -27,7 +30,7 @@
 				$query = $this->db->query("SELECT * FROM user WHERE id = '$id'");
 				$replies[$key]['name'] = $query->row()->{'name'};
 			}
-			
+
 			return $replies;
 		}
 

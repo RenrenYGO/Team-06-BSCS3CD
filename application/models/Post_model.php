@@ -1,6 +1,7 @@
 <?php
 
 class Post_model extends CI_Model{
+	
 	public function __construct(){
 		$this->load->database();
 	}
@@ -64,9 +65,7 @@ class Post_model extends CI_Model{
 			return $this->get_index_data($posts);
 
 		}
-		
-		// $this->db->join('user', 'user.id = '.'posts'.'.by');
-		return $this->get_view_data($id);
+			return $this->get_view_data($id);
 	}
 
 	public function create_post($data, $post_image){
@@ -99,6 +98,7 @@ class Post_model extends CI_Model{
 			'content' => $data['content'],
 			'thread_id' => $data['thread_id']
 		);
+		
 		$this->db->where('id', $this->input->post('id'));
 		return $this->db->update('posts', $data);
 	}
