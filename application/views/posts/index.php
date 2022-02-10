@@ -14,11 +14,17 @@
     <!-- POPULAR TAGS -->
   <a href="<?php echo base_url('threads'); ?>" id="poptags" data-bs-toggle="tooltip" data-bs-placement="right" title="Go to Tags"><h3 class="pt-5 mb-3">Popular Tags</h3></a>
   <ul class="list-group list-group-horizontal  ps-1 tags overflow-scroll">
-    <?php foreach($threads as $thread) : ?>
+    <?php $i = 0;
+     foreach($threads as $thread) :?>
       <li>
         <a class="button ms-5 position-relative" id="tagstyle" href="<?php echo site_url('/threads/posts/'.$thread['id']); ?>"><span class="tagname"><?php echo $thread['name']; ?></span></a>
       </li>
-    <?php endforeach; ?>
+      <?php if  (++$i == 5) : break  ?>
+      <?php endif; ?>
+      <?php endforeach; ?>
+      <li>
+        <a class="button ms-5 position-relative bg-secondary opacity-75" id="tagstyle" href="<?php echo site_url('threads'); ?>"><span class="tagname">See More</span></a>
+      </li>
   </ul>
     <!-- CREATE POST BUTTON -->
   
