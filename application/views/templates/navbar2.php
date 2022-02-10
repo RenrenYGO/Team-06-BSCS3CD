@@ -11,6 +11,7 @@
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top shadow">
+
     <div class="container-fluid ">
         <button class="navbar-toggler mb-2" 
             type="button" 
@@ -19,7 +20,9 @@
             aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon "></span>
         </button>
+
         <div class="collapse navbar-collapse " id="navbarCollapse">
+
             <div class="navbar-nav me-auto ">  
 
                    <!-- for about page <a href="<?php echo base_url('registration/register'); ?>" class="nav-link nav-item "> About</a>
@@ -28,8 +31,11 @@
                     <a href="<?php echo base_url('pages/about'); ?>" id="aboutnav" class="nav-link nav-item d-lg-block"> About</a>
                     <a href="<?php echo base_url('whatsauce/index'); ?>" id="whatsaucenav" class="nav-link nav-item ">WhatSauce</a>
             </div>
+
         </div>
+
     </div> 
+
     <a href="<?php echo base_url('posts'); ?>" > <img src="<?php echo base_url("/assets/logo4.png");?>"  id="navbar-brand" width="100" height="100"></a>          
 
     <?php
@@ -43,21 +49,18 @@
                 <img id="profile-picture" src="<?php echo base_url('assets/avatar.jpg' ); ?>" class=" avatar dropdown rounded rounded-circle" width="50" height="50" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
             <?php endif; ?>
            
-           <span class="dropdown-menu dropdown-menu-end me-4" role = "menu" aria-labelledby="dropdownMenuLink">
-           <a class="dropdown-item " href="<?php echo base_url('pages/profile'); ?>">Profile</a>
-           <a class="dropdown-item " href="<?php echo base_url('pages/changepassword'); ?>">Change password</a>
-            <a class="dropdown-item " href="<?php echo base_url('logout'); ?>">Logout</a>
+            <span class="dropdown-menu dropdown-menu-end me-4" role = "menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item " href="<?php echo base_url('pages/profile'); ?>">Profile</a>
+                <a class="dropdown-item " href="<?php echo base_url('pages/changepassword'); ?>">Change password</a>
+                <a class="dropdown-item " href="<?php echo base_url('logout'); ?>">Logout</a>
             </span>
 
         <?php else:?>
       
             <a class="btn btn-light login mt-1" href="<?php echo base_url('login'); ?>">Login</a>
        
-     
- 
-    <?php endif; ?>
+        <?php endif; ?>
 
-</div>
 </nav>
 <!--Bootstrap script-->
 

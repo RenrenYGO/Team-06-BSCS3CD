@@ -1,4 +1,3 @@
-
 <?php if(isset($_SESSION['change'])){
     echo '<script>$(document).ready(function (){change();});</script>';
     unset($_SESSION['change']);

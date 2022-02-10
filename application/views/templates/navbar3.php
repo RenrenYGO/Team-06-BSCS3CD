@@ -11,6 +11,7 @@
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top shadow" id="what">
+
     <div class="container-fluid ">
         <button class="navbar-toggler mb-2" 
             type="button" 
@@ -19,17 +20,17 @@
             aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon "></span>
         </button>
-        <div class="collapse navbar-collapse " id="navbarCollapse">
-            <div class="navbar-nav me-auto ">  
 
-                   <!-- for about page <a href="<?php echo base_url('registration/register'); ?>" class="nav-link nav-item "> About</a>
-                        for support page <a href="<?php echo base_url('Login/index'); ?>" class="nav-link nav-item ">Support</a>-->
-                    
-                    <a href="<?php echo base_url('posts'); ?>" id="brand" class="nav-link nav-item d-none d-lg-block"> Commhub</a>
-                    <a href="<?php echo base_url('pages/about'); ?>" id="aboutnav"  class="nav-link nav-item ">About</a>
-                    <a href="<?php echo base_url('whatsauce/index'); ?>" id="whatsaucenav" class="nav-link nav-item ">WhatSauce</a>
+        <div class="collapse navbar-collapse " id="navbarCollapse">
+
+            <div class="navbar-nav me-auto ">
+                <a href="<?php echo base_url('posts'); ?>" id="brand" class="nav-link nav-item d-none d-lg-block"> Commhub</a>
+                <a href="<?php echo base_url('pages/about'); ?>" id="aboutnav"  class="nav-link nav-item ">About</a>
+                <a href="<?php echo base_url('whatsauce/index'); ?>" id="whatsaucenav" class="nav-link nav-item ">WhatSauce</a>
             </div>
+
         </div>
+
     </div> 
 
     <a href="<?php echo base_url('whatsauce'); ?>" > <img src="<?php echo base_url("/assets/whatsauce_logo.png");?>"  id="navbar-brand" width="100" height="100"></a>          
@@ -46,20 +47,17 @@
             <?php endif; ?>
            
            <span class="dropdown-menu dropdown-menu-end me-4" role = "menu" aria-labelledby="dropdownMenuLink">
-            
-            <a class="dropdown-item " href="<?php echo base_url('pages/profile'); ?>">Profile</a>
-            <a class="dropdown-item " href="<?php echo base_url('pages/changepassword'); ?>">Change password</a>
-            <a class="dropdown-item " href="<?php echo base_url('logout'); ?>">Logout</a>
+                <a class="dropdown-item " href="<?php echo base_url('pages/profile'); ?>">Profile</a>
+                <a class="dropdown-item " href="<?php echo base_url('pages/changepassword'); ?>">Change password</a>
+                <a class="dropdown-item " href="<?php echo base_url('logout'); ?>">Logout</a>
             </span>
-
 
         <?php else:?>
             </div>
-            <a class="btn btn-light login mt-1" href="<?php echo base_url('login'); ?>">Login</a>
-    </div> 
-    <?php endif; ?>
+                <a class="btn btn-light login mt-1" href="<?php echo base_url('login'); ?>">Login</a>
+            </div> 
+        <?php endif; ?>
 
-</div>
 </nav>
 <!--Bootstrap script-->
 

@@ -1,5 +1,3 @@
-
-
 <!-- Bootstrap -->
 
 <script src="../js/alert.js" type="text/javascript"></script>
