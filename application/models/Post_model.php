@@ -1,13 +1,12 @@
 <?php
 
 class Post_model extends CI_Model{
-	
+
 	public function __construct(){
 		$this->load->database();
 	}
 
 	public function get_view_data($id){
-
 		$query = $this->db->get_where('posts', array('id' => $id));
 		$post = $query->row_array();
 
@@ -26,11 +25,9 @@ class Post_model extends CI_Model{
 		}
 
 		return $post;
-		
 	}
 
 	public function get_index_data($posts){
-		
 		foreach($posts as $key => $post){
 			$id = $post['by'];
 			$query = $this->db->query("SELECT * FROM user WHERE id = '$id'");
@@ -52,20 +49,18 @@ class Post_model extends CI_Model{
 		}
 		
 		return $posts;
-
 	}
 
 	public function get_posts($id = FALSE){
 		if($id === FALSE){
-
 			$this->db->order_by('id', 'DESC');
 			$query = $this->db->get('posts');
 			$posts = $query->result_array();
 
 			return $this->get_index_data($posts);
-
 		}
-			return $this->get_view_data($id);
+
+		return $this->get_view_data($id);
 	}
 
 	public function create_post($data, $post_image){
@@ -120,16 +115,15 @@ class Post_model extends CI_Model{
 	}
 
 	public function upvote_post($id){
-
 		$json=$this->get_reacts($id);
+
 		if($json==false){
 			$json = file_get_contents(FCPATH."schema/react.json");
 		}
 		
         $json = json_decode($json['react_ids'],TRUE);
 		
-		if(in_array($this->session->userdata('user')['id'],$json['react_ids'])) {
-
+		if(in_array($this->session->userdata('user')['id'],$json['react_ids'])){
 			$index = array_search($this->session->userdata('user')['id'],$json['react_ids']);
 
 			unset($json['react_ids'][$index]);
@@ -142,7 +136,6 @@ class Post_model extends CI_Model{
 
 			$this->db->update('posts',$json2);
 		}else{
-
 			array_push($json['react_ids'],$this->session->userdata('user')['id']);
 		
 			$json2 = array(
@@ -156,16 +149,15 @@ class Post_model extends CI_Model{
 	}
 
 	public function downvote_post($id){
-
 		$json=$this->get_reacts($id);
+
 		if($json==false){
 			$json = file_get_contents(FCPATH."schema/react.json");
 		}
 		
         $json = json_decode($json['react_ids'],TRUE);
 		
-		if(in_array($this->session->userdata('user')['id'],$json['react_ids'])) {
-
+		if(in_array($this->session->userdata('user')['id'],$json['react_ids'])){
 			$index = array_search($this->session->userdata('user')['id'],$json['react_ids']);
 
 			unset($json['react_ids'][$index]);
@@ -178,7 +170,6 @@ class Post_model extends CI_Model{
 
 			$this->db->update('posts',$json2);
 		}else{
-
 			array_push($json['react_ids'],$this->session->userdata('user')['id']);
 		
 			$json2 = array(
@@ -198,44 +189,38 @@ class Post_model extends CI_Model{
 	}
 
 	public function get_posts_by_thread($thread_id){
-		
 		$this->db->select('posts.*,threads.name');//get the name only in the threads table
 		$this->db->order_by('posts.id', 'DESC');
 		$this->db->join('threads', 'threads.id = posts.thread_id');
 		$query = $this->db->get_where('posts', array('thread_id' => $thread_id));
 
 		return $this->get_index_data($query->result_array());
-
 	}
 
 	public function get_search($key){
-
 		$this->db->like('title',$key);
 		$query = $this->db->get('posts');
 		return $this->get_index_data($query->result_array());
 	}
 
 	public function get_posts_by_user($by){
-		
 		$this->db->select('posts.*,user.name');//get the name only in user table
 		$this->db->order_by('posts.id', 'DESC');
 		$this->db->join('user', 'user.id = posts.by');
 		$query = $this->db->get_where('posts', array('by' => $by));
 
 		return $this->get_index_data($query->result_array());
-
 	}
 
 	public function get_posts_by_whatsauce($whatsauce_id){
-
 		$this->db->select('posts.*,whatsauce.name');//get the name only in user table
 		$this->db->order_by('posts.id', 'DESC');
 		$this->db->join('whatsauce', 'whatsauce.id = posts.whatsauce_id');
 		$query = $this->db->get_where('posts', array('whatsauce_id' => $whatsauce_id));
 
 		return $this->get_index_data($query->result_array());
-
 	}
+
 	public function get_reacts($id){
 		$this->db->where('id',$id);
 		$query = $this->db->get('posts');
@@ -248,12 +233,10 @@ class Post_model extends CI_Model{
 	}
 
 	public function get_posts_by_popularity(){
-
 		$this->db->order_by('upvote', 'DESC');
 		$query = $this->db->get('posts');
 		$posts = $query->result_array();
 
 		return $this->get_index_data($posts);
-
 	}
 }

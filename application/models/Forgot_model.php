@@ -1,4 +1,4 @@
-<?php 
+<?php
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 require 'PHPMailer-master/src/Exception.php';
@@ -12,17 +12,17 @@ class Forgot_model extends CI_Model{
     }
 
     public function forgotpassword($email){
-            $this->db->select('*');
-            $this->db->from('user'); 
-            $this->db->where('email', $email); 
-            $query=$this->db->get();
-            return $query->row_array();
+        $this->db->select('*');
+        $this->db->from('user'); 
+        $this->db->where('email', $email); 
+        $query=$this->db->get();
+        return $query->row_array();
     }
 
     public function forgotchangepassword($email,$password){
-            $newpass['password'] = password_hash($password, PASSWORD_DEFAULT);
-            $this->db->where('email', $email);
-            $this->db->update('user', $newpass);
+        $newpass['password'] = password_hash($password, PASSWORD_DEFAULT);
+        $this->db->where('email', $email);
+        $this->db->update('user', $newpass);
     }
 
     public function sendpin($data){
@@ -69,8 +69,9 @@ class Forgot_model extends CI_Model{
                 $this->session->set_flashdata('email',$email);
             }
             redirect(base_url('forgot/pin'));
-            }else{
-                $this->session->set_flashdata('msg','Email not found try again!');
+
+        }else{
+            $this->session->set_flashdata('msg','Email not found try again!');
             redirect(base_url('login'));
         }
     }
