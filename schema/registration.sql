@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 06, 2022 at 02:43 PM
+-- Generation Time: Feb 10, 2022 at 10:36 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.11
 
@@ -119,7 +119,8 @@ INSERT INTO `posts` (`id`, `title`, `content`, `date`, `by`, `slug`, `post_image
 (136, 'Filipino_Sauce_1', '<p><strong>[SCREENSHOT]</strong><br />\r\nBaybayin</p>\r\n', '2022-02-04 19:42:42', 2, 'Filipino_Sauce_1', '2_Filipino1.jpg', 0, 0, 1, 5, 0, '{\"react_ids\":[]}'),
 (137, 'Filipino_Sauce_2', '<p><strong>Panghalip</strong></p>\r\n\r\n<ul>\r\n	<li>Ang panghalip ay ang salitang humahalili o pamalit sa ngalan o pangngalan na nagamit na sa parehong pangungusap o kasunod na pangungusap. Ang salitang panghalip ay nangangahulugang &quot;panghalili&quot; o &quot;pamalit&quot; kadalasan itong ginagamit sa mga talata,pangungusap at kuwento.</li>\r\n</ul>\r\n', '2022-02-04 19:45:23', 2, 'Filipino_Sauce_2', 'noimage.jpg', 0, 0, 1, 5, 0, '{\"react_ids\":[]}'),
 (138, 'Filipino_Sauce_3', '<p><strong>Pandiwa</strong></p>\r\n\r\n<ul>\r\n	<li>Ang pandiwa ay isang salita (bahagi ng pananalita) na nagsasaad ng kilos o galaw (lakad, takbo, dala), isang pangyayari (naging, nangyari), o isang katayuan (tindig, upo, umiral). Tinatawag ito na verb sa wikang Ingles. Mga halimbawa (naka-italiko): Pumunta ako sa tindahan. Binili ko ang tinapay. Kumain ako ng tinapay kaninang umaga. Sumakay ako sa jeep papunta sa paaralan. Ginagawa ko palagi ang aking mga takdang-aralin.</li>\r\n</ul>\r\n', '2022-02-04 19:45:50', 2, 'Filipino_Sauce_3', 'noimage.jpg', 1, 0, 1, 5, 0, '{\"react_ids\":[\"2\"]}'),
-(139, 'TEST 0', '<p>TEST 0</p>\r\n', '2022-02-06 21:36:30', 2, 'TEST-0', 'noimage.jpg', 0, 0, 2, 0, 1, '{\"react_ids\":[]}');
+(139, 'TEST 0', '<p>TEST 0</p>\r\n', '2022-02-06 21:36:30', 2, 'TEST-0', 'noimage.jpg', 0, 0, 2, 0, 2, '{\"react_ids\":[]}'),
+(140, 'Test 1', '<p>Test 1</p>\r\n', '2022-02-07 16:43:22', 3, 'Test-1', 'noimage.jpg', 2, 0, 2, 0, 0, '{\"react_ids\":[\"3\",\"2\"]}');
 
 -- --------------------------------------------------------
 
@@ -144,7 +145,8 @@ CREATE TABLE `replies` (
 
 INSERT INTO `replies` (`id`, `post_id`, `content`, `date`, `by`, `upvote`, `downvote`, `react_ids`) VALUES
 (82, 135, 'ARISH', '2022-02-06 21:35:54', 2, 0, 0, '{\"react_ids\":[]}'),
-(83, 139, 'GAVS', '2022-02-06 21:37:05', 2, 0, 0, '{\"react_ids\":[]}');
+(83, 139, 'GAVS', '2022-02-06 21:37:05', 2, 0, 0, '{\"react_ids\":[]}'),
+(84, 139, 'TEST', '2022-02-07 16:46:21', 3, 0, 0, '{\"react_ids\":[]}');
 
 -- --------------------------------------------------------
 
@@ -186,22 +188,24 @@ CREATE TABLE `user` (
   `password` varchar(100) NOT NULL,
   `bio` varchar(255) NOT NULL DEFAULT 'Insert your bio here',
   `post_count` int(255) NOT NULL,
-  `profile_picture` varchar(255) NOT NULL DEFAULT 'noimage.jpg'
+  `profile_picture` varchar(255) NOT NULL DEFAULT 'noimage.jpg',
+  `TPIN` varchar(255) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `name`, `email`, `password`, `bio`, `post_count`, `profile_picture`) VALUES
-(1, 'asdasd', 'asdasd@gmail.com', '$2y$10$npHij/5R/zJCU0jUmRmwUe2zoVTR3gkziMgwL8I0RJsTAvNNhQS.K', 'Insert your bio here', 2, 'noimage.jpg'),
-(2, 'das', 'ads@gmail.com', '$2y$10$npHij/5R/zJCU0jUmRmwUe2zoVTR3gkziMgwL8I0RJsTAvNNhQS.K', '<p>MINECRAFT</p>\r\n', 32, '2__okishock.png'),
-(3, 'user0', 'user0@gmail.com', '$2y$10$npHij/5R/zJCU0jUmRmwUe2zoVTR3gkziMgwL8I0RJsTAvNNhQS.K', 'Insert your bio here', 0, 'noimage.jpg'),
-(4, 'test1', 'test@gmail.com', '$2y$10$npHij/5R/zJCU0jUmRmwUe2zoVTR3gkziMgwL8I0RJsTAvNNhQS.K', 'Insert your bio here', 0, 'noimage.jpg'),
-(5, 'asdasdasd', 'asdasdasd@gmail.com', '$2y$10$npHij/5R/zJCU0jUmRmwUe2zoVTR3gkziMgwL8I0RJsTAvNNhQS.K', 'Insert your bio here', 0, 'noimage.jpg'),
-(9, 'Renren', 'renren@mail.com', '$2y$10$npHij/5R/zJCU0jUmRmwUe2zoVTR3gkziMgwL8I0RJsTAvNNhQS.K', 'Insert your bio here', 4, 'noimage.jpg'),
-(10, 'PasswordCheck0', 'pass0@gmail.com', '$2y$10$npHij/5R/zJCU0jUmRmwUe2zoVTR3gkziMgwL8I0RJsTAvNNhQS.K', 'Insert your bio here', 0, 'noimage.jpg'),
-(11, 'PasswordCheck1', 'pass1@gmail.com', '$2y$10$TrxUiBfGZ9D458bMKYvniOGaJMzMm3Lx2T9zOmTrQXnQYf8Qm6AR6', '<p>Insert your bio here</p>\r\n', 0, '11_6bbf245fe28be27c17d084df2f194d17-20200817155820.png');
+INSERT INTO `user` (`id`, `name`, `email`, `password`, `bio`, `post_count`, `profile_picture`, `TPIN`) VALUES
+(1, 'asdasd', 'asdasd@gmail.com', '$2y$10$npHij/5R/zJCU0jUmRmwUe2zoVTR3gkziMgwL8I0RJsTAvNNhQS.K', 'Insert your bio here', 2, 'noimage.jpg', '0'),
+(2, 'das', 'ads@gmail.com', '$2y$10$npHij/5R/zJCU0jUmRmwUe2zoVTR3gkziMgwL8I0RJsTAvNNhQS.K', '<p>MINECRAFT</p>\r\n', 32, '2__okishock.png', '0'),
+(3, 'user0', 'user0@gmail.com', '$2y$10$npHij/5R/zJCU0jUmRmwUe2zoVTR3gkziMgwL8I0RJsTAvNNhQS.K', 'Insert your bio here', 1, 'noimage.jpg', '0'),
+(4, 'test1', 'test@gmail.com', '$2y$10$npHij/5R/zJCU0jUmRmwUe2zoVTR3gkziMgwL8I0RJsTAvNNhQS.K', 'Insert your bio here', 0, 'noimage.jpg', '0'),
+(5, 'asdasdasd', 'asdasdasd@gmail.com', '$2y$10$npHij/5R/zJCU0jUmRmwUe2zoVTR3gkziMgwL8I0RJsTAvNNhQS.K', 'Insert your bio here', 0, 'noimage.jpg', '0'),
+(9, 'Renren', 'renren@mail.com', '$2y$10$npHij/5R/zJCU0jUmRmwUe2zoVTR3gkziMgwL8I0RJsTAvNNhQS.K', 'Insert your bio here', 4, 'noimage.jpg', '0'),
+(10, 'PasswordCheck0', 'pass0@gmail.com', '$2y$10$npHij/5R/zJCU0jUmRmwUe2zoVTR3gkziMgwL8I0RJsTAvNNhQS.K', 'Insert your bio here', 0, 'noimage.jpg', '0'),
+(11, 'PasswordCheck1', 'pass1@gmail.com', '$2y$10$TrxUiBfGZ9D458bMKYvniOGaJMzMm3Lx2T9zOmTrQXnQYf8Qm6AR6', '<p>Insert your bio here</p>\r\n', 0, '11_6bbf245fe28be27c17d084df2f194d17-20200817155820.png', '0'),
+(12, 'JOSE', 'uniportal02@gmail.com', '$2y$10$/ifDp4ue0hTkesOA/6/tRO/EbkeaDToAAIl7YJuDFFMNzL7xWHoOC', 'Insert your bio here', 0, 'noimage.jpg', '$2y$10$427751b8iGxN4BIlaHla4u/eyvYP9PPv3EBhgE2iUjiHsEgS.SRNq');
 
 -- --------------------------------------------------------
 
@@ -299,13 +303,13 @@ ALTER TABLE `newsletter`
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=140;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=141;
 
 --
 -- AUTO_INCREMENT for table `replies`
 --
 ALTER TABLE `replies`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
 
 --
 -- AUTO_INCREMENT for table `threads`
@@ -317,7 +321,7 @@ ALTER TABLE `threads`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `whatsauce`
