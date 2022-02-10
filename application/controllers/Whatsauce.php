@@ -8,7 +8,7 @@ class Whatsauce extends CI_Controller {
 	}
 
     public function index(){
-        $data['title'] = 'Whatsauce Tags';
+        $data['title'] = 'Whatsauce';
 
         $data['posts'] = $this->post_model->get_posts_by_whatsauce(NULL);
         $data['users'] = $this->user_model->get_users();
