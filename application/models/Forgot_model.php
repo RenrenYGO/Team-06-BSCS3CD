@@ -5,21 +5,18 @@ require 'PHPMailer-master/src/Exception.php';
 require 'PHPMailer-master/src/PHPMailer.php';
 require 'PHPMailer-master/src/SMTP.php';
 
-
 class Forgot_model extends CI_Model{
+    
     public function __construct(){
         parent::__construct();
     }
 
-
     public function forgotpassword($email){
-
             $this->db->select('*');
             $this->db->from('user'); 
             $this->db->where('email', $email); 
             $query=$this->db->get();
             return $query->row_array();
-
     }
 
     public function forgotchangepassword($email,$password){
@@ -30,13 +27,9 @@ class Forgot_model extends CI_Model{
 
     public function sendpin($data){
         $email = $data['email'];
-
         $query1=$this->db->query("SELECT *  from user where email = '".$email."' ");
 
-
-
-        if ($query1->num_rows()>0){
-
+        if($query1->num_rows()>0){
             $passwordplain = "";
             $passwordplain  = rand(999999999,9999999999);
 
@@ -69,15 +62,15 @@ class Forgot_model extends CI_Model{
             $mail->Subject = 'Commhub OTP';
             $mail->Body    = $mail_message;
             $mail->AltBody = $mail_message;        
-            if (!$mail->send()){
+            
+            if(!$mail->send()){
                 $this->session->set_flashdata('msg','Failed to send password, please try again!');
-            } else {
-             $this->session->set_flashdata('email',$email);
+            }else{
+                $this->session->set_flashdata('email',$email);
             }
             redirect(base_url('forgot/pin'));
-        }
-        else{  
-            $this->session->set_flashdata('msg','Email not found try again!');
+            }else{
+                $this->session->set_flashdata('msg','Email not found try again!');
             redirect(base_url('login'));
         }
     }
