@@ -1,4 +1,5 @@
 <?php
+defined('BASEPATH') OR exit('No direct script access allowed');
 class Posts extends CI_Controller {
 
     private $user = null;
@@ -16,8 +17,9 @@ class Posts extends CI_Controller {
         $data['posts'] = $this -> post_model -> get_posts();
         $data['users'] = $this->user_model->get_users();
         $data['threads'] = $this->threads_model->get_threads();
+        
 
-        $this->sitelayout->loadTemplate('posts/index', $data);
+        $this->sitelayout->loadTemplate('posts/index',$data);
         
         
     }

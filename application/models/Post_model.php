@@ -120,15 +120,75 @@ class Post_model extends CI_Model{
 	}
 
 	public function upvote_post($id){
-		$this->db->set('upvote', 'upvote+1', FALSE);
-		$this->db->where('id', $id);
-		$this->db->update('posts');
+
+		$json=$this->get_reacts($id);
+		if($json==false){
+			$json = file_get_contents(FCPATH."schema/react.json");
+		}
+		
+        $json = json_decode($json['react_ids'],TRUE);
+		
+		if(in_array($this->session->userdata('user')['id'],$json['react_ids'])) {
+
+			$index = array_search($this->session->userdata('user')['id'],$json['react_ids']);
+
+			unset($json['react_ids'][$index]);
+			$this->db->set('upvote', 'upvote-1', FALSE);
+			$this->db->where('id', $id);
+		
+			$json2 = array(
+				'react_ids' => json_encode($json)
+			);
+
+			$this->db->update('posts',$json2);
+		}else{
+
+			array_push($json['react_ids'],$this->session->userdata('user')['id']);
+		
+			$json2 = array(
+				'react_ids' => json_encode($json)
+			);
+
+			$this->db->set('upvote', 'upvote+1', FALSE);
+			$this->db->where('id', $id);
+			$this->db->update('posts',$json2);
+		}
 	}
 
 	public function downvote_post($id){
-		$this->db->set('downvote', 'downvote+1', FALSE);
-		$this->db->where('id', $id);
-		$this->db->update('posts');
+
+		$json=$this->get_reacts($id);
+		if($json==false){
+			$json = file_get_contents(FCPATH."schema/react.json");
+		}
+		
+        $json = json_decode($json['react_ids'],TRUE);
+		
+		if(in_array($this->session->userdata('user')['id'],$json['react_ids'])) {
+
+			$index = array_search($this->session->userdata('user')['id'],$json['react_ids']);
+
+			unset($json['react_ids'][$index]);
+			$this->db->set('downvote', 'downvote-1', FALSE);
+			$this->db->where('id', $id);
+		
+			$json2 = array(
+				'react_ids' => json_encode($json)
+			);
+
+			$this->db->update('posts',$json2);
+		}else{
+
+			array_push($json['react_ids'],$this->session->userdata('user')['id']);
+		
+			$json2 = array(
+				'react_ids' => json_encode($json)
+			);
+
+			$this->db->set('downvote', 'downvote+1', FALSE);
+			$this->db->where('id', $id);
+			$this->db->update('posts',$json2);
+		}
 	}
 
 	public function get_threads(){
@@ -174,6 +234,26 @@ class Post_model extends CI_Model{
 		$query = $this->db->get_where('posts', array('whatsauce_id' => $whatsauce_id));
 
 		return $this->get_index_data($query->result_array());
+
+	}
+	public function get_reacts($id){
+		$this->db->where('id',$id);
+		$query = $this->db->get('posts');
+		
+		if($query->num_rows()>0){
+			return $query->row_array();
+		}else{
+			return false;
+		}
+	}
+
+	public function get_posts_by_popularity(){
+
+		$this->db->order_by('upvote', 'DESC');
+		$query = $this->db->get('posts');
+		$posts = $query->result_array();
+
+		return $this->get_index_data($posts);
 
 	}
 }
