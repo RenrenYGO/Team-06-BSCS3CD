@@ -4,5 +4,4 @@
   	  <p class="text-end text-danger"><?php echo  "*" ?><?php echo  $error ?></p>
   	<?php endforeach ?>
   </div>
-
 <?php  endif ?>
