@@ -152,28 +152,28 @@ class Post_model extends CI_Model{
 		$json=$this->get_reacts($id);
 
 		if($json==false){
-			$json = file_get_contents(FCPATH."schema/react.json");
+			$json = file_get_contents(FCPATH."schema/react2.json");
 		}
 		
-        $json = json_decode($json['react_ids'],TRUE);
+        $json = json_decode($json['react2_ids'],TRUE);
 		
-		if(in_array($this->session->userdata('user')['id'],$json['react_ids'])){
-			$index = array_search($this->session->userdata('user')['id'],$json['react_ids']);
+		if(in_array($this->session->userdata('user')['id'],$json['react2_ids'])){
+			$index = array_search($this->session->userdata('user')['id'],$json['react2_ids']);
 
-			unset($json['react_ids'][$index]);
+			unset($json['react2_ids'][$index]);
 			$this->db->set('downvote', 'downvote-1', FALSE);
 			$this->db->where('id', $id);
 		
 			$json2 = array(
-				'react_ids' => json_encode($json)
+				'react2_ids' => json_encode($json)
 			);
 
 			$this->db->update('posts',$json2);
 		}else{
-			array_push($json['react_ids'],$this->session->userdata('user')['id']);
+			array_push($json['react2_ids'],$this->session->userdata('user')['id']);
 		
 			$json2 = array(
-				'react_ids' => json_encode($json)
+				'react2_ids' => json_encode($json)
 			);
 
 			$this->db->set('downvote', 'downvote+1', FALSE);
