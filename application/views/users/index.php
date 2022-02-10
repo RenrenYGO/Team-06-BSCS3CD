@@ -26,12 +26,13 @@
                         <!-- <textarea class="form-control" name="name" placeholder="Edit Username" value="<?php //echo $this->session->userdata('user')['name']?>" required></textarea> -->
                     </div>
                     <div class="form-group mb-2">
-                        <textarea class="form-control" id="editor1" name="bio" placeholder="Edit Bio"
+                        <textarea class="form-control" name="bio" placeholder="Edit Bio"
                         ><?php echo $this->session->userdata('user')['bio'];?></textarea>
                         <!-- <textarea class="form-control" id="editor1" name="bio" placeholder="Edit Bio" value="<?php //echo $this->session->userdata('user')['bio'];?>"></textarea> -->
                     </div>   
                     <div class="form-group d-flex mt-4 mb-4">
-                        <label class="label" title="Add Media">
+                    <h6 class="mt-2 p-1">Add Profile Picture</h6>
+                        <label class="label" title="Add Profile Picture">
                             <span><img src="<?php echo base_url('assets/node_modules/bootstrap-icons/icons/image.svg'); ?>"/></span>
                             <input type="file" name="profile_picture" size="200">
                         </label>

@@ -17,8 +17,8 @@ class Forgot extends CI_Controller{
             if($findemail){
                 $this->forgot_model->sendpin($findemail);
             }else{ 
-                $this->session->set_flashdata('msg',' Email not found!');
-                redirect('login');     
+                $_SESSION['invalid'] = 1;
+                redirect('forgot');     
             }
         }
     }
@@ -35,7 +35,8 @@ class Forgot extends CI_Controller{
 
         if(!empty($result) && $newpass == $confpass && password_verify($TPIN,$result['TPIN'])){
             $this->forgot_model->forgotchangepassword($email,$newpass);//NEEDS DISPLAY
-            redirect('login'); 
+            redirect('login');    
         }
+        $_SESSION['invalid'] = 1;
     }
 }
