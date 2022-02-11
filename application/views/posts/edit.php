@@ -58,21 +58,21 @@
                         </select>
                     </div>
 
-                    <div class="form-group mt-4">
+                    <div class="d-flex form-group mt-4 mb-3">
                         <label class="label" title="Add Media">
                             <span><img src="<?php echo base_url('assets/node_modules/bootstrap-icons/icons/image.svg'); ?>"/></span>
                             <input type="file" name="post_image" size="100">
                             <input type="hidden" name="post_image" value="<?php echo $post['post_image'];?>">
                         </label>
-                    </div>
-
-                    <div class="d-flex mb-4">
-                        <button type="submit" class="btn btn-default mt-3">Submit</button>
-                        <?php echo '<a type="button"  class="btn btn-secondary ms-2 mt-3"  data-target="#cancelModal'.$post['id'].'" data-toggle="modal">Cancel</a>' ?>     
-                        <?php include 'cancel_modal.php' ?>
+                    
+                        <div class="ms-auto mb-2 mt-2">
+                            <button type="submit" class="btn btn-default">Submit</button>
+                            <?php echo '<a type="button"  class="btn btn-secondary ms-2"  data-target="#cancelModal'.$post['id'].'" data-toggle="modal">Cancel</a>' ?>     
+                            <?php include 'cancel_modal.php' ?>
+                        </div>
                     </div>
                 </form>
-
+             
             </div> 
                 
         </div>

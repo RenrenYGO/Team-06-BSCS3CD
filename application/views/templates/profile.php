@@ -37,10 +37,10 @@
                     <h3>About Me</h3>
                     <p><?php echo $user['bio'];?></p>
                 </div>
-
+                <?php $num = count($posts); ?>
                 <div class="d-flex mt-3">
                     <?php if($user['post_count']!=0) : ?>
-                    <h4 class="mt-4"> Posts:[<?php echo $user['post_count'];?>]</h4>
+                    <h4 class="mt-4"> Posts:[<?php echo $num;?>]</h4>
                     <?php endif;?>
                     <?php if($user['post_count']==0) : ?>
                     <h4>No Posts To Display</h4>  

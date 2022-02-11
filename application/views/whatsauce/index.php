@@ -29,7 +29,7 @@
       </div>
     </div>
     
-    <div class="d-flex flex-row ">
+    <div class="container d-flex flex-row ">
           <div class="pt-5 ms-auto">
             <form action = "<?php echo site_url('whatsauce/skeyword/');?>" method="post">
               <div class="input-group">
@@ -41,7 +41,7 @@
     </div>
 
     <!--  -->
-    <h1 class="display-4 font-italic">Latest Post</h1>
+    <h1 class="display-4 container font-italic">Latest Post</h1>
     <div class="container pt-3 border bg-white border-none mt-3">
       <dl class="row ps-3">
         

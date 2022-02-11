@@ -23,6 +23,6 @@ echo '<div class="alert alert-mismatch alert-autocloseable-mismatch" style="back
     unset($_SESSION['invalid']);
     } 
 echo '<div class="alert alert-invalid alert-autocloseable-invalid" style="background: #f0ad4e; position: fixed; top: 4em; right: 1em;  display: none;">
-<a type="button" class="close text-decoration-none text-dark display" data-dismiss="alert" aria-hidden="true">&times;</a> Invalid Email!
+<a type="button" class="close text-decoration-none text-dark display" data-dismiss="alert" aria-hidden="true">&times;</a> Invalid Credentials!
 </div>';
 ?>
