@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 03, 2022 at 07:17 PM
+-- Generation Time: Feb 10, 2022 at 09:24 PM
 -- Server version: 10.4.21-MariaDB
--- PHP Version: 7.4.25
+-- PHP Version: 8.0.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -95,36 +95,34 @@ CREATE TABLE `posts` (
   `downvote` int(255) NOT NULL,
   `thread_id` int(5) NOT NULL,
   `whatsauce_id` int(255) NOT NULL,
-  `reply_count` int(255) NOT NULL
+  `reply_count` int(255) NOT NULL,
+  `react_ids` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '{"react_ids":[]}',
+  `react2_ids` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '{"react2_ids":[]}' CHECK (json_valid(`react2_ids`))
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `posts`
 --
 
-INSERT INTO `posts` (`id`, `title`, `content`, `date`, `by`, `slug`, `post_image`, `upvote`, `downvote`, `thread_id`, `whatsauce_id`, `reply_count`) VALUES
-(101, 'BATAS', '<p>AKO ANG BATAYAN NG HURADO</p>\r\n', '2022-01-28 21:44:25', 2, 'BATAS', 'noimage.jpg', 0, 0, 1, 0, 0),
-(102, 'asdad', '<p>asdasd</p>\r\n', '2022-01-28 21:47:07', 1, 'asdad', 'noimage.jpg', 0, 0, 1, 0, 0),
-(103, 'ddd', '<p>dd</p>\r\n', '2022-01-28 21:47:15', 1, 'ddd', 'noimage.jpg', 0, 0, 1, 0, 0),
-(104, 'PAGSAMO', '<p>PARA SA ISA&#39;T ISA</p>\r\n', '2022-01-31 22:01:33', 9, 'PAGSAMO', 'noimage.jpg', 0, 0, 1, 0, 0),
-(105, 'PRICKLY TRAP', '<p>TAMAAN MO AKO NG PRICKLY MO MARK</p>\r\n', '2022-01-31 22:06:23', 9, 'PRICKLY-TRAP', 'noimage.jpg', 0, 0, 1, 0, 0),
-(106, 'VEGI BITE', '<p>KAGATIN MO AKO NG VEGI BITE MARK</p>\r\n', '2022-01-31 22:06:54', 9, 'VEGI-BITE', 'noimage.jpg', 0, 0, 1, 0, 0),
-(107, 'OCTOBER TREAT', '<p>ANG LAKI NG PUMPKIN MO MARK</p>\r\n', '2022-01-31 22:07:47', 9, 'OCTOBER-TREAT', 'noimage.jpg', 3, 0, 1, 0, 3),
-(111, 'POGI CONTEST', '<p>Pogi Ni Mark</p>\r\n', '2022-01-31 22:34:14', 2, 'POGI-CONTEST', 'noimage.jpg', 0, 0, 2, 0, 0),
-(112, 'Ano ang Sabaw', '<p>Bakit may Sabaw</p>\r\n', '2022-01-31 22:34:37', 2, 'Ano-ang-Sabaw', 'noimage.jpg', 0, 0, 1, 0, 0),
-(113, 'das', '<p>asdasd</p>\r\n', '2022-02-02 00:21:30', 2, 'das', '2__sadGriff.png', 0, 0, 2, 0, 0),
-(114, 'asd', '<p>asdasd</p>\r\n', '2022-02-02 00:58:42', 2, 'asd', '2__okishock.png', 0, 0, 2, 0, 0),
-(115, 'daaas', '<p>ssssssssssaaaaaaaa</p>\r\n', '2022-02-02 01:34:44', 2, 'daaas', 'noimage.jpg', 4, 2, 2, 0, 3),
-(118, 'sdsdsds', '<p>dsdsdsd</p>\r\n', '2022-02-03 23:46:28', 2, 'sdsdsds', '2__umusmile2.png', 0, 0, 1, 0, 0),
-(119, 'Programming_Sauce_1', '<p>[SCREENSHOT]<br />\r\nBy Lawrence</p>\r\n', '2022-02-03 23:48:48', 2, 'Programming_Sauce_1', '2_Programming1.jpg', 0, 0, 2, 3, 0),
-(120, 'English_Sauce_1', '<p><strong>HOW TO USE A COMMA</strong></p>\r\n\r\n<p>To separate words, phrases, and clauses in a series. When using a comma for a series of words, the last comma you use is known as the Oxford comma and can change the meaning or relationship of the last two items in the list.</p>\r\n\r\n<p>Example:</p>\r\n\r\n<p>Boccaccio&rsquo;s tales have inspired plays, films, operas, and paintings.</p>\r\n\r\n<p><strong>Between coordinate adjectives &ndash;</strong> that is, adjectives that separately modify the same noun. Example: Critics praise the novel&rsquo;s unaffected, unadorned style.</p>\r\n\r\n<p><strong>Before a coordinating conjunction</strong> (and, but, for, nor, or, yet, or so) joining independent clauses in one sentence. Example: The poem is ironic, for the poet&rsquo;s meaning contrasts her words.</p>\r\n\r\n<p><strong>To set off a parenthetical comment</strong>, or an aside, if it is brief and closely related to the rest of the sentence. Example: The first year university, for example, is a very busy year.</p>\r\n\r\n<p><strong>To set off a nonrestrictive modifier</strong> &ndash; that is a descriptive word/phrase that is not essential to the meaning of the sentence, i.e. it could potentially be dropped without changing the main sentence. Example: J K Rowling, the author of the Harry Potter books, will offer an online reading tonight.</p>\r\n', '2022-02-04 01:06:17', 2, 'English_Sauce_1', 'noimage.jpg', 0, 0, 1, 4, 0),
-(121, 'Programming_Sauce_2', '<p>[SCREENSHOT]<br />\r\nFlight Booking</p>\r\n', '2022-02-04 01:11:32', 2, 'Programming_Sauce_2', '2_FlightBooking2.jpg', 0, 0, 1, 3, 0),
-(122, 'Programming_Sauce_3', '<p>[SCREENSHOT]</p>\r\n\r\n<p>CITIZEN BENEFIT</p>\r\n', '2022-02-04 01:54:20', 2, 'Programming_Sauce_3', '2_codechum.png', 0, 0, 1, 3, 0),
-(123, 'English_Sauce_2', '<h2><strong>What is a verb?&nbsp;</strong></h2>\r\n\r\n<p>Let&rsquo;s start with the basics:&nbsp;<em>What is a verb?</em>&nbsp;Verbs are words that describe actions, whether physical or mental. Verbs also describe a &ldquo;state of being,&rdquo; like the verbs&nbsp;<em>be, become,&nbsp;</em>or<em>&nbsp;</em><em>exist</em>.&nbsp;</p>\r\n\r\n<p><em>Salah&nbsp;ran&nbsp;across the field,&nbsp;kicked&nbsp;the ball, and&nbsp;scored&nbsp;a goal.&nbsp;</em></p>\r\n\r\n<p><em>&ldquo;I&nbsp;am&nbsp;the State</em>.&rdquo; &mdash;King Louis XIV</p>\r\n\r\n<p>Some verbs also act as &ldquo;helper verbs&rdquo; to change the tense of another verb. Likewise, these helper verbs can change a positive statement to a negative one with words like &ldquo;not.&rdquo;&nbsp;</p>\r\n\r\n<p><em>She&nbsp;has been jogging&nbsp;for a month and already feels her stamina increasing.&nbsp;</em></p>\r\n\r\n<p><em>&ldquo;I&nbsp;don&rsquo;t feel&nbsp;so good.&rdquo;&nbsp;</em>&mdash;Spider-Man</p>\r\n\r\n<p>Every sentence needs at least one verb. If there&rsquo;s no verb, it&rsquo;s an incomplete sentence or a sentence fragment. Except for imperative&nbsp;<a href=\"https://www.grammarly.com/blog/sentences/\" target=\"_blank\">sentences</a>&nbsp;(commands), a sentence also needs a subject, the thing doing the action.&nbsp;</p>\r\n\r\n<p>Subjects are important for a verb because they change how it&rsquo;s conjugated, which we explain below. This is especially true for the most common verb:&nbsp;<em>be</em>.</p>\r\n', '2022-02-04 01:59:00', 2, 'English_Sauce_2', 'noimage.jpg', 0, 0, 1, 4, 0),
-(124, 'English_Sauce_3', '<h2>What is rhetoric?</h2>\r\n\r\n<p>Rhetoric is language that&rsquo;s carefully constructed to persuade, motivate, or inform the reader or listener about the speaker or writer&rsquo;s position. You might have heard the term used in discussions about politicians and political goals. That&rsquo;s because politicians, alongside people in other roles that involve public speaking, employ rhetoric regularly. In fact, the word &ldquo;rhetoric&rdquo; comes from the Greek &ldquo;rhetorikos,&rdquo; which means &ldquo;oratory.&rdquo;</p>\r\n\r\n<p>You&rsquo;re probably familiar with the concept of a rhetorical question. A rhetorical question is a question that&rsquo;s often asked to a broad audience in an effort to get the audience thinking seriously about the question and its implications. The speaker or writer doesn&rsquo;t typically expect answers to the question; their goal is to facilitate a discussion. Here are a few examples of rhetorical questions:</p>\r\n\r\n<ul>\r\n	<li>Are we doing the right thing?</li>\r\n	<li>What is this, a joke?</li>\r\n</ul>\r\n', '2022-02-04 02:01:26', 2, 'English_Sauce_3', 'noimage.jpg', 0, 0, 1, 4, 0),
-(125, 'Science_Sauce_1', '<p><strong>Tension Formula</strong></p>\r\n\r\n<p>In Latin, the word &quot;tension&quot; means &quot;stretching&quot;. Tension force is the force of contact which is carried with a flexible medium length. It is represented by T (occasionally also, denoted as Ft).</p>\r\n\r\n<p>T = W &plusmn; ma (upwards)</p>\r\n\r\n<p>T = W &ndash; ma (downwards)</p>\r\n\r\n<p>T = W (static)</p>\r\n', '2022-02-04 02:04:10', 2, 'Science_Sauce_1', 'noimage.jpg', 0, 0, 1, 1, 0),
-(126, 'Science_Sauce_2', '<p><strong>Vapour Pressure Formula</strong></p>\r\n\r\n<p>&nbsp;A solution is created when a solid gets dissolved into the liquid. The vapour pressure formed from this solution is lowered by the addition of the solute. Raoult&rsquo;s law, which explains how the vapour pressure of a liquid gets changed by the addition of a solute.</p>\r\n\r\n<p>&nbsp;&nbsp; P solution = (X solvent )( Po solvent&nbsp; )&nbsp;&nbsp;&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>X solvent = the mole fraction of the solvent in the solution</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>P solution = the vapour pressure of the solution</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>P&deg;solvent = the vapour pressure of the solvent</p>\r\n', '2022-02-04 02:06:07', 2, 'Science_Sauce_2', 'noimage.jpg', 0, 0, 1, 1, 0),
-(128, 'Science_Sauce_3', '<p>[SCREENSHOT]</p>\r\n\r\n<p>DRAKE&#39;S EQUATION</p>\r\n', '2022-02-04 02:13:55', 2, 'Science_Sauce_3', '2_drake.jpg', 0, 0, 1, 1, 0);
+INSERT INTO `posts` (`id`, `title`, `content`, `date`, `by`, `slug`, `post_image`, `upvote`, `downvote`, `thread_id`, `whatsauce_id`, `reply_count`, `react_ids`, `react2_ids`) VALUES
+(119, 'Programming_Sauce_1', '<p><strong>[SCREENSHOT]</strong><br />\r\nARDUINO UNO PHOTORESISTOR</p>\r\n', '2022-02-03 23:48:48', 2, 'Programming_Sauce_1', '2_Programming1.jpg', 0, 0, 1, 3, 0, '{\"react_ids\":[]}', '{\"react2_ids\":[]}'),
+(120, 'English_Sauce_1', '<p><strong>HOW TO USE A COMMA</strong></p>\r\n\r\n<p>To separate words, phrases, and clauses in a series. When using a comma for a series of words, the last comma you use is known as the Oxford comma and can change the meaning or relationship of the last two items in the list.</p>\r\n\r\n<p>Example:</p>\r\n\r\n<p>Boccaccio&rsquo;s tales have inspired plays, films, operas, and paintings.</p>\r\n\r\n<p><strong>Between coordinate adjectives &ndash;</strong> that is, adjectives that separately modify the same noun. Example: Critics praise the novel&rsquo;s unaffected, unadorned style.</p>\r\n\r\n<p><strong>Before a coordinating conjunction</strong> (and, but, for, nor, or, yet, or so) joining independent clauses in one sentence. Example: The poem is ironic, for the poet&rsquo;s meaning contrasts her words.</p>\r\n\r\n<p><strong>To set off a parenthetical comment</strong>, or an aside, if it is brief and closely related to the rest of the sentence. Example: The first year university, for example, is a very busy year.</p>\r\n\r\n<p><strong>To set off a nonrestrictive modifier</strong> &ndash; that is a descriptive word/phrase that is not essential to the meaning of the sentence, i.e. it could potentially be dropped without changing the main sentence. Example: J K Rowling, the author of the Harry Potter books, will offer an online reading tonight.</p>\r\n', '2022-02-04 01:06:17', 2, 'English_Sauce_1', 'noimage.jpg', 0, 0, 1, 4, 0, '{\"react_ids\":[]}', '{\"react2_ids\":[]}'),
+(121, 'Programming_Sauce_2', '<p><strong>[SCREENSHOT]</strong><br />\r\nFlight Booking</p>\r\n', '2022-02-04 01:11:32', 2, 'Programming_Sauce_2', '2_FlightBooking2.jpg', 0, 0, 1, 3, 0, '{\"react_ids\":[]}', '{\"react2_ids\":[]}'),
+(122, 'Programming_Sauce_3', '<p><strong>[SCREENSHOT]</strong></p>\r\n\r\n<p>CITIZEN BENEFIT</p>\r\n', '2022-02-04 01:54:20', 2, 'Programming_Sauce_3', '2_codechum.png', 0, 0, 1, 3, 0, '{\"react_ids\":[]}', '{\"react2_ids\":[]}'),
+(123, 'English_Sauce_2', '<h2><strong>What is a verb?&nbsp;</strong></h2>\r\n\r\n<p>Let&rsquo;s start with the basics:&nbsp;<em>What is a verb?</em>&nbsp;Verbs are words that describe actions, whether physical or mental. Verbs also describe a &ldquo;state of being,&rdquo; like the verbs&nbsp;<em>be, become,&nbsp;</em>or<em>&nbsp;</em><em>exist</em>.&nbsp;</p>\r\n\r\n<p><em>Salah&nbsp;ran&nbsp;across the field,&nbsp;kicked&nbsp;the ball, and&nbsp;scored&nbsp;a goal.&nbsp;</em></p>\r\n\r\n<p><em>&ldquo;I&nbsp;am&nbsp;the State</em>.&rdquo; &mdash;King Louis XIV</p>\r\n\r\n<p>Some verbs also act as &ldquo;helper verbs&rdquo; to change the tense of another verb. Likewise, these helper verbs can change a positive statement to a negative one with words like &ldquo;not.&rdquo;&nbsp;</p>\r\n\r\n<p><em>She&nbsp;has been jogging&nbsp;for a month and already feels her stamina increasing.&nbsp;</em></p>\r\n\r\n<p><em>&ldquo;I&nbsp;don&rsquo;t feel&nbsp;so good.&rdquo;&nbsp;</em>&mdash;Spider-Man</p>\r\n\r\n<p>Every sentence needs at least one verb. If there&rsquo;s no verb, it&rsquo;s an incomplete sentence or a sentence fragment. Except for imperative&nbsp;<a href=\"https://www.grammarly.com/blog/sentences/\" target=\"_blank\">sentences</a>&nbsp;(commands), a sentence also needs a subject, the thing doing the action.&nbsp;</p>\r\n\r\n<p>Subjects are important for a verb because they change how it&rsquo;s conjugated, which we explain below. This is especially true for the most common verb:&nbsp;<em>be</em>.</p>\r\n', '2022-02-04 01:59:00', 2, 'English_Sauce_2', 'noimage.jpg', 0, 0, 1, 4, 0, '{\"react_ids\":[]}', '{\"react2_ids\":[]}'),
+(124, 'English_Sauce_3', '<h2>What is rhetoric?</h2>\r\n\r\n<p>Rhetoric is language that&rsquo;s carefully constructed to persuade, motivate, or inform the reader or listener about the speaker or writer&rsquo;s position. You might have heard the term used in discussions about politicians and political goals. That&rsquo;s because politicians, alongside people in other roles that involve public speaking, employ rhetoric regularly. In fact, the word &ldquo;rhetoric&rdquo; comes from the Greek &ldquo;rhetorikos,&rdquo; which means &ldquo;oratory.&rdquo;</p>\r\n\r\n<p>You&rsquo;re probably familiar with the concept of a rhetorical question. A rhetorical question is a question that&rsquo;s often asked to a broad audience in an effort to get the audience thinking seriously about the question and its implications. The speaker or writer doesn&rsquo;t typically expect answers to the question; their goal is to facilitate a discussion. Here are a few examples of rhetorical questions:</p>\r\n\r\n<ul>\r\n	<li>Are we doing the right thing?</li>\r\n	<li>What is this, a joke?</li>\r\n</ul>\r\n', '2022-02-04 02:01:26', 2, 'English_Sauce_3', 'noimage.jpg', 0, 0, 1, 4, 0, '{\"react_ids\":[]}', '{\"react2_ids\":[]}'),
+(125, 'Science_Sauce_1', '<p><strong>Tension Formula</strong></p>\r\n\r\n<p>In Latin, the word &quot;tension&quot; means &quot;stretching&quot;. Tension force is the force of contact which is carried with a flexible medium length. It is represented by T (occasionally also, denoted as Ft).</p>\r\n\r\n<p>T = W &plusmn; ma (upwards)</p>\r\n\r\n<p>T = W &ndash; ma (downwards)</p>\r\n\r\n<p>T = W (static)</p>\r\n', '2022-02-04 02:04:10', 2, 'Science_Sauce_1', 'noimage.jpg', 0, 0, 1, 1, 0, '{\"react_ids\":[]}', '{\"react2_ids\":[]}'),
+(126, 'Science_Sauce_2', '<p><strong>Vapour Pressure Formula</strong></p>\r\n\r\n<p>&nbsp;A solution is created when a solid gets dissolved into the liquid. The vapour pressure formed from this solution is lowered by the addition of the solute. Raoult&rsquo;s law, which explains how the vapour pressure of a liquid gets changed by the addition of a solute.</p>\r\n\r\n<p>&nbsp;&nbsp; P solution = (X solvent )( Po solvent&nbsp; )&nbsp;&nbsp;&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>X solvent = the mole fraction of the solvent in the solution</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>P solution = the vapour pressure of the solution</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>P&deg;solvent = the vapour pressure of the solvent</p>\r\n', '2022-02-04 02:06:07', 2, 'Science_Sauce_2', 'noimage.jpg', 0, 0, 1, 1, 0, '{\"react_ids\":[]}', '{\"react2_ids\":[]}'),
+(128, 'Science_Sauce_3', '<p><strong>[SCREENSHOT]</strong></p>\r\n\r\n<p>DRAKE&#39;S EQUATION</p>\r\n', '2022-02-04 02:13:55', 2, 'Science_Sauce_3', '2_drake.jpg', 0, 0, 1, 1, 0, '{\"react_ids\":[]}', '{\"react2_ids\":[]}'),
+(131, 'Math_Sauce_1', '<p><strong>[SCREENSHOT]</strong><br />\r\nBasic Derivative Rules</p>\r\n', '2022-02-04 19:21:49', 2, 'Math_Sauce_1', '2_Math_1.jpg', 0, 0, 1, 2, 0, '{\"react_ids\":[]}', '{\"react2_ids\":[]}'),
+(132, 'Math_Sauce_2', '<p><strong>[SCREENSHOT]</strong><br />\r\nProbability</p>\r\n', '2022-02-04 19:23:43', 2, 'Math_Sauce_2', '2_Math2.jpg', 0, 0, 1, 2, 0, '{\"react_ids\":[]}', '{\"react2_ids\":[]}'),
+(135, 'Math_Sauce_3', '<p><strong>[SCREENSHOT]</strong><br />\r\nPermutations and Combinations</p>\r\n', '2022-02-04 19:30:52', 2, 'Math_Sauce_3', '2_Math_3.jpg', 0, 0, 1, 2, 1, '{\"react_ids\":[]}', '{\"react2_ids\":[]}'),
+(136, 'Filipino_Sauce_1', '<p><strong>[SCREENSHOT]</strong><br />\r\nBaybayin</p>\r\n', '2022-02-04 19:42:42', 2, 'Filipino_Sauce_1', '2_Filipino1.jpg', 0, 0, 1, 5, 0, '{\"react_ids\":[]}', '{\"react2_ids\":[]}'),
+(137, 'Filipino_Sauce_2', '<p><strong>Panghalip</strong></p>\r\n\r\n<ul>\r\n	<li>Ang panghalip ay ang salitang humahalili o pamalit sa ngalan o pangngalan na nagamit na sa parehong pangungusap o kasunod na pangungusap. Ang salitang panghalip ay nangangahulugang &quot;panghalili&quot; o &quot;pamalit&quot; kadalasan itong ginagamit sa mga talata,pangungusap at kuwento.</li>\r\n</ul>\r\n', '2022-02-04 19:45:23', 2, 'Filipino_Sauce_2', 'noimage.jpg', 0, 0, 1, 5, 0, '{\"react_ids\":[]}', '{\"react2_ids\":[]}'),
+(138, 'Filipino_Sauce_3', '<p><strong>Pandiwa</strong></p>\r\n\r\n<ul>\r\n	<li>Ang pandiwa ay isang salita (bahagi ng pananalita) na nagsasaad ng kilos o galaw (lakad, takbo, dala), isang pangyayari (naging, nangyari), o isang katayuan (tindig, upo, umiral). Tinatawag ito na verb sa wikang Ingles. Mga halimbawa (naka-italiko): Pumunta ako sa tindahan. Binili ko ang tinapay. Kumain ako ng tinapay kaninang umaga. Sumakay ako sa jeep papunta sa paaralan. Ginagawa ko palagi ang aking mga takdang-aralin.</li>\r\n</ul>\r\n', '2022-02-04 19:45:50', 2, 'Filipino_Sauce_3', 'noimage.jpg', 1, 0, 1, 5, 0, '{\"react_ids\":[\"2\"]}', '{\"react2_ids\":[]}'),
+(139, 'TEST 0', '<p>TEST 0</p>\r\n', '2022-02-06 21:36:30', 2, 'TEST-0', 'noimage.jpg', 0, 0, 2, 0, 2, '{\"react_ids\":[]}', '{\"react2_ids\":[]}'),
+(140, 'Test 1', '<p>Test 1</p>\r\n', '2022-02-07 16:43:22', 3, 'Test-1', 'noimage.jpg', 2, 0, 2, 0, 0, '{\"react_ids\":[\"3\",\"2\"]}', '{\"react2_ids\":[]}'),
+(141, 'testcase0', '<p>edited</p>\r\n', '2022-02-10 21:29:01', 13, 'testcase0', '13_MMR.jpg', 6, -5, 9, 0, 1, '{\"react_ids\":[\"2\"]}', '{\"react2_ids\":[\"2\"]}');
 
 -- --------------------------------------------------------
 
@@ -139,20 +137,20 @@ CREATE TABLE `replies` (
   `date` datetime NOT NULL DEFAULT current_timestamp(),
   `by` int(255) NOT NULL,
   `upvote` int(255) NOT NULL,
-  `downvote` int(255) NOT NULL
+  `downvote` int(255) NOT NULL,
+  `react_ids` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '{"react_ids":[]}',
+  `react2_ids` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '{"react2_ids":[]}' CHECK (json_valid(`react2_ids`))
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `replies`
 --
 
-INSERT INTO `replies` (`id`, `post_id`, `content`, `date`, `by`, `upvote`, `downvote`) VALUES
-(76, 107, 'MAS MALAKI UNG KAY ANO', '2022-01-31 22:10:09', 9, 3, 0),
-(77, 107, 'MAS MALAKI UNG KAY ANO', '2022-01-31 22:10:37', 9, 0, 0),
-(78, 107, 'MAS MALAKI UNG KAY ANO', '2022-01-31 22:24:43', 2, 0, 0),
-(79, 115, 'this is das', '2022-02-02 23:58:03', 2, 1, 0),
-(80, 115, 'MAS MALAKI AKIN', '2022-02-02 23:58:32', 9, 0, 0),
-(81, 115, 'hotbutt ni mark', '2022-02-03 21:16:08', 11, 3, 2);
+INSERT INTO `replies` (`id`, `post_id`, `content`, `date`, `by`, `upvote`, `downvote`, `react_ids`, `react2_ids`) VALUES
+(82, 135, 'ARISH', '2022-02-06 21:35:54', 2, 0, 0, '{\"react_ids\":[]}', '{\"react2_ids\":[]}'),
+(83, 139, 'GAVS', '2022-02-06 21:37:05', 2, 0, 0, '{\"react_ids\":[]}', '{\"react2_ids\":[]}'),
+(84, 139, 'TEST', '2022-02-07 16:46:21', 3, 0, 0, '{\"react_ids\":[]}', '{\"react2_ids\":[]}'),
+(85, 141, 'Test Reply 1', '2022-02-10 21:29:44', 13, -3, 4, '{\"react_ids\":[]}', '{\"react2_ids\":[\"2\"]}');
 
 -- --------------------------------------------------------
 
@@ -172,7 +170,14 @@ CREATE TABLE `threads` (
 
 INSERT INTO `threads` (`id`, `name`, `date`) VALUES
 (1, 'WhatSauce', '2022-01-28 20:25:25'),
-(2, 'NSFW', '2022-01-31 22:33:03');
+(2, 'TUP', '2022-01-31 22:33:03'),
+(3, 'Anime', '2022-02-04 19:16:45'),
+(4, 'Manga', '2022-02-04 19:16:45'),
+(5, 'Games', '2022-02-04 19:16:45'),
+(6, 'Shows', '2022-02-04 19:16:45'),
+(7, 'Sports', '2022-02-04 19:16:45'),
+(8, 'Cybersecurity', '2022-02-04 19:16:45'),
+(9, 'Academics', '2022-02-04 19:16:45');
 
 -- --------------------------------------------------------
 
@@ -187,22 +192,25 @@ CREATE TABLE `user` (
   `password` varchar(100) NOT NULL,
   `bio` varchar(255) NOT NULL DEFAULT 'Insert your bio here',
   `post_count` int(255) NOT NULL,
-  `profile_picture` varchar(255) NOT NULL DEFAULT 'noimage.jpg'
+  `profile_picture` varchar(255) NOT NULL DEFAULT 'noimage.jpg',
+  `TPIN` varchar(255) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `name`, `email`, `password`, `bio`, `post_count`, `profile_picture`) VALUES
-(1, 'asdasd', 'asdasd@gmail.com', '$2y$10$npHij/5R/zJCU0jUmRmwUe2zoVTR3gkziMgwL8I0RJsTAvNNhQS.K', 'Insert your bio here', 2, 'noimage.jpg'),
-(2, 'das', 'ads@gmail.com', '$2y$10$npHij/5R/zJCU0jUmRmwUe2zoVTR3gkziMgwL8I0RJsTAvNNhQS.K', '<p>MINECRAFT</p>\r\n', 21, '2__okishock.png'),
-(3, 'user0', 'user0@gmail.com', '$2y$10$npHij/5R/zJCU0jUmRmwUe2zoVTR3gkziMgwL8I0RJsTAvNNhQS.K', 'Insert your bio here', 0, 'noimage.jpg'),
-(4, 'test1', 'test@gmail.com', '$2y$10$npHij/5R/zJCU0jUmRmwUe2zoVTR3gkziMgwL8I0RJsTAvNNhQS.K', 'Insert your bio here', 0, 'noimage.jpg'),
-(5, 'asdasdasd', 'asdasdasd@gmail.com', '$2y$10$npHij/5R/zJCU0jUmRmwUe2zoVTR3gkziMgwL8I0RJsTAvNNhQS.K', 'Insert your bio here', 0, 'noimage.jpg'),
-(9, 'Renren', 'renren@mail.com', '$2y$10$npHij/5R/zJCU0jUmRmwUe2zoVTR3gkziMgwL8I0RJsTAvNNhQS.K', 'Insert your bio here', 4, 'noimage.jpg'),
-(10, 'PasswordCheck0', 'pass0@gmail.com', '$2y$10$npHij/5R/zJCU0jUmRmwUe2zoVTR3gkziMgwL8I0RJsTAvNNhQS.K', 'Insert your bio here', 0, 'noimage.jpg'),
-(11, 'PasswordCheck1', 'pass1@gmail.com', '$2y$10$TrxUiBfGZ9D458bMKYvniOGaJMzMm3Lx2T9zOmTrQXnQYf8Qm6AR6', '<p>Insert your bio here</p>\r\n', 0, '11_6bbf245fe28be27c17d084df2f194d17-20200817155820.png');
+INSERT INTO `user` (`id`, `name`, `email`, `password`, `bio`, `post_count`, `profile_picture`, `TPIN`) VALUES
+(1, 'asdasd', 'asdasd@gmail.com', '$2y$10$npHij/5R/zJCU0jUmRmwUe2zoVTR3gkziMgwL8I0RJsTAvNNhQS.K', 'Insert your bio here', 2, 'noimage.jpg', '0'),
+(2, 'das', 'ads@gmail.com', '$2y$10$npHij/5R/zJCU0jUmRmwUe2zoVTR3gkziMgwL8I0RJsTAvNNhQS.K', '<p>MINECRAFT</p>\r\n', 32, '2__okishock.png', '0'),
+(3, 'user0', 'user0@gmail.com', '$2y$10$npHij/5R/zJCU0jUmRmwUe2zoVTR3gkziMgwL8I0RJsTAvNNhQS.K', 'Insert your bio here', 1, 'noimage.jpg', '0'),
+(4, 'test1', 'test@gmail.com', '$2y$10$npHij/5R/zJCU0jUmRmwUe2zoVTR3gkziMgwL8I0RJsTAvNNhQS.K', 'Insert your bio here', 0, 'noimage.jpg', '0'),
+(5, 'asdasdasd', 'asdasdasd@gmail.com', '$2y$10$npHij/5R/zJCU0jUmRmwUe2zoVTR3gkziMgwL8I0RJsTAvNNhQS.K', 'Insert your bio here', 0, 'noimage.jpg', '0'),
+(9, 'Renren', 'renren@mail.com', '$2y$10$npHij/5R/zJCU0jUmRmwUe2zoVTR3gkziMgwL8I0RJsTAvNNhQS.K', 'Insert your bio here', 4, 'noimage.jpg', '0'),
+(10, 'PasswordCheck0', 'pass0@gmail.com', '$2y$10$npHij/5R/zJCU0jUmRmwUe2zoVTR3gkziMgwL8I0RJsTAvNNhQS.K', 'Insert your bio here', 0, 'noimage.jpg', '0'),
+(11, 'PasswordCheck1', 'pass1@gmail.com', '$2y$10$TrxUiBfGZ9D458bMKYvniOGaJMzMm3Lx2T9zOmTrQXnQYf8Qm6AR6', '<p>Insert your bio here</p>\r\n', 0, '11_6bbf245fe28be27c17d084df2f194d17-20200817155820.png', '0'),
+(12, 'JOSE', 'uniportal02@gmail.com', '$2y$10$JlOdiJ/JMEFlAmckrc/KEetAGsndcx.NpaN2GqhgDCxNUeind.zci', 'Insert your bio here', 0, 'noimage.jpg', '$2y$10$y7B7WJsnrErsZZFVw3D2uekt9RqcqMbxN1rGd.p7Vm5Ws9gyTJ71O'),
+(13, 'User1', 'asdd@gmail.com', '$2y$10$kOHo9XjbGQnUCidrZNi18e8PT0wq6w8.HAkUuLrndbhX/tOEb9PSa', 'Insert your bio here', 1, 'noimage.jpg', '0');
 
 -- --------------------------------------------------------
 
@@ -300,25 +308,25 @@ ALTER TABLE `newsletter`
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=129;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=142;
 
 --
 -- AUTO_INCREMENT for table `replies`
 --
 ALTER TABLE `replies`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
 
 --
 -- AUTO_INCREMENT for table `threads`
 --
 ALTER TABLE `threads`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `whatsauce`

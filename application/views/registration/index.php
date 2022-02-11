@@ -11,10 +11,6 @@
 </head>
 <body>
 
-<div class="container pt-5 mt-5">
-<p> ********* </P>
-	<h2>Home Page</h2>
-</div>
 <div class="content">
 </div>
 </div>
