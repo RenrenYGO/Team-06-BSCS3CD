@@ -14,7 +14,7 @@
 	
 	<ul class="list-group list-group  ps-1 tags">
 		<?php foreach($threads as $thread) : ?>
-			<li ><a class="button ms-5 position-relative" href="<?php echo site_url('/threads/posts/'.$thread['id']); ?>"><span class="tagname"><?php echo $thread['name']; ?></span><span class="position-absolute top-0 start-100 translate-middle badge rounded-pill badge_bg">99+</span></a>
+			<li ><a class="button ms-5 position-relative" href="<?php echo site_url('/threads/posts/'.$thread['id']); ?>"><span class="tagname"><?php echo $thread['name']; ?></span><span class="position-absolute top-0 start-100 translate-middle rounded-pill"></span></a>
 			</li>
 		<?php endforeach; ?>
 	</ul>

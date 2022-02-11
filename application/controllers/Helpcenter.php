@@ -22,7 +22,7 @@ class Helpcenter extends CI_Controller{
             $this->helpcenter_model->get_help($data);
             // Set message
             $this->session->set_flashdata('user_registered', 'You are now registered to the Commhub Newsletter!');
-            redirect('pages/view');
+            redirect('pages/help');
         }
 	}
     
