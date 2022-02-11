@@ -10,6 +10,7 @@ class Whatsauce extends CI_Controller{
     public function index(){
         $data['title'] = 'Whatsauce';
         $data['posts'] = $this->post_model->get_posts_by_whatsauce(NULL);
+        $data['latest'] = $this->post_model->get_posts_by_thread(1);
         $data['users'] = $this->user_model->get_users();
         $data['whatsauce'] = $this->whatsauce_model->get_whatsauces();
 
@@ -19,6 +20,7 @@ class Whatsauce extends CI_Controller{
     public function posts($id){
         $data['users'] = $this->user_model->get_users();
         $data['posts'] = $this->post_model->get_posts_by_whatsauce($id);
+        $data['latest'] = $this->post_model->get_posts_by_thread(1);
         $data['whatsauce'] = $this->whatsauce_model->get_whatsauces();
         $data['title'] = $this->whatsauce_model->get_whatsauce($id)->name;
 
