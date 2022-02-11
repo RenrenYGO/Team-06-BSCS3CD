@@ -33,6 +33,7 @@ class Whatsauce extends CI_Controller{
         $data['posts'] = $this->post_model->get_search($key);
         $data['users'] = $this->user_model->get_users();
         $data['threads'] = $this->threads_model->get_threads();
+        $data['latest'] = $this->post_model->get_posts_by_thread(1);
         
         $this->sitelayout->loadWhatSauceTemplate('whatsauce/index',$data);
     }
