@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 10, 2022 at 09:24 PM
+-- Generation Time: Feb 11, 2022 at 09:04 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.11
 
@@ -42,7 +42,8 @@ INSERT INTO `helpcenter` (`id`, `email`, `message`) VALUES
 (2, 'ninjaskpasser@gmail.com', '<p>Help regarding Whatsauce</p>\r\n'),
 (3, 'renren@mail.com', '<p>Need some help regarding the forums<br />\r\n<br />\r\n&quot;Hello I am unable to currently view the section of Computer Science&quot;</p>\r\n'),
 (4, 'jollibee@gmail.com', '<p>kulang ng sauce yung spaghetti</p>\r\n'),
-(5, 'jollibee2@gmail.com', '<p>kulang ng sauce yung spaghetti</p>\r\n');
+(5, 'jollibee2@gmail.com', '<p>kulang ng sauce yung spaghetti</p>\r\n'),
+(6, 'memelord@gmail.com', '<p>penge kfc</p>\r\n');
 
 -- --------------------------------------------------------
 
@@ -75,7 +76,8 @@ INSERT INTO `newsletter` (`id`, `email`) VALUES
 (17, 'sql@gmail.com'),
 (18, 'pogi@gmail.com'),
 (19, 'umu@gmail.com'),
-(20, 'clefcutie@gmail.com');
+(20, 'clefcutie@gmail.com'),
+(21, 'tabo5@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -121,8 +123,7 @@ INSERT INTO `posts` (`id`, `title`, `content`, `date`, `by`, `slug`, `post_image
 (137, 'Filipino_Sauce_2', '<p><strong>Panghalip</strong></p>\r\n\r\n<ul>\r\n	<li>Ang panghalip ay ang salitang humahalili o pamalit sa ngalan o pangngalan na nagamit na sa parehong pangungusap o kasunod na pangungusap. Ang salitang panghalip ay nangangahulugang &quot;panghalili&quot; o &quot;pamalit&quot; kadalasan itong ginagamit sa mga talata,pangungusap at kuwento.</li>\r\n</ul>\r\n', '2022-02-04 19:45:23', 2, 'Filipino_Sauce_2', 'noimage.jpg', 0, 0, 1, 5, 0, '{\"react_ids\":[]}', '{\"react2_ids\":[]}'),
 (138, 'Filipino_Sauce_3', '<p><strong>Pandiwa</strong></p>\r\n\r\n<ul>\r\n	<li>Ang pandiwa ay isang salita (bahagi ng pananalita) na nagsasaad ng kilos o galaw (lakad, takbo, dala), isang pangyayari (naging, nangyari), o isang katayuan (tindig, upo, umiral). Tinatawag ito na verb sa wikang Ingles. Mga halimbawa (naka-italiko): Pumunta ako sa tindahan. Binili ko ang tinapay. Kumain ako ng tinapay kaninang umaga. Sumakay ako sa jeep papunta sa paaralan. Ginagawa ko palagi ang aking mga takdang-aralin.</li>\r\n</ul>\r\n', '2022-02-04 19:45:50', 2, 'Filipino_Sauce_3', 'noimage.jpg', 1, 0, 1, 5, 0, '{\"react_ids\":[\"2\"]}', '{\"react2_ids\":[]}'),
 (139, 'TEST 0', '<p>TEST 0</p>\r\n', '2022-02-06 21:36:30', 2, 'TEST-0', 'noimage.jpg', 0, 0, 2, 0, 2, '{\"react_ids\":[]}', '{\"react2_ids\":[]}'),
-(140, 'Test 1', '<p>Test 1</p>\r\n', '2022-02-07 16:43:22', 3, 'Test-1', 'noimage.jpg', 2, 0, 2, 0, 0, '{\"react_ids\":[\"3\",\"2\"]}', '{\"react2_ids\":[]}'),
-(141, 'testcase0', '<p>edited</p>\r\n', '2022-02-10 21:29:01', 13, 'testcase0', '13_MMR.jpg', 6, -5, 9, 0, 1, '{\"react_ids\":[\"2\"]}', '{\"react2_ids\":[\"2\"]}');
+(140, 'Test 1', '<p>Test 1</p>\r\n', '2022-02-07 16:43:22', 3, 'Test-1', 'noimage.jpg', 3, 1, 2, 0, 0, '{\"react_ids\":[\"3\",\"2\",\"9\"]}', '{\"react2_ids\":[\"9\"]}');
 
 -- --------------------------------------------------------
 
@@ -149,8 +150,7 @@ CREATE TABLE `replies` (
 INSERT INTO `replies` (`id`, `post_id`, `content`, `date`, `by`, `upvote`, `downvote`, `react_ids`, `react2_ids`) VALUES
 (82, 135, 'ARISH', '2022-02-06 21:35:54', 2, 0, 0, '{\"react_ids\":[]}', '{\"react2_ids\":[]}'),
 (83, 139, 'GAVS', '2022-02-06 21:37:05', 2, 0, 0, '{\"react_ids\":[]}', '{\"react2_ids\":[]}'),
-(84, 139, 'TEST', '2022-02-07 16:46:21', 3, 0, 0, '{\"react_ids\":[]}', '{\"react2_ids\":[]}'),
-(85, 141, 'Test Reply 1', '2022-02-10 21:29:44', 13, -3, 4, '{\"react_ids\":[]}', '{\"react2_ids\":[\"2\"]}');
+(84, 139, 'TEST', '2022-02-07 16:46:21', 3, 0, 0, '{\"react_ids\":[]}', '{\"react2_ids\":[]}');
 
 -- --------------------------------------------------------
 
@@ -206,11 +206,12 @@ INSERT INTO `user` (`id`, `name`, `email`, `password`, `bio`, `post_count`, `pro
 (3, 'user0', 'user0@gmail.com', '$2y$10$npHij/5R/zJCU0jUmRmwUe2zoVTR3gkziMgwL8I0RJsTAvNNhQS.K', 'Insert your bio here', 1, 'noimage.jpg', '0'),
 (4, 'test1', 'test@gmail.com', '$2y$10$npHij/5R/zJCU0jUmRmwUe2zoVTR3gkziMgwL8I0RJsTAvNNhQS.K', 'Insert your bio here', 0, 'noimage.jpg', '0'),
 (5, 'asdasdasd', 'asdasdasd@gmail.com', '$2y$10$npHij/5R/zJCU0jUmRmwUe2zoVTR3gkziMgwL8I0RJsTAvNNhQS.K', 'Insert your bio here', 0, 'noimage.jpg', '0'),
-(9, 'Renren', 'renren@mail.com', '$2y$10$npHij/5R/zJCU0jUmRmwUe2zoVTR3gkziMgwL8I0RJsTAvNNhQS.K', 'Insert your bio here', 4, 'noimage.jpg', '0'),
+(9, 'Renren', 'renren@mail.com', '$2y$10$npHij/5R/zJCU0jUmRmwUe2zoVTR3gkziMgwL8I0RJsTAvNNhQS.K', 'Insert your bio here', 4, '9_umugakita.png', '0'),
 (10, 'PasswordCheck0', 'pass0@gmail.com', '$2y$10$npHij/5R/zJCU0jUmRmwUe2zoVTR3gkziMgwL8I0RJsTAvNNhQS.K', 'Insert your bio here', 0, 'noimage.jpg', '0'),
 (11, 'PasswordCheck1', 'pass1@gmail.com', '$2y$10$TrxUiBfGZ9D458bMKYvniOGaJMzMm3Lx2T9zOmTrQXnQYf8Qm6AR6', '<p>Insert your bio here</p>\r\n', 0, '11_6bbf245fe28be27c17d084df2f194d17-20200817155820.png', '0'),
 (12, 'JOSE', 'uniportal02@gmail.com', '$2y$10$JlOdiJ/JMEFlAmckrc/KEetAGsndcx.NpaN2GqhgDCxNUeind.zci', 'Insert your bio here', 0, 'noimage.jpg', '$2y$10$y7B7WJsnrErsZZFVw3D2uekt9RqcqMbxN1rGd.p7Vm5Ws9gyTJ71O'),
-(13, 'User1', 'asdd@gmail.com', '$2y$10$kOHo9XjbGQnUCidrZNi18e8PT0wq6w8.HAkUuLrndbhX/tOEb9PSa', 'Insert your bio here', 1, 'noimage.jpg', '0');
+(13, 'User1', 'asdd@gmail.com', '$2y$10$kOHo9XjbGQnUCidrZNi18e8PT0wq6w8.HAkUuLrndbhX/tOEb9PSa', 'Insert your bio here', 1, 'noimage.jpg', '0'),
+(14, 'BLKD', 'lunaravoidance12@gmail.com', '$2y$10$XTdiFiQVZNp6jMSY9sGfZuzcgSBhRTCOvNA4UtVLLkrLZALgXgGs.', 'Insert your bio here', 0, 'noimage.jpg', '0');
 
 -- --------------------------------------------------------
 
@@ -296,13 +297,13 @@ ALTER TABLE `whatsauce`
 -- AUTO_INCREMENT for table `helpcenter`
 --
 ALTER TABLE `helpcenter`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `newsletter`
 --
 ALTER TABLE `newsletter`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `posts`
@@ -326,7 +327,7 @@ ALTER TABLE `threads`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `whatsauce`
