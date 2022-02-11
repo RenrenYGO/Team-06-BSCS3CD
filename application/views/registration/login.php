@@ -43,7 +43,7 @@
 					</div>
 					
 					<div class="input-group">
-						<input type="password" name="password" id="password" class="form-control" data-toggle="password">
+						<input type="password" name="password" placeholder="Password" id="password" class="form-control" data-toggle="password">
 						<i class="bi bi-eye-slash" 
                     	id="togglePassword"></i>
 					</div>
